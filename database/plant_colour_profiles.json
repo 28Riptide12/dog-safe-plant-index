@@ -1,0 +1,1112 @@
+{
+  "version": "1.0",
+  "generated_at": "2026-08-27T21:17:19+01:00",
+  "description": "Per-plant colour palettes and alternate image variants for display.",
+  "plants": {
+    "sunflower": {
+      "name": "Sunflower",
+      "scientific_name": "Helianthus annuus",
+      "flower_colours": [
+        "yellow",
+        "gold"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/323768723/medium.jpg",
+          "source_url": "https://www.inaturalist.org/taxa/57983",
+          "source_name": "Catalogue"
+        }
+      ]
+    },
+    "lavender": {
+      "name": "Lavender",
+      "scientific_name": "Lavandula angustifolia",
+      "flower_colours": [
+        "purple",
+        "violet",
+        "lilac",
+        "white"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181838/medium.jpg",
+          "source_url": "https://www.inaturalist.org/taxa/50559",
+          "source_name": "Catalogue"
+        },
+        {
+          "label": "iNaturalist · Lavandula angustifolia",
+          "image_url": "https://static.inaturalist.org/photos/124484302/large.jpeg",
+          "source_url": "https://www.inaturalist.org/observations/76084298",
+          "source_name": "iNaturalist"
+        },
+        {
+          "label": "iNaturalist · Lavandula angustifolia",
+          "image_url": "https://static.inaturalist.org/photos/124484311/large.jpeg",
+          "source_url": "https://www.inaturalist.org/observations/76084298",
+          "source_name": "iNaturalist"
+        }
+      ]
+    },
+    "rose": {
+      "name": "Rose",
+      "scientific_name": "Rosa spp.",
+      "flower_colours": [
+        "red",
+        "pink",
+        "white",
+        "yellow"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/200530_105_SD_Botanic_Gdn_-_Herb_Garden%2C_Rosa_%27Ausmas%27_Graham_Thomas_English_Shrub_Rose%2C_Melaleuca_alternifolia_Australian_Tea_Oil_Tree%2C_Alstroemeria_spp_Inca_Lily%2C_Agave_attenuata_%27Nova%27.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "source_url": "commons",
+          "source_name": "Catalogue"
+        },
+        {
+          "label": "File:200530 105 SD Botanic Gdn - Herb Garden, Rosa 'Ausmas' Graham Thomas English Shrub Rose, Melaleuca alternifolia Australian Tea Oil Tree, Alstroemeria spp Inca Lily, Agave attenuata 'Nova'.jpg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/200530_105_SD_Botanic_Gdn_-_Herb_Garden%2C_Rosa_%27Ausmas%27_Graham_Thomas_English_Shrub_Rose%2C_Melaleuca_alternifolia_Australian_Tea_Oil_Tree%2C_Alstroemeria_spp_Inca_Lily%2C_Agave_attenuata_%27Nova%27.jpg/960px-thumbnail.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source_url": "https://commons.wikimedia.org/wiki/File:200530_105_SD_Botanic_Gdn_-_Herb_Garden,_Rosa_%27Ausmas%27_Graham_Thomas_English_Shrub_Rose,_Melaleuca_alternifolia_Australian_Tea_Oil_Tree,_Alstroemeria_spp_Inca_Lily,_Agave_attenuata_%27Nova%27.jpg",
+          "source_name": "Wikimedia Commons"
+        },
+        {
+          "label": "File:Stamp of Albania - 1965 - Colnect 197241 - Hybrid Tea Rose Rosa spp.jpeg",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/9/98/Stamp_of_Albania_-_1965_-_Colnect_197241_-_Hybrid_Tea_Rose_Rosa_spp.jpeg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Stamp_of_Albania_-_1965_-_Colnect_197241_-_Hybrid_Tea_Rose_Rosa_spp.jpeg",
+          "source_name": "Wikimedia Commons"
+        }
+      ]
+    },
+    "snapdragon": {
+      "name": "Snapdragon",
+      "scientific_name": "Antirrhinum majus",
+      "flower_colours": [
+        "red",
+        "pink",
+        "yellow",
+        "white",
+        "bicolour"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/444915445/medium.jpg",
+          "source_url": "https://www.inaturalist.org/taxa/1654329",
+          "source_name": "Catalogue"
+        },
+        {
+          "label": "iNaturalist · Antirrhinum majus",
+          "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/164699568/large.jpeg",
+          "source_url": "https://www.inaturalist.org/observations/98864198",
+          "source_name": "iNaturalist"
+        },
+        {
+          "label": "iNaturalist · Antirrhinum majus",
+          "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/164699576/large.jpeg",
+          "source_url": "https://www.inaturalist.org/observations/98864198",
+          "source_name": "iNaturalist"
+        }
+      ]
+    },
+    "buzzy-lizzie": {
+      "name": "Busy Lizzie",
+      "scientific_name": "Impatiens spp.",
+      "flower_colours": [
+        "pink",
+        "red",
+        "white",
+        "orange"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Impatiens_scapiflora.jpg/960px-Impatiens_scapiflora.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source_url": "https://commons.wikimedia.org/wiki/File:Impatiens_scapiflora.jpg",
+          "source_name": "Catalogue"
+        }
+      ]
+    },
+    "african-violet": {
+      "name": "African Violet",
+      "scientific_name": "Saintpaulia ionantha",
+      "flower_colours": [
+        "purple",
+        "blue",
+        "pink",
+        "white"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/2007-04-20Saintpaulia_ionantha04.jpg/960px-2007-04-20Saintpaulia_ionantha04.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source_url": "https://commons.wikimedia.org/wiki/File:2007-04-20Saintpaulia_ionantha04.jpg",
+          "source_name": "Catalogue"
+        }
+      ]
+    },
+    "rose-of-sharon": {
+      "name": "Rose of Sharon",
+      "scientific_name": "Hibiscus syriacus",
+      "flower_colours": [
+        "pink",
+        "white",
+        "lavender",
+        "purple"
+      ],
+      "gallery_images": [
+        {
+          "label": "Catalogue image",
+          "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8c/%28MHNT%29_Hibiscus_syriacus_Pink_Rose_of_Sharon_hibiscus_flower_-_Les_Martels%2C_Giroussens_Tarn.jpg/960px-%28MHNT%29_Hibiscus_syriacus_Pink_Rose_of_Sharon_hibiscus_flower_-_Les_Martels%2C_Giroussens_Tarn.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+          "source_url": "https://commons.wikimedia.org/wiki/File:(MHNT)_Hibiscus_syriacus_Pink_Rose_of_Sharon_hibiscus_flower_-_Les_Martels,_Giroussens_Tarn.jpg",
+          "source_name": "Catalogue"
+        }
+      ]
+    },
+    "blueberry": {
+      "name": "Blueberry",
+      "scientific_name": "Vaccinium spp.",
+      "flower_colours": [
+        "white",
+        "pink"
+      ],
+      "foliage_colours": [
+        "green",
+        "red"
+      ]
+    },
+    "marigold": {
+      "name": "Marigold",
+      "scientific_name": "Calendula officinalis",
+      "flower_colours": [
+        "yellow",
+        "orange"
+      ]
+    },
+    "cornflower": {
+      "name": "Cornflower",
+      "scientific_name": "Centaurea cyanus",
+      "flower_colours": [
+        "blue"
+      ]
+    },
+    "fuchsia": {
+      "name": "Fuchsia",
+      "scientific_name": "Fuchsia spp.",
+      "flower_colours": [
+        "pink",
+        "purple",
+        "white",
+        "red"
+      ]
+    },
+    "impatiens": {
+      "name": "Impatiens",
+      "scientific_name": "Impatiens walleriana",
+      "flower_colours": [
+        "pink",
+        "red",
+        "white",
+        "orange"
+      ]
+    },
+    "phlox": {
+      "name": "Garden Phlox",
+      "scientific_name": "Phlox paniculata",
+      "flower_colours": [
+        "pink",
+        "purple",
+        "white",
+        "red"
+      ]
+    },
+    "freesia": {
+      "name": "Freesia",
+      "scientific_name": "Freesia refracta",
+      "flower_colours": [
+        "white",
+        "yellow",
+        "pink",
+        "orange"
+      ]
+    },
+    "verbena": {
+      "name": "Verbena",
+      "scientific_name": "Verbena bonariensis",
+      "flower_colours": [
+        "purple",
+        "pink",
+        "white"
+      ]
+    },
+    "gerbera": {
+      "name": "Gerbera Daisy",
+      "scientific_name": "Gerbera jamesonii",
+      "flower_colours": [
+        "red",
+        "pink",
+        "orange",
+        "yellow",
+        "white"
+      ]
+    },
+    "sage": {
+      "name": "Sage",
+      "scientific_name": "Salvia officinalis",
+      "foliage_colours": [
+        "green",
+        "silver"
+      ]
+    },
+    "thyme": {
+      "name": "Thyme",
+      "scientific_name": "Thymus vulgaris",
+      "foliage_colours": [
+        "green",
+        "silver"
+      ]
+    },
+    "mint": {
+      "name": "Spearmint",
+      "scientific_name": "Mentha spicata",
+      "foliage_colours": [
+        "green"
+      ]
+    },
+    "begonia-climbing": {
+      "name": "Begonia, Climbing",
+      "scientific_name": "Cissus dicolor",
+      "flower_colours": [
+        "green",
+        "white"
+      ],
+      "foliage_colours": [
+        "variegated",
+        "green"
+      ]
+    },
+    "begonia-trailing": {
+      "name": "Begonia, Trailing",
+      "scientific_name": "Pellionia daveauana",
+      "flower_colours": [
+        "green",
+        "white"
+      ],
+      "foliage_colours": [
+        "variegated",
+        "green"
+      ]
+    },
+    "blue-daisy": {
+      "name": "Blue Daisy",
+      "scientific_name": "Felicia amelloides",
+      "flower_colours": [
+        "blue",
+        "yellow"
+      ]
+    },
+    "blue-eyed-african-daisy": {
+      "name": "Blue-eyed African Daisy",
+      "scientific_name": "Arctotis stoechadifolia",
+      "flower_colours": [
+        "blue",
+        "white",
+        "yellow"
+      ]
+    },
+    "blue-bead": {
+      "name": "Blue Bead",
+      "scientific_name": "Clintonia borealis",
+      "flower_colours": [
+        "white",
+        "blue"
+      ],
+      "foliage_colours": [
+        "green"
+      ]
+    },
+    "blue-echeveria": {
+      "name": "Blue Echeveria",
+      "scientific_name": "Echeveria glauca",
+      "flower_colours": [
+        "pink",
+        "orange"
+      ],
+      "foliage_colours": [
+        "blue",
+        "green"
+      ]
+    },
+    "blue-dicks": {
+      "name": "Blue-dicks",
+      "scientific_name": "Dichelostemma pulchellum",
+      "flower_colours": [
+        "blue",
+        "purple"
+      ]
+    },
+    "dichorisandra-reginae": {
+      "name": "Blue Ginger",
+      "scientific_name": "Dichorisandra reginae",
+      "flower_colours": [
+        "blue",
+        "purple"
+      ],
+      "foliage_colours": [
+        "green"
+      ]
+    },
+    "golden-bells": {
+      "name": "Golden Bells",
+      "scientific_name": "Oleaceae",
+      "flower_colours": [
+        "yellow"
+      ]
+    },
+    "golden-lace-orchid": {
+      "name": "Golden Lace Orchid",
+      "scientific_name": "Haemaria discolor",
+      "flower_colours": [
+        "yellow",
+        "white"
+      ]
+    },
+    "golden-shower-orchid": {
+      "name": "Golden Shower Orchid",
+      "scientific_name": "Oncidium sphacelatum",
+      "flower_colours": [
+        "yellow",
+        "white"
+      ]
+    },
+    "kenya-violet": {
+      "name": "Kenya Violet",
+      "scientific_name": "Saintpaulia confusa",
+      "flower_colours": [
+        "purple",
+        "pink",
+        "white"
+      ]
+    },
+    "orange-day-lily": {
+      "name": "Orange Day Lily",
+      "scientific_name": "Hemerocallis graminea",
+      "flower_colours": [
+        "orange",
+        "yellow"
+      ]
+    },
+    "orange-star": {
+      "name": "Orange Star",
+      "scientific_name": "Guzmania lingulata minor",
+      "flower_colours": [
+        "orange",
+        "red"
+      ]
+    },
+    "pink-brocade": {
+      "name": "Pink Brocade",
+      "scientific_name": "Episcia cultivar",
+      "flower_colours": [
+        "pink",
+        "red",
+        "orange"
+      ],
+      "foliage_colours": [
+        "green",
+        "silver"
+      ]
+    },
+    "purple-baby-tears": {
+      "name": "Purple Baby Tears",
+      "scientific_name": "Frithia pulchra",
+      "flower_colours": [
+        "purple",
+        "pink",
+        "white"
+      ],
+      "foliage_colours": [
+        "green"
+      ]
+    },
+    "purple-passion-vine": {
+      "name": "Purple Passion Vine",
+      "scientific_name": "Gynura aurantica",
+      "flower_colours": [
+        "orange"
+      ],
+      "foliage_colours": [
+        "purple",
+        "green"
+      ]
+    },
+    "purple-waffle-plant": {
+      "name": "Purple Waffle Plant",
+      "scientific_name": "Hemigraphis exotica",
+      "flower_colours": [
+        "white"
+      ],
+      "foliage_colours": [
+        "purple",
+        "green",
+        "silver"
+      ]
+    },
+    "red-berried-greenbrier": {
+      "name": "Red Berried Greenbrier",
+      "scientific_name": "Smilax walteria",
+      "flower_colours": [
+        "green",
+        "white"
+      ],
+      "foliage_colours": [
+        "green",
+        "red"
+      ]
+    },
+    "red-edge-peperomia": {
+      "name": "Red Edge Peperomia",
+      "scientific_name": "Peperomia clusiifolia",
+      "foliage_colours": [
+        "green",
+        "red",
+        "pink"
+      ]
+    },
+    "red-lily": {
+      "name": "Red Lily",
+      "scientific_name": "Lilium umbellatum",
+      "flower_colours": [
+        "red",
+        "pink",
+        "orange"
+      ]
+    },
+    "red-maple": {
+      "name": "Red Maple",
+      "scientific_name": "Acer rubrum",
+      "foliage_colours": [
+        "red",
+        "orange",
+        "green"
+      ]
+    },
+    "red-palm-lily": {
+      "name": "Red Palm Lily",
+      "scientific_name": "Cordyline rubra",
+      "foliage_colours": [
+        "red",
+        "pink",
+        "green"
+      ]
+    },
+    "silver-bell": {
+      "name": "Silver Bell",
+      "scientific_name": "Halesia carolina",
+      "flower_colours": [
+        "white",
+        "green"
+      ]
+    },
+    "silver-pink-vine": {
+      "name": "Silver Pink Vine",
+      "scientific_name": "Hoya pubicalyx",
+      "flower_colours": [
+        "pink",
+        "white"
+      ],
+      "foliage_colours": [
+        "silver",
+        "green"
+      ]
+    },
+    "silver-star": {
+      "name": "Silver Star",
+      "scientific_name": "Cryptanthus lacerdae",
+      "foliage_colours": [
+        "silver",
+        "green"
+      ]
+    },
+    "silver-table-fern": {
+      "name": "Silver Table Fern",
+      "scientific_name": "Pteris sp.",
+      "foliage_colours": [
+        "silver",
+        "green"
+      ]
+    },
+    "silver-tree-anamiga": {
+      "name": "Silver Tree Anamiga",
+      "scientific_name": "NONE LISTED",
+      "foliage_colours": [
+        "silver",
+        "green"
+      ]
+    },
+    "usambara-violet": {
+      "name": "Usambara Violet",
+      "scientific_name": "Santpaulia confusa",
+      "flower_colours": [
+        "purple",
+        "pink",
+        "white"
+      ]
+    },
+    "variegated-wax-plant": {
+      "name": "Variegated Wax Plant",
+      "scientific_name": "Echeveria sp.",
+      "foliage_colours": [
+        "variegated",
+        "green",
+        "pink"
+      ]
+    },
+    "yellow-flowered-gourd": {
+      "name": "Yellow-Flowered Gourd",
+      "scientific_name": "Cucurbita species",
+      "flower_colours": [
+        "yellow",
+        "orange"
+      ],
+      "foliage_colours": [
+        "green"
+      ]
+    },
+    "yellowrocket": {
+      "name": "Yellowrocket",
+      "scientific_name": "Barbarea vulgaris",
+      "flower_colours": [
+        "yellow"
+      ],
+      "foliage_colours": [
+        "green"
+      ]
+    },
+    "blue-fescue": {
+      "name": "Blue Fescue",
+      "scientific_name": "Festuca glauca",
+      "foliage_colours": [
+        "blue",
+        "silver",
+        "green"
+      ]
+    },
+    "blue-oat-grass": {
+      "name": "Blue Oat Grass",
+      "scientific_name": "Helictotrichon sempervirens",
+      "foliage_colours": [
+        "blue",
+        "silver",
+        "green"
+      ]
+    },
+    "japanese-blood-grass": {
+      "name": "Japanese Blood Grass",
+      "scientific_name": "Imperata cylindrica 'Red Baron'",
+      "foliage_colours": [
+        "green",
+        "red"
+      ]
+    },
+    "red-fountain-grass": {
+      "name": "Red Fountain Grass",
+      "scientific_name": "Pennisetum setaceum 'Rubrum'",
+      "foliage_colours": [
+        "red",
+        "purple",
+        "green"
+      ]
+    },
+    "variegated-ribbon-grass": {
+      "name": "Variegated Ribbon Grass",
+      "scientific_name": "Phalaris arundinacea",
+      "foliage_colours": [
+        "variegated",
+        "green",
+        "white"
+      ]
+    },
+    "purple-moor-grass": {
+      "name": "Purple Moor Grass",
+      "scientific_name": "Molinia caerulea",
+      "flower_colours": [
+        "purple"
+      ],
+      "foliage_colours": [
+        "green",
+        "purple"
+      ]
+    },
+    "blue-star-fern-phlebodium-aureum": {
+      "name": "Blue star fern",
+      "scientific_name": "Phlebodium aureum",
+      "foliage_colours": [
+        "blue",
+        "green"
+      ]
+    },
+    "purple-passion-gynura-aurantiaca": {
+      "name": "Purple passion",
+      "scientific_name": "Gynura aurantiaca",
+      "flower_colours": [
+        "orange"
+      ],
+      "foliage_colours": [
+        "purple",
+        "green"
+      ]
+    },
+    "asiatic-lily-lilium-asiatica": {
+      "name": "Asiatic Lily",
+      "scientific_name": "Lilium asiatica",
+      "flower_colours": [
+        "orange",
+        "yellow",
+        "white",
+        "red",
+        "pink"
+      ]
+    },
+    "western-lily-lilium-occidentale": {
+      "name": "Western Lily",
+      "scientific_name": "Lilium occidentale",
+      "flower_colours": [
+        "white",
+        "pink"
+      ]
+    },
+    "green-bean": {
+      "name": "Green bean",
+      "scientific_name": "Phaseolus vulgaris",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "basil": {
+      "name": "Basil",
+      "scientific_name": "Ocimum basilicum",
+      "flower_colours": [
+        "red"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "rosemary": {
+      "name": "Rosemary",
+      "scientific_name": "Salvia rosmarinus",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "camellia": {
+      "name": "Camellia",
+      "scientific_name": "Camellia japonica",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "ageratum": {
+      "name": "Floss Flower",
+      "scientific_name": "Ageratum houstonianum",
+      "flower_colours": [
+        "blue"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "celosia": {
+      "name": "Cockscomb",
+      "scientific_name": "Celosia argentea",
+      "flower_colours": [
+        "red"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "lobelia": {
+      "name": "Lobelia",
+      "scientific_name": "Lobelia erinus",
+      "flower_colours": [
+        "blue"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "cranberry": {
+      "name": "Cranberry",
+      "scientific_name": "Vaccinium macrocarpon",
+      "flower_colours": [
+        "red"
+      ],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "peas": {
+      "name": "Garden Pea",
+      "scientific_name": "Pisum sativum",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "lettuce": {
+      "name": "Lettuce",
+      "scientific_name": "Lactuca sativa",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "spinach": {
+      "name": "Spinach",
+      "scientific_name": "Spinacia oleracea",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "kale": {
+      "name": "Kale",
+      "scientific_name": "Brassica oleracea var. acephala",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "parsley": {
+      "name": "Parsley",
+      "scientific_name": "Petroselinum crispum",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "blue-dicks-2": {
+      "name": "Blue-dicks 2",
+      "scientific_name": "Hookera pulchella",
+      "flower_colours": [
+        "blue"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "blue-dicks-3": {
+      "name": "Blue-dicks 3",
+      "scientific_name": "Brodiaea pulchella",
+      "flower_colours": [
+        "blue"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "bristly-greenbrier": {
+      "name": "Bristly Greenbrier",
+      "scientific_name": "Smilax hispida",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "callistemon-citrinus": {
+      "name": "Crimson Bottlebrush",
+      "scientific_name": "Callistemon citrinus",
+      "flower_colours": [
+        "red"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "cape-marigold": {
+      "name": "Cape Marigold",
+      "scientific_name": "Dimorphotheca pluvialis",
+      "flower_colours": [
+        "yellow"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "cape-primrose": {
+      "name": "Cape Primrose",
+      "scientific_name": "Streptocarpus spp.",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "dwarf-rose-stripe-star": {
+      "name": "Dwarf Rose-Stripe Star",
+      "scientific_name": "Cryptanthus bivattus minor",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "giant-white-inch-plant": {
+      "name": "Giant White Inch Plant",
+      "scientific_name": "Albiflora spp.",
+      "flower_colours": [
+        "white"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "hollyhock": {
+      "name": "Hollyhock",
+      "scientific_name": "Alcea rosea",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "honeysuckle-fuchsia": {
+      "name": "Honeysuckle Fuchsia",
+      "scientific_name": "Fuchsia triphylla",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "mexican-rosettes": {
+      "name": "Mexican Rosettes",
+      "scientific_name": "Echevaria",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "mulberry-bush-greenbrier": {
+      "name": "Mulberry Bush Greenbrier",
+      "scientific_name": "Smilax sp.",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "toad-spotted-cactus": {
+      "name": "Toad Spotted Cactus",
+      "scientific_name": "Stapelia variegata",
+      "flower_colours": [
+        "bicolour"
+      ],
+      "foliage_colours": [
+        "bicolour",
+        "variegated"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "vining-peperomia": {
+      "name": "Vining Peperomia",
+      "scientific_name": "Peperomia serpens variegata",
+      "flower_colours": [
+        "bicolour"
+      ],
+      "foliage_colours": [
+        "bicolour",
+        "variegated"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "wax-rosette": {
+      "name": "Wax Rosette",
+      "scientific_name": "Echeveria gilva",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "withered-snapdragon": {
+      "name": "Withered Snapdragon",
+      "scientific_name": "Anthirrhinum multiflorum",
+      "flower_colours": [
+        "red"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "tufted-hair-grass": {
+      "name": "Tufted Hair Grass",
+      "scientific_name": "Deschampsia cespitosa",
+      "flower_colours": [
+        "red"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "apricot": {
+      "name": "Apricot",
+      "scientific_name": "Prunus armeniaca",
+      "flower_colours": [
+        "orange"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "bergamot-orange": {
+      "name": "Bergamot Orange",
+      "scientific_name": "Citrus Aurantium",
+      "flower_colours": [
+        "orange"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "calamondin-orange": {
+      "name": "Calamondin Orange",
+      "scientific_name": "Citrus mitis",
+      "flower_colours": [
+        "orange"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "chinese-evergreen": {
+      "name": "Chinese Evergreen",
+      "scientific_name": "Aglaonema modestum",
+      "flower_colours": [],
+      "foliage_colours": [
+        "green"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "christmas-rose": {
+      "name": "Christmas Rose",
+      "scientific_name": "Helleborus niger",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "clusia-rosea": {
+      "name": "Clusia Rosea",
+      "scientific_name": "Clusia major",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "gold-dieffenbachia": {
+      "name": "Gold Dieffenbachia",
+      "scientific_name": "Dieffenbachia picta",
+      "flower_colours": [
+        "yellow"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "golden-birds-nest": {
+      "name": "Golden Birds Nest",
+      "scientific_name": "Sansevieria trifasciata",
+      "flower_colours": [
+        "yellow"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "golden-ragwort": {
+      "name": "Golden Ragwort",
+      "scientific_name": "Senecio species",
+      "flower_colours": [
+        "yellow"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "moss-rose": {
+      "name": "Moss Rose",
+      "scientific_name": "Portulaca oleracea",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "orange": {
+      "name": "Orange",
+      "scientific_name": "Citrus sinensis",
+      "flower_colours": [
+        "orange"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "periwinkle": {
+      "name": "Periwinkle",
+      "scientific_name": "Vinca rosea",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "pink-pearl": {
+      "name": "Pink Pearl",
+      "scientific_name": "Begonia semperflorens cultivar",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "primrose": {
+      "name": "Primrose",
+      "scientific_name": "Primula vulgaris",
+      "flower_colours": [
+        "pink"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    },
+    "variegated-philodendron": {
+      "name": "Variegated Philodendron",
+      "scientific_name": "Scindapsus, Philodendron spp",
+      "flower_colours": [
+        "bicolour"
+      ],
+      "foliage_colours": [
+        "bicolour",
+        "variegated"
+      ],
+      "inferred_from_catalogue": true
+    },
+    "yellow-oleander": {
+      "name": "Yellow Oleander",
+      "scientific_name": "Thevetia peruviana",
+      "flower_colours": [
+        "yellow"
+      ],
+      "foliage_colours": [],
+      "inferred_from_catalogue": true
+    }
+  }
+}

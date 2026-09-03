@@ -1,0 +1,521 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Plant Image Manager</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    :root {
+      --green: #14532d;
+      --mint: #ecfdf5;
+      --ink: #292524;
+      --bg: #fafaf9;
+    }
+    body { background: var(--bg); color: var(--ink); font-family: 'DM Sans', ui-sans-serif, sans-serif; }
+    body.dark-mode { background: #111827; color: #ecfdf5; }
+    
+    .header { background: linear-gradient(135deg, var(--green) 0%, #047857 100%); color: white; padding: 2rem; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
+    .header h1 { font-size: 2rem; font-weight: bold; margin: 0; }
+    .header p { margin-top: 0.5rem; opacity: 0.9; }
+    
+    .card { background: white; border-radius: 0.75rem; box-shadow: 0 2px 8px rgba(0,0,0,0.08); padding: 1.5rem; margin-bottom: 1.5rem; border: 1px solid #e7e5e4; }
+    body.dark-mode .card { background: #1f2937; border-color: #374151; }
+    
+    .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .stat-card { background: white; padding: 1.5rem; border-radius: 0.5rem; border-left: 4px solid #047857; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+    body.dark-mode .stat-card { background: #1f2937; border-color: #7dd3b0; }
+    
+    .stat-value { font-size: 2rem; font-weight: bold; color: #047857; }
+    body.dark-mode .stat-value { color: #7dd3b0; }
+    
+    .stat-label { font-size: 0.875rem; color: #666; margin-top: 0.5rem; }
+    body.dark-mode .stat-label { color: #9ca3af; }
+    
+    .btn { padding: 0.5rem 1rem; border-radius: 0.375rem; border: none; cursor: pointer; font-weight: 600; transition: all 0.2s; }
+    .btn-primary { background: #047857; color: white; }
+    .btn-primary:hover { background: #059669; }
+    .btn-secondary { background: white; color: #047857; border: 1px solid #047857; }
+    .btn-secondary:hover { background: #f0fdf4; }
+    
+    .plant-item { background: white; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem; border: 1px solid #e7e5e4; }
+    body.dark-mode .plant-item { background: #1f2937; border-color: #374151; }
+    .plant-preview { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 1rem; align-items: start; }
+    .plant-preview-thumb { width: 120px; height: 120px; border-radius: 0.5rem; border: 1px solid #d6d3d1; background: #f5f5f4; object-fit: cover; }
+    body.dark-mode .plant-preview-thumb { border-color: #4b5563; background: #111827; }
+    .plant-preview-badge { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.2rem 0.55rem; font-size: 0.72rem; font-weight: 700; }
+    .plant-preview-badge.missing { background: #fee2e2; color: #991b1b; }
+    .plant-preview-badge.placeholder { background: #ffedd5; color: #9a3412; }
+    .plant-preview-badge.valid { background: #dcfce7; color: #166534; }
+    
+    .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem; margin-top: 1rem; }
+    .image-candidate { position: relative; background: #f9fafb; border-radius: 0.375rem; overflow: hidden; cursor: pointer; transition: all 0.2s; border: 2px solid transparent; appearance: none; padding: 0; text-align: left; }
+    .image-candidate:hover { box-shadow: 0 4px 12px rgba(0,0,0,0.15); border-color: #047857; }
+    .image-candidate.is-selected { border: 2px solid #3b82f6 !important; box-shadow: 0 0 0 2px rgba(59, 130, 246, 0.3); }
+    .image-candidate img { width: 100%; height: 120px; object-fit: cover; display: block; }
+    .candidate-toolbar { display: flex; align-items: center; gap: 0.6rem; margin-top: 0.75rem; flex-wrap: wrap; }
+    .candidate-note { font-size: 0.8rem; color: #6b7280; }
+    body.dark-mode .candidate-note { color: #cbd5e1; }
+    .candidate-confidence { display: inline-flex; align-items: center; border-radius: 999px; padding: 0.15rem 0.45rem; font-size: 0.7rem; font-weight: 700; margin-left: 0.35rem; }
+    .candidate-confidence.high { background: #dcfce7; color: #166534; }
+    .candidate-confidence.medium { background: #ffedd5; color: #9a3412; }
+    .candidate-confidence.low { background: #fee2e2; color: #991b1b; }
+    
+    .status { padding: 1rem; border-radius: 0.375rem; margin-top: 1rem; }
+    .status-success { background: #f0fdf4; color: #166534; border-left: 4px solid #22c55e; }
+    .status-error { background: #fef2f2; color: #991b1b; border-left: 4px solid #ef4444; }
+    .status-info { background: #eff6ff; color: #0c4a6e; border-left: 4px solid #0ea5e9; }
+    .framing-controls { margin-top: 0.6rem; display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+    .framing-select { border: 1px solid #d6d3d1; border-radius: 0.375rem; background: #fff; color: #1f2937; padding: 0.35rem 0.45rem; font-size: 0.8rem; }
+    body.dark-mode .framing-select { background: #111827; color: #e5e7eb; border-color: #4b5563; }
+    .strict-mode-select { border: 1px solid #d6d3d1; border-radius: 0.375rem; background: #fff; color: #1f2937; padding: 0.4rem 0.5rem; font-size: 0.85rem; }
+    body.dark-mode .strict-mode-select { background: #111827; color: #e5e7eb; border-color: #4b5563; }
+    
+    .loading { display: inline-block; animation: spin 1s linear infinite; }
+    @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    
+    .progress-bar { background: #e5e7eb; height: 0.5rem; border-radius: 9999px; overflow: hidden; margin-top: 0.5rem; }
+    .progress-fill { background: #047857; height: 100%; transition: width 0.3s ease; }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div style="display: flex; justify-content: space-between; align-items: start;">
+      <div>
+        <h1>📸 Plant Image Manager</h1>
+        <p>Find and update plant images</p>
+      </div>
+      <button id="dark-toggle" class="btn btn-secondary" style="border-radius: 9999px; padding: 0.5rem 1rem;">🌙 Dark</button>
+    </div>
+  </header>
+
+  <main style="max-width: 1400px; margin: 0 auto; padding: 2rem;">
+    
+    <!-- Statistics -->
+    <section class="card">
+      <h2 style="font-size: 1.5rem; font-weight: bold; margin-bottom: 1rem;">📊 Coverage Dashboard</h2>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-value" id="total-plants">-</div>
+          <div class="stat-label">Total Plants</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="with-images">-</div>
+          <div class="stat-label">With Images</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="coverage">-</div>
+          <div class="stat-label">Coverage %</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value" id="needs-images">-</div>
+          <div class="stat-label">Missing Images</div>
+        </div>
+      </div>
+      <div id="category-stats" style="margin-top: 2rem;"></div>
+    </section>
+
+    <!-- Controls -->
+    <section class="card">
+      <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">🔧 Tools</h2>
+      <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1rem;">
+        <button class="btn btn-primary" id="refresh-stats">Refresh Statistics</button>
+        <button class="btn btn-primary" id="load-plants">Load Plants Needing Images</button>
+        <label style="display:flex; align-items:center; gap:0.5rem; font-weight:600;">
+          Strict mode
+          <select id="confidence-filter-mode" class="strict-mode-select">
+            <option value="high">High only</option>
+            <option value="high-medium" selected>High + Medium</option>
+            <option value="all">Include Low (manual review)</option>
+          </select>
+        </label>
+      </div>
+      <div id="status-message" style="margin-top: 1rem;"></div>
+    </section>
+
+    <!-- Plants List -->
+    <section class="card">
+      <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Plants Without Images</h2>
+      <div id="plants-list" style="max-height: 800px; overflow-y: auto;"></div>
+    </section>
+
+  </main>
+
+  <footer style="border-top: 1px solid #e7e5e4; background: #fff; padding: 1rem 0; text-align: center; font-size: 0.75rem; color: #a8a29e;">Developed by <a href="https://github.com/28Riptide12" target="_blank" rel="noopener" style="color: #78716c; font-weight: 500; text-decoration: underline;">Riptide</a></footer>
+
+  <script>
+    const API_BASE = '/api';
+    
+    // Dark mode
+    const darkToggle = document.getElementById('dark-toggle');
+    const savedDark = localStorage.getItem('imageMgrDark') === '1';
+    if (savedDark) document.body.classList.add('dark-mode');
+    
+    darkToggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      localStorage.setItem('imageMgrDark', document.body.classList.contains('dark-mode') ? '1' : '0');
+    });
+    
+    function setStatus(msg, type = 'info') {
+      const el = document.getElementById('status-message');
+      el.textContent = msg;
+      el.className = `status status-${type}`;
+    }
+
+    function escapeHtml(value = '') {
+      return String(value).replace(/[&<>'"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[c]));
+    }
+
+    function imageUrlIsPlaceholder(url) {
+      const text = String(url || '').trim().toLowerCase();
+      if (!text) return true;
+      const tokens = [
+        'placeholder',
+        'default',
+        'no-image',
+        'example.com',
+        '/static/placeholders/',
+        '/static/plant-placeholder.svg',
+        '/image_0.jpg',
+        'aspca-logo-square.png'
+      ];
+      return tokens.some(token => text.includes(token));
+    }
+
+    function imageStatus(plant) {
+      const imageUrl = String(plant?.image_url || '').trim();
+      if (!imageUrl || !/^https?:\/\//i.test(imageUrl)) return { code: 'missing', label: 'Missing image' };
+      if (imageUrlIsPlaceholder(imageUrl)) return { code: 'placeholder', label: 'Placeholder image' };
+      return { code: 'valid', label: 'Has image' };
+    }
+
+    const framingOptions = [
+      'center center', 'top center', 'bottom center',
+      'center left', 'center right', 'top left',
+      'top right', 'bottom left', 'bottom right'
+    ];
+    const selectedCandidateByPlant = {};
+    const confidenceModeSelect = document.getElementById('confidence-filter-mode');
+    const savedConfidenceMode = localStorage.getItem('imageMgrConfidenceMode');
+    if (savedConfidenceMode && confidenceModeSelect) {
+      confidenceModeSelect.value = savedConfidenceMode;
+    }
+
+    function allowedConfidenceSet() {
+      const mode = confidenceModeSelect?.value || 'high-medium';
+      if (mode === 'high') return new Set(['high']);
+      if (mode === 'all') return new Set(['high', 'medium', 'low']);
+      return new Set(['high', 'medium']);
+    }
+
+    function formatFramingLabel(value) {
+      return String(value || '').split(' ').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
+    }
+    
+    // Load statistics
+    async function loadStats() {
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants`);
+        if (!response.ok) throw new Error('Failed to load plants');
+        
+        const data = await response.json();
+        const plants = data.plants || [];
+        
+        const withImages = plants.filter(p => imageStatus(p).code === 'valid').length;
+        const coverage = plants.length > 0 ? Math.round((withImages / plants.length) * 100) : 0;
+        
+        document.getElementById('total-plants').textContent = plants.length;
+        document.getElementById('with-images').textContent = withImages;
+        document.getElementById('coverage').textContent = coverage + '%';
+        document.getElementById('needs-images').textContent = plants.length - withImages;
+        
+        // Category stats
+        const byCategory = {};
+        plants.forEach(p => {
+          const cat = p.category || 'other';
+          if (!byCategory[cat]) byCategory[cat] = { total: 0, with: 0 };
+          byCategory[cat].total++;
+          if (imageStatus(p).code === 'valid') byCategory[cat].with++;
+        });
+        
+        const categoryHtml = Object.entries(byCategory)
+          .sort((a, b) => b[1].total - a[1].total)
+          .map(([cat, data]) => {
+            const pct = data.total > 0 ? Math.round((data.with / data.total) * 100) : 0;
+            return `<div style="margin-bottom: 1rem;">
+              <div style="display: flex; justify-content: space-between; margin-bottom: 0.5rem;">
+                <strong style="text-transform: capitalize;">${cat}</strong>
+                <span style="font-size: 0.875rem; color: #666;">${data.with}/${data.total} (${pct}%)</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-fill" style="width: ${pct}%"></div>
+              </div>
+            </div>`;
+          })
+          .join('');
+        
+        document.getElementById('category-stats').innerHTML = categoryHtml || '<p style="color: #999;">No data available</p>';
+        
+      } catch (error) {
+        console.error('Error loading stats:', error);
+        setStatus('Error loading statistics: ' + error.message, 'error');
+      }
+    }
+    
+    function probeImage(url, timeoutMs) {
+      return new Promise(resolve => {
+        const img = new Image();
+        const timer = setTimeout(() => {
+          img.onload = null;
+          img.onerror = null;
+          resolve(false);
+        }, timeoutMs);
+        img.onload = () => {
+          clearTimeout(timer);
+          resolve(true);
+        };
+        img.onerror = () => {
+          clearTimeout(timer);
+          resolve(false);
+        };
+        img.src = url;
+      });
+    }
+
+    function renderPlantsNeedingImages(plants, totalCount = null) {
+      if (!plants.length) {
+        document.getElementById('plants-list').innerHTML = '<div class="status status-success" style="text-align: center;">🎉 No plants are currently flagged as missing/placeholder.</div>';
+        setStatus('No plants flagged as missing/placeholder images.', 'success');
+        return;
+      }
+
+      const plantsHtml = plants.map(plant => {
+        const status = imageStatus(plant);
+        const imageUrl = String(plant.image_url || '').trim();
+        const previewUrl = status.code === 'valid' ? imageUrl : '/static/plant-placeholder.svg';
+        const scientific = escapeHtml(plant.scientific_name || 'Not listed');
+        const source = escapeHtml(plant.source_name || 'Unknown source');
+        const framing = String(plant.image_object_position || 'center center');
+        const framingSelectOptions = framingOptions
+          .map(option => `<option value="${escapeHtml(option)}"${option === framing ? ' selected' : ''}>${escapeHtml(formatFramingLabel(option))}</option>`)
+          .join('');
+        return `
+          <div class="plant-item">
+            <div class="plant-preview">
+              <img id="thumb-${escapeHtml(plant.id)}" class="plant-preview-thumb" src="${escapeHtml(previewUrl)}" alt="${escapeHtml(plant.name)}" loading="lazy" style="object-position: ${escapeHtml(framing)};" onerror="this.src='/static/plant-placeholder.svg'">
+              <div>
+                <div style="display: flex; justify-content: space-between; gap: 0.75rem; align-items: start;">
+                  <div style="min-width: 0;">
+                    <h3 style="font-weight: bold; font-size: 1.125rem; margin: 0;">${escapeHtml(plant.name)}</h3>
+                    <p style="font-size: 0.875rem; color: #666; font-style: italic; margin: 0.25rem 0;">${scientific}</p>
+                    <p style="font-size: 0.75rem; color: #999; margin: 0.5rem 0;">📁 ${escapeHtml(plant.category || 'Unknown')} · Source: ${source}</p>
+                  </div>
+                  <button class="btn btn-primary" data-find-images data-plant-id="${escapeHtml(plant.id)}" data-plant-name="${escapeHtml(plant.name)}" data-plant-scientific="${scientific}">
+                    Find Images
+                  </button>
+                </div>
+                <div style="display: flex; align-items: center; gap: 0.5rem; margin-top: 0.35rem;">
+                  <span class="plant-preview-badge ${status.code}">${status.label}</span>
+                  ${imageUrl ? `<span style="font-size: 0.75rem; color: #888; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-width: 420px;">${escapeHtml(imageUrl)}</span>` : ''}
+                </div>
+                <div class="framing-controls">
+                  <label style="font-size:0.75rem; color:#6b7280; font-weight:600;">Image framing</label>
+                  <select class="framing-select" data-framing-select data-plant-id="${escapeHtml(plant.id)}">
+                    ${framingSelectOptions}
+                  </select>
+                  <button class="btn btn-secondary" data-save-framing data-plant-id="${escapeHtml(plant.id)}" data-plant-name="${escapeHtml(plant.name)}" style="padding:0.35rem 0.65rem; font-size:0.75rem;">Save framing</button>
+                </div>
+                <div id="images-${escapeHtml(plant.id)}" style="display: none; margin-top: 1rem;"></div>
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+
+      document.getElementById('plants-list').innerHTML = plantsHtml;
+      document.querySelectorAll('[data-find-images]').forEach(button => {
+        button.addEventListener('click', () => {
+          findImages(
+            button.dataset.plantId,
+            button.dataset.plantName,
+            button.dataset.plantScientific
+          );
+        });
+      });
+      document.querySelectorAll('[data-framing-select]').forEach(select => {
+        select.addEventListener('change', () => {
+          const thumb = document.getElementById(`thumb-${select.dataset.plantId}`);
+          if (thumb) thumb.style.objectPosition = select.value || 'center center';
+        });
+      });
+      document.querySelectorAll('[data-save-framing]').forEach(button => {
+        button.addEventListener('click', () => {
+          saveImageFraming(button.dataset.plantId, button.dataset.plantName || 'plant');
+        });
+      });
+      const total = Number.isFinite(totalCount) ? totalCount : plants.length;
+      const suffix = plants.length < total ? ` (showing ${plants.length} of ${total})` : '';
+      setStatus(`Found ${total} plants needing image attention${suffix}`, 'success');
+    }
+
+    // Load plants needing images
+    async function loadPlantsNeedingImages() {
+      setStatus('Loading plants needing images...', 'info');
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/needing-images?limit=1000`);
+        if (!response.ok) throw new Error('Failed to load plants');
+
+        const data = await response.json();
+        const plants = data.plants || [];
+        const total = Number(data.total || plants.length);
+        renderPlantsNeedingImages(plants, total);
+      } catch (error) {
+        console.error('Error:', error);
+        setStatus('Error loading plants: ' + error.message, 'error');
+      }
+    }
+    
+    // Find images for a plant
+    async function findImages(plantId, plantName, scientificName = '') {
+      const container = document.getElementById(`images-${plantId}`);
+      container.innerHTML = '<p style="color: #999;"><span class="loading">⟳</span> Searching for images...</p>';
+      container.style.display = 'block';
+      
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/photo-suggestion?name=${encodeURIComponent(plantName)}&scientific_name=${encodeURIComponent(scientificName || '')}`);
+        if (!response.ok) {
+          const errorBody = await response.json().catch(() => ({}));
+          throw new Error(errorBody.error || 'No images found in photo manager');
+        }
+        
+        const data = await response.json();
+        const allCandidates = data.candidates || [data];
+        const allowed = allowedConfidenceSet();
+        const candidates = allCandidates.filter(item => allowed.has(String(item?.confidence || 'low').toLowerCase()));
+        
+        if (!candidates || candidates.length === 0) {
+          container.innerHTML = `<p style="color: #999;">No candidates match the current strict mode. Try changing strict mode to show more options.</p>`;
+          return;
+        }
+
+        selectedCandidateByPlant[plantId] = null;
+        const imageHtml = `
+        <div class="candidate-toolbar">
+          <button type="button" class="btn btn-primary" data-confirm-candidate data-plant-id="${escapeHtml(plantId)}" data-plant-name="${escapeHtml(plantName)}" disabled>Confirm selected image</button>
+          <span class="candidate-note">Click a candidate to preview it in the thumbnail, then confirm. Low confidence items need manual review.</span>
+        </div>
+        <div class="image-grid">
+          ${candidates.map((img, i) => `
+            <button type="button" class="image-candidate" data-candidate-image="${escapeHtml(img.image_url)}" data-candidate-source="${escapeHtml(img.source_url || 'https://commons.wikimedia.org/wiki/')}" data-candidate-title="${escapeHtml(img.title || '')}">
+              <img src="${img.image_url}" alt="${img.title}" loading="lazy" onerror="this.style.display='none'">
+              <div style="padding: 0.5rem; font-size: 0.75rem;">
+                <p style="margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #047857;">✓ ${escapeHtml(img.source_name || 'Source')}</p>
+                <p style="margin: 0.2rem 0 0 0; color: #6b7280;">
+                  Match:
+                  <span class="candidate-confidence ${escapeHtml(String(img.confidence || 'low'))}">${escapeHtml(String(img.confidence || 'low').toUpperCase())}</span>
+                </p>
+              </div>
+            </button>
+          `).join('')}
+        </div>`;
+        
+        container.innerHTML = imageHtml;
+        const thumb = document.getElementById(`thumb-${plantId}`);
+        const confirmButton = container.querySelector('[data-confirm-candidate]');
+        const candidatesButtons = [...container.querySelectorAll('.image-candidate')];
+
+        candidatesButtons.forEach(button => {
+          button.addEventListener('click', () => {
+            candidatesButtons.forEach(item => item.classList.remove('is-selected'));
+            button.classList.add('is-selected');
+            const selectedImageUrl = button.dataset.candidateImage || '';
+            const selectedSourceUrl = button.dataset.candidateSource || 'https://commons.wikimedia.org/wiki/';
+            selectedCandidateByPlant[plantId] = {
+              image_url: selectedImageUrl,
+              source_url: selectedSourceUrl,
+            };
+            if (thumb && selectedImageUrl) {
+              thumb.src = selectedImageUrl;
+            }
+            if (confirmButton) {
+              confirmButton.disabled = false;
+            }
+          });
+        });
+
+        confirmButton?.addEventListener('click', async () => {
+          const selected = selectedCandidateByPlant[plantId];
+          if (!selected?.image_url) {
+            setStatus('Select an image candidate first.', 'info');
+            return;
+          }
+          await approveImage(plantId, selected.image_url, plantName, selected.source_url);
+        });
+      } catch (error) {
+        console.error('Error finding images:', error);
+        container.innerHTML = '<p style="color: #f87171;">Error finding images: ' + error.message + '</p>';
+      }
+    }
+    
+    async function saveImageFraming(plantId, plantName) {
+      const select = document.querySelector(`[data-framing-select][data-plant-id="${plantId}"]`);
+      const objectPosition = select?.value || 'center center';
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/${encodeURIComponent(plantId)}/image-framing`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image_object_position: objectPosition })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'Failed to save image framing');
+        setStatus(`✓ Image framing updated for ${plantName} (${formatFramingLabel(objectPosition)}).`, 'success');
+      } catch (error) {
+        console.error('Error saving image framing:', error);
+        setStatus('Error: ' + error.message, 'error');
+      }
+    }
+
+    // Approve an image for a plant
+    async function approveImage(plantId, imageUrl, plantName, imageSourceUrl = 'https://commons.wikimedia.org/wiki/') {
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/${plantId}/photo`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image_url: imageUrl, image_source_url: imageSourceUrl })
+        });
+        
+        if (!response.ok) {
+          const error = await response.json();
+          throw new Error(error.error || 'Failed to save image');
+        }
+        
+        setStatus(`✓ Image approved for ${plantName}!`, 'success');
+        document.getElementById(`images-${plantId}`).style.display = 'none';
+        const plantItem = document.getElementById(`images-${plantId}`)?.closest('.plant-item');
+        const badge = plantItem?.querySelector('.plant-preview-badge');
+        if (badge) {
+          badge.className = 'plant-preview-badge valid';
+          badge.textContent = 'Has image';
+        }
+        
+        // Reload stats
+        loadStats();
+      } catch (error) {
+        console.error('Error approving image:', error);
+        setStatus('Error: ' + error.message, 'error');
+      }
+    }
+    
+    // Event listeners
+    document.getElementById('refresh-stats').addEventListener('click', loadStats);
+    document.getElementById('load-plants').addEventListener('click', loadPlantsNeedingImages);
+    confidenceModeSelect?.addEventListener('change', () => {
+      localStorage.setItem('imageMgrConfidenceMode', confidenceModeSelect.value);
+      setStatus(`Strict mode set to: ${confidenceModeSelect.options[confidenceModeSelect.selectedIndex].text}`, 'info');
+    });
+    
+    // Initial load
+    loadStats();
+  </script>
+</body>
+</html>

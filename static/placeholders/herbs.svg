@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Herb placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d1fae5"/>
+      <stop offset="100%" stop-color="#ecfeff"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <path d="M600 760c-10-225 22-390 95-510" stroke="#166534" stroke-width="26" fill="none" stroke-linecap="round"/>
+  <ellipse cx="690" cy="270" rx="95" ry="62" fill="#22c55e" transform="rotate(-28 690 270)"/>
+  <ellipse cx="640" cy="390" rx="110" ry="70" fill="#16a34a" transform="rotate(-15 640 390)"/>
+  <ellipse cx="560" cy="520" rx="110" ry="70" fill="#4ade80" transform="rotate(12 560 520)"/>
+</svg>

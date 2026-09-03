@@ -1,0 +1,2408 @@
+{
+  "source": "broader-source-review-queue",
+  "generated_at": "2026-08-30T00:15:00Z",
+  "plants": [
+    {
+      "id": "gardenia-gardenia",
+      "name": "Gardenia",
+      "scientific_name": "Gardenia jasminoides",
+      "category": "flowers",
+      "safety_status": "May be Toxic",
+      "description": "Broader horticultural sources suggest possible pet irritation, so this entry remains in review pending explicit evidence and labeling.",
+      "source_url": "https://www.rhs.org.uk/plants/1143/gardenia/details",
+      "source_name": "RHS",
+      "source_status": "Broader-source candidate under review; not yet approved into the live catalogue.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-28T02:47:00Z",
+          "note": "Queued for explicit pet-safety review."
+        }
+      ]
+    },
+    {
+      "id": "hellebore-helleborus",
+      "name": "Hellebore",
+      "scientific_name": "Helleborus spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Hellebore plant contains the toxin bufadienolides. Ingestion of hellebore by animals leads to gastrointestinal distress and cardiovascular disturbance.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/hellebore/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "euphorbia-euphorbia",
+      "name": "Euphorbia",
+      "scientific_name": "Euphorbia spp.",
+      "category": "flowers",
+      "safety_status": "Toxic",
+      "description": "Many euphorbias contain irritating sap; keep this in review so the label remains obvious to pet owners.",
+      "source_url": "https://www.rhs.org.uk/plants/utility-guides/plant-types/euphorbia",
+      "source_name": "RHS",
+      "source_status": "Review-only plant with irritant sap risk; do not silently approve.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-28T02:47:00Z",
+          "note": "Queued for review to confirm toxic or irritant status before any promotion."
+        }
+      ]
+    },
+    {
+      "id": "mandevilla-mandevilla",
+      "name": "Mandevilla",
+      "scientific_name": "Mandevilla spp.",
+      "category": "flowers",
+      "safety_status": "May be Toxic",
+      "description": "Potential pet risk noted by broader horticultural references; keep it review-only until the evidence set and label are consistent.",
+      "source_url": "https://www.rhs.org.uk/plants/978/mandevilla/details",
+      "source_name": "RHS",
+      "source_status": "Broader-source candidate with uncertain pet-safety evidence.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-28T02:47:00Z",
+          "note": "Queued for pet-safety review and explicit toxicity labeling."
+        }
+      ]
+    },
+    {
+      "id": "pelargonium-pelargonium",
+      "name": "Pelargonium",
+      "scientific_name": "Pelargonium spp.",
+      "category": "flowers",
+      "safety_status": "Non-toxic",
+      "description": "Low-risk review candidate from broader horticultural sources; keep it queued until the source evidence and label are fully consistent.",
+      "source_url": "https://www.rhs.org.uk/plants/plant-types/pelargonium",
+      "source_name": "RHS",
+      "source_status": "Low-risk candidate kept in review until explicit validation is complete.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-28T02:47:00Z",
+          "note": "Queued as a low-risk broader-source addition to confirm non-toxic status."
+        }
+      ]
+    },
+    {
+      "id": "hosta-hosta",
+      "name": "Hosta",
+      "scientific_name": "Hosta spp.",
+      "safety_status": "Non-toxic",
+      "pph_toxicity_note": "Hosta plants contain saponin phytochemicals. Ingestion by companion animals leads to gastrointestinal distress (e.g. vomiting, diarrhea) and neurological signs (e.g. lethargy, depression).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/hosta/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "pachysandra-pachysandra",
+      "name": "Pachysandra",
+      "scientific_name": "Pachysandra terminalis",
+      "category": "flowers",
+      "safety_status": "Toxic",
+      "description": "Japanese spurge and similar pachysandra species are commonly flagged for toxicity; keep this in review for right labeling and safety visibility.",
+      "source_url": "https://www.rhs.org.uk/plants/pachysandra",
+      "source_name": "RHS",
+      "source_status": "Review-only because pet risk needs explicit labeling and evidence tracing.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-28T02:47:00Z",
+          "note": "Queued for risk review before any live-catalogue promotion."
+        }
+      ]
+    },
+    {
+      "id": "lily-of-the-valley-lily-of-the-valley",
+      "name": "Lily of the Valley",
+      "scientific_name": "Convallaria majalis",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Lily of the Valley contains cardenolides (cardiac toxins). Ingestion by dogs and cats often results in gastrointestinal distress with vomiting and loss of appetite but may also lead severe signs including changes in heart rate and rhythm, weakness, and seizures.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/lily-of-the-valley/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "oleander-oleander",
+      "name": "Oleander",
+      "scientific_name": "Nerium oleander",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Oleander contains oleandrin, a cardiac glycoside toxin, throughout the plant. Ingestion of oleander by animals results in gastrointestinal distress (e.g., vomiting and loss of appetite), cardiovascular dysfunction (e.g., irregular heart rate and rhythm) and neurological signs (e.g., weakness, collapse).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/oleander/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:57Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "tulip-tulip",
+      "name": "Tulip",
+      "scientific_name": "Tulipa spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Tulips and Hyacinths contain toxic plant alkaloids throughout the plant structure. The highest concentration of toxin is found in the bulbs. Pet ingestion of small amounts of leaves, stems or flowers may result in mild nausea with vomiting. Consumption of bulb material poses risk for persistent gastrointestinal distress (e.g., vomiting, loss of appetite, diarrhea, drooling) and lethargy.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/tulip/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:57Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "hydrangea-hydrangea",
+      "name": "Hydrangea",
+      "scientific_name": "Hydrangea",
+      "safety_status": "May be Toxic",
+      "pph_toxicity_note": "All parts of the Hydrangea plant contain cyanide-containing compounds. When the plant material is chewed or damaged (e.g., frost, crushing) free cyanide can be released triggering cyanide poisoning when ingested. Cyanide reduces the body\u2019s ability to process oxygen at a cellular level resulting in clinical signs including vomiting, drooling, gasping, collapse, seizure, and death. The occurrence of cyanide poisoning from ingestion of this plant is higher in livestock \u2013 animals that consume large amounts and chew their food well \u2013 vs. companion animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/hydrangea/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "yew-yew",
+      "name": "Yew",
+      "scientific_name": "Taxus spp.",
+      "category": "shrubs",
+      "safety_status": "Toxic",
+      "description": "Yew is a classic toxic ornamental and should remain review-only with an explicit warning label, not promoted into a dog-safe section.",
+      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/yew",
+      "source_name": "ASPCA",
+      "source_status": "Strong toxic guidance from ASPCA and peer veterinary sources; leave in review until a curator approves or rejects it.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-28T02:56:00Z",
+          "note": "Queued as a strict toxic candidate from the same source set, with explicit review required before approval."
+        }
+      ],
+      "review_batch": "2026-08-28-source-set-2",
+      "evidence_sources": [
+        {
+          "source_name": "ASPCA",
+          "url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/yew",
+          "confidence": "high"
+        },
+        {
+          "source_name": "VCA Animal Hospitals",
+          "url": "https://vcahospitals.com/know-your-pet/",
+          "confidence": "high"
+        },
+        {
+          "source_name": "RHS",
+          "url": "https://www.rhs.org.uk/plants/yew",
+          "confidence": "medium"
+        }
+      ]
+    },
+    {
+      "id": "african-wonder-tree",
+      "name": "African Wonder Tree",
+      "scientific_name": "Ricinus communis",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "African Wonder Tree aka Castor Bean Plant contains the highly potent toxin ricin within its seed. Chewing and swallowing 1-2 seeds can lead to severe gastrotintestinal signs, organ failure, and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/african-wonder-tree/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:09:12Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "alocasia",
+      "name": "Alocasia",
+      "scientific_name": "Alocasia spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Alocasia aka Elephant\u2019s Ear contain microscopic oxalate crystals within the plant structure. Chewing the plant releases the these crystals causing irritation and pain to a pet\u2019s lips, oral cavity, and throat.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/alocasia/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:44Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "american-bittersweet",
+      "name": "American Bittersweet",
+      "scientific_name": "Celastrus scandens",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The American Bittersweet, also known as Bittersweet, False Bittersweet, Climbing Bittersweet, Shrubby Bittersweet, and Waxwork, is a deciduous plant that produces bunches of brightly colored small fruit; these may be attractive to dogs, cats and children. The toxin in this plant has not been well established but some of the Celastrus species contain alkaloids that can cause vomiting and diarrhea in dogs and cats. With large ingestions, it may cause weakness and seizures.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/american-bittersweet/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:44Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "amaryllis",
+      "name": "Amaryllis",
+      "scientific_name": "Amaryllis spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The Amaryllis is a perennial bulb plant that has flat leaves and lily-like flowers. Some Amaryllis have common names, such as Aztec lily or Orchid lily, but the Amaryllis is not a true lily. The Amaryllis leaves, stems and bulbs contain phenanthridine alkaloids which can cause dose-dependent vomiting, hypotension (drop in blood pressure), tremors/seizures, and respiratory depression. Excess salivation and abdominal discomfort can be seen from the raphide oxalate crystals, which are more concentrated in the bulbs.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/amaryllis/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:44Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "andromeda-japonica",
+      "name": "Andromeda Japonica",
+      "scientific_name": "Pieris japonica",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Japonica, Bog Rosemary and Pieris species contain grayanotoxins (formally called andromedotoxin). Like the Rhododendrons (same family), ingestion of these plants cause a disruption in sodium channels affecting the cardiac and skeletal muscle. Clinical signs of excessive drooling, depression, weakness, vomiting, diarrhea, heart arrhythmias, hypotension (drop in blood pressure), and death can occur when ingested by dogs and cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/andromeda-japonica/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:46Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "apricot",
+      "name": "Apricot",
+      "scientific_name": "Prunus armeniaca",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The seeds, leaves, and stems of the apricot tree harbor a cyanide-containing molecule. While ingestion of a few leaves or the pit of an apricot poses a low risk for cyanide toxicosis, the ingestion of hulled apricot kernels \u2013 also called bitter raw apricot seeds \u2013 poses a high risk for cyanide poisoning in pet animals. Clinical signs of cyanide poisoning are sudden severe gastrointestinal disturbance, respiratory distress, and neurological dysfunction including collapse, seizure, and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/apricot/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:47Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "aloe",
+      "name": "Aloe",
+      "scientific_name": "Aloe vera",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Aloes contain anthraquinone glycosides which are purgatives (medications that encourage bowel movements). Ingestion of the Aloe Vera plant causes gastrointestinal distress including vomiting and diarrhea.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/aloe/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:47Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "asparagus-fern",
+      "name": "Asparagus Fern",
+      "scientific_name": "Asparagus densiflorus cv sprengeri",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Asparagus fern (Asparagus setaceus) is a common houseplant with fine, feathery foliage. It is also often used in floral arrangements. Ingestion of these plants, especially the berries, may cause irritation to the gastrointestinal tract. Skin irritation is also possible following dermal exposure.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/asparagus-fern/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:47Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "apple-2",
+      "name": "Apple",
+      "scientific_name": "Malus sylvestrus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Mayapple contains the chemical podophylltoxin within all parts of the plant. Ingestion by animals results in gastrointestinal distress (e.g., vomiting, drooling, diarrhea) and, less commonly, neurological signs (excitement, stumbling). The ripe fruit contains the least amount of podophyllotoxin, but ingestion of large numbers of ripe fruits may lead to mild gastrointestinal signs.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/apple/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:48Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "australian-nut",
+      "name": "Australian Nut",
+      "scientific_name": "Macadamia integrifolia",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Australian nuts, also known as Macadamia nuts, are harvested from Macadamia trees that were originally found in Australia. These trees are now also grown in the US (Hawaii, California, Florida), South Africa, Brazil, and many other countries with the nuts being sold widely in stores. Australian nuts are very high in fat content. Ingestion of small amounts may cause minor gastrointestinal upset, while toxic amounts can result in: 1) an elevated body temperature, 2) central nervous signs, 3) lameness/stiff joints, and 4) pancreatitis, a painful inflammation of the pancreas. Dog breeds that are m",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/australian-nut/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:48Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "azalea",
+      "name": "Azalea",
+      "scientific_name": "Rhododendron spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Azalea is a deciduous, flowering shrub. Like other members of the rhododendron genus all parts of the plant are toxic. Ingestion of azalea by companion animals may lead to poisoning with clinical signs of gastrointestinal distress and cardiovascular dysfunction.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/azalea/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:48Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "autumn-crocus",
+      "name": "Autumn Crocus",
+      "scientific_name": "Colchicum autumnale",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Autumn crocus is a fall-blooming flower grown from bulbs. All parts of the plant contain alkaloid toxins including colchicine. Ingestion of Autumn crocus \u2013 either fresh or dried \u2013 results in severe poisoning causing gastrointestinal signs, organ failure, shock, blood cell abnormalities, and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/autumn-crocus/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:48Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "bird-paradise",
+      "name": "Bird of Paradise",
+      "scientific_name": "Caesalpinia gilliesii",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Bird of Paradise is a tropical plant with a flower on top of the stalk that resembles a bird in flight. These plants can grow up to four or five feet tall. Ingestion typically results in GI signs including vomiting and diarrhea.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/bird-of-paradise/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:51Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "branching-ivy",
+      "name": "Branching Ivy",
+      "scientific_name": "Hedera helix",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Branching ivy, also known as English ivy, is a long, woody, vine that grows on structures such as fences, walls, and trees. When it reaches the stage of growing on hosts such as those structures, its goes from growing leaves to producing small flowers. Similar to its more well known ivy family member poison ivy, this type of ivy is also toxic to the skin. Branching ivy\u2019s toxicity is derived from triterpenoid saponins among other toxins including caffeic acid, chlorogenic acid, and emetine. The foliage of this plant is more toxic than the berries. Common signs to watch for: Vomiting Diarrhea An",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/branching-ivy/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:55Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "buckeye",
+      "name": "Buckeye",
+      "scientific_name": "Aesculus spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The buckeye (Aesculus spp.), commonly called the Horse Chestnut, contain toxins in their leaves, bark and seeds/nuts. There are a variety of species but Aesculus pavia (Red buckeye) being the most toxic. These can be ornamental shrubs and trees found in the midwest, east to Appalachian Mountains and south to Texas. The fruit, or nut, produced is not an edible chestnut which are in the genus Castanea. In small animals, ingestion causes gastrointestinal irritation with the potential for bowel obstruction if the seeds are swallowed whole. Large ingestions may result in mild to severe neurologic s",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/buckeye/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "buddhist-pine",
+      "name": "Buddhist Pine",
+      "scientific_name": "Podocarpus macrophylla",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The fruits and leaves of this plant contain an unknown toxin that causes severe vomiting and diarrhea when consumed. More importantly, this plant should not be confused with the genus Taxus (e.g., Japanese Yew), which is much more deadly and warrants emergency treatment.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/buddhist-pine/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "burning-bush",
+      "name": "Burning Bush",
+      "scientific_name": "Euonymus atropurpurea",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The burning bush shrub contains cardiac and gastrointestinal toxins. Although poisoning could occur in any species ingesting this plant, the most common is gastrointestinal distress in hoofstock.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/burning-bush/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "boxwood",
+      "name": "Boxwood",
+      "scientific_name": "Buxus spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The common shrub boxwood contains toxins within its foliage. Ingestion causes gastrointestinal distress. Hoofstock including horses are especially vulnerable to boxwood poisoning.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/boxwood/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "buttercup",
+      "name": "Buttercup",
+      "scientific_name": "Ranunculus spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Buttercup, of the Ranunculus family, is commonly called Butter cress and Figwort. These plants are found throughout the United States. Most are weeds found in overgrazed pastures, meadows, and fields. A few varieties are grown as ornamental plants. The toxin is released when crushed or chewed releasing a a bitter-tasting oil that irritates the mucous membranes of the gastrointestinal tract, and is poisonous to horses, cats, and dogs. The flowers contains the highest amount of toxin. Thankfully, buttercup generally doesn\u2019t pose a serious threat because the toxin\u2019s bitter taste and ability to ca",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/buttercup/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:57Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "caladium",
+      "name": "Caladium",
+      "scientific_name": "Caladium hortulanum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "This plant contains insoluble calcium oxalate crystals similar to other plants in the Araceae family. Chewing or biting into this plant will release these crystals causing tissue penetration and irritation. VERY rarely, swelling of the upper airway occurs making it difficult to breathe. See Oxalates (Insoluble) for more information. Common signs to watch for: Drooling Pawing at the mouth or face Oral pain Decreased appetite Vomiting",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/caladium/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:13:57Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "charming-dieffenbachia",
+      "name": "Charming Dieffenbachia",
+      "scientific_name": "Dieffenbachia amoena",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Charming dieffenbachia contains microscopic oxalate crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/charming-dieffenbachia/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:01Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "cherry",
+      "name": "Cherry",
+      "scientific_name": "Prunus spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Cherry trees and shrubs (Prunus\u00a0sp) including the Choke cherry, Black cherry and cherry laurel contain cyanogenic glycosides. All parts of these plants other than the ripe pulp around the seeds are considered toxic and contain cyanide. The main concern are the pits (seeds). If the pit is chewed and crushed, cyanide may be released. Cherries purchased for human consumption typically contain a lower amount of cyanide in the pits than cherries found in the wild. Cyanide inhibits cytochrome oxidase, an enzyme necessary for cellular oxygen transport, preventing appropriate oxygen uptake by cells. W",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/cherry/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:01Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "chinese-evergreen",
+      "name": "Chinese Evergreen",
+      "scientific_name": "Aglaonema modestum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Chinese Evergreen contains microscopic oxalate crystals within the plant structure. When animals chew the plant, it releases the crystals causing irritation and pain to lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/chinese-evergreen/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:02Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "chives",
+      "name": "Chives",
+      "scientific_name": "Allium schoenoprasum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Chives, along with onion, garlic, and leeks, belong to the Allium family; all are poisonous to dogs, cats, and livestock. Certain animal species and breeds are more sensitive to Alliums including cats and Japanese breeds of dogs (e.g., Akita, Shiba Inu). Poisonous doses of Alliums damage red blood cells leading to anemia and cause GI distress with nausea, vomiting and diarrhea.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/chives/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:02Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "choke-cherry",
+      "name": "Choke Cherry",
+      "scientific_name": "Prunus virginiana",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "All parts of the Chokecherry except the soft fruit or berry contain cyanide-containing compounds and enzymes. When the plant material is chewed or damaged (e.g., frost, crushing) free cyanide can be released triggering cyanide poisoning when ingested. Cyanide reduces the body\u2019s ability to process oxygen at a cellular level resulting in clinical signs including vomiting, drooling, gasping, collapse, seizure, and death. The occurrence of cyanide poisoning from chokecherry ingestion is higher in livestock \u2013 animals that consume large amounts and chew their food well \u2013 vs. companion animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/choke-cherry/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:02Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "chrysanthemum",
+      "name": "Chrysanthemum",
+      "scientific_name": "Chrysanthemum spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Pyrethrins, which are used in dog flea and tick medications, can be extracted from this plant though ingestion of plant material is typically only going to cause gastrointestinal upset.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/chrysanthemum/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:04Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "christmas-rose",
+      "name": "Christmas Rose",
+      "scientific_name": "Helleborus niger",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The plant routinely causes gastrointestinal signs including salivating, vomiting, diarrhea and abdominal discomfort. Heart rate and rhythm changes and neurological signs are also possible.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/christmas-rose/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:04Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "clematis",
+      "name": "Clematis",
+      "scientific_name": "Clematis spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "This popular vine has a beautiful, colorful flower, and grows in bright sunlight. Clematis contains an irritating glycoside and when ingested can cause gastrointestinal upset including salivation, vomiting, and diarrhea. Fortunately, this plant has a very bitter taste which deters most pets from consuming large amounts.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/clematis/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:05Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "cordatum",
+      "name": "Cordatum",
+      "scientific_name": "Philodendron oxycardium",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Cordatum contains microscopic oxalate crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/cordatum/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:06Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "corn-plant",
+      "name": "Corn Plant",
+      "scientific_name": "Dracaena fragrans",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The corn plant contains chemical compounds called steroidal saponins within the plant structure. Ingestion of the corn plant by companion animals leads to nausea with salivation and vomiting, incoordination, and \u2013 for cats \u2013 dilated pupils.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/corn-plant/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:06Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "cornflower",
+      "name": "Cornflower",
+      "scientific_name": "Centaurea cyanus",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "Ornamental Cornflower is non-toxic; however, ingestion of large amounts of this plant may cause mild nausea with emesis. Cornflower (Centaurea cyanus) is not to be confused with Yellow Star Thistle (Centaurea solstitialis) or Russian Knapweed (Rhaponicum (old genus: Centaurea) repens) that causes severe nervous system poisoning in horses.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/cornflower/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:07Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "cowbane",
+      "name": "Cowbane",
+      "scientific_name": "Cicuta species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Cowbane (Cicuta spp) are considered the most toxic plants in North America. Potent plant toxins accumulate primarily in plant roots and ingestion of miniscule amounts leads rapidly to violent convulsions, difficulty breathing, heart rhythm irregularities, and death in companion animal, livestock, and humans.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/cowbane/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:08Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "daffodil",
+      "name": "Daffodil",
+      "scientific_name": "Narcissus spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Daffodils contain alkaloid toxins within all parts of the plant with highest concentration found in the bulbs. Ingestion of daffodil plant or bulbs results in vomiting, which may be severe, leading to profound dehydration, weakness, and shock in pet animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/daffodil/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:09Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "cyclamen",
+      "name": "Cyclamen",
+      "scientific_name": "Cyclamen spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Ingestion of cultivated or houseplant varieties of Cyclamen commonly cause digestive irritation with drooling, vomiting, and diarrhea. Dangerous signs of poisoning including heart arrhythmias and seizures are possible with large ingestions but uncommon.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/cyclamen/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:10Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "devils-ivy",
+      "name": "Devils Ivy",
+      "scientific_name": "Epipremnum aureum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Devil\u2019s Ivy contains microscopic crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/devils-ivy/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:10Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "dracaena",
+      "name": "Dracaena",
+      "scientific_name": "Dracaena spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Dracaena spp. contains plant toxins (saponins) within the leaves and stems. Ingestion by companion animals causes drooling and vomiting. Clinical signs of dilated pupils and wobbly gait reported specifically in cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/dracaena/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:11Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "dieffenbachia",
+      "name": "Dumb Cane",
+      "scientific_name": "Dieffenbachia",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Dieffenbachia contains microscopic crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/dieffenbachia/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:11Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "easter-lily",
+      "name": "Easter Lily",
+      "scientific_name": "Lilium longiflorum",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "All parts of the Easter lily are toxic for cats. This includes any amount of leaf, stem, flower, pollen, vase water, or rhizome (root). Ingestion results in vomiting, abdominal pain, dehydration and acute kidney failure. Early treatment is vital for cats following any exposure to these lilies. For more information about lilies, including safer alternative flowers for homes with cats and educational materials, visit our No Lilies for Kitties page.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/easter-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:12Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "emerald-feather",
+      "name": "Emerald Feather",
+      "scientific_name": "Asparagus densiflorus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Emerald feather is an herb with a fern-like physical appearance frequently used in floral arrangements. This plant contains irritant toxins; ingestion of plant berries by companion animals causes vomiting and diarrhea. Repeated contact with the foliage can lead to allergic skin reaction.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/emerald-feather/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:12Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "eucalyptus",
+      "name": "Eucalyptus",
+      "scientific_name": "Eucalyptus species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Eucalyptus is a species of trees and shrubs that contains eucalyptol, a fragrant essential oil. Animals may be exposed to eucalyptol by ingestion of eucalyptus leaves or herbal products containing essential oils. Small ingestions of a few leaves or low concentration eucalyptus oil by pet animals cause minor nausea. Pet exposure (oral or dermal) to highly concentrated eucalyptus essential oil can result in severe signs including neurologic abnormalities and rarely, kidney impairment.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/eucalyptus/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:13Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "fiddle-leaf",
+      "name": "Fiddle-Leaf",
+      "scientific_name": "Philodendron bipennifolium",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "This plant contains insoluble calcium oxalate crystals similar to other plants in the Araceae family.\u00a0Chewing or biting into this plant will release these crystals causing tissue penetration and irritation the mouth and GI tract. VERY rarely, swelling of the upper airway occurs making it difficult to breathe.\u00a0See\u00a0Oxalates (Insoluble)\u00a0for more information. Common signs to watch for: Drooling Pawing at the mouth Oral pain Decreased appetite Vomiting",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/fiddle-leaf/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:15Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "foxglove",
+      "name": "Foxglove",
+      "scientific_name": "Digitalis purpurea",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Foxglove contains cardiac glycosides, naturally occurring chemicals that affect the heart. Ingestion of foxglove by animals can result in Stomach upset, cardiovascular changes, and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/foxglove/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:16Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "garlic",
+      "name": "Garlic",
+      "scientific_name": "Allium sativum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Garlic, along with chives, onion, and leeks, belongs to the Allium family; all are poisonous to dogs, cats, and livestock. Certain animal species and breeds are more sensitive to Alliums including cats and Japanese breeds of dogs (e.g., Akita, Shiba Inu). Poisonous doses of Alliums damage red blood cells leading to anemia and cause GI distress.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/garlic/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:17Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "geranium",
+      "name": "Geranium",
+      "scientific_name": "Pelargonium species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Geraniums contain the essential oils linalool and geraniol that can cause gastrointestinal upset or skin irritation with exposure. Symptoms can include vomiting, diarrhea, lethargy, decreased appetite and skin irritation. Symptoms are usually mild and temporary.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/geranium/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:17Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "gold-dieffenbachia",
+      "name": "Gold Dieffenbachia",
+      "scientific_name": "Dieffenbachia picta",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Golden Dieffenbachia contains insoluble calcium oxalate crystals like other plants in the Araceae family. In general, chewing or biting into the plant causes the crystals to penetrate tissue in the mouth and GI tract, triggering mild to severe irritation. Irritation tends to be more severe with Dieffenbachia than other plants in the Araceae family. Rarely, severe oral and throat irritation can develop resulting in severe swelling of the face, difficulty swallowing, and difficulty breathing. Rarely, death has been reported with ingestion of Dieffenbachia plants. See Oxalates (Insoluble) for mor",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/gold-dieffenbachia/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:18Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "gladiola",
+      "name": "Gladiola",
+      "scientific_name": "Gladiolus species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Ingestion of gladiolus by companion animals causes gastrointestinal distress and excessive drooling; lethargy and unsteady gait are reported with large ingestions. Clinical signs are more severe with gladiolus bulb ingestion than ingestion of other parts of this plant.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/gladiola/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:19Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "heartleaf-philodendron",
+      "name": "Heartleaf Philodendron",
+      "scientific_name": "Philodendron hederaceum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Heartleaf Philodendron contains microscopic crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/heartleaf-philodendron/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:20Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "heavenly-bamboo",
+      "name": "Heavenly Bamboo",
+      "scientific_name": "Nandina domestica",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "All parts of Heavenly Bamboo may contain cyanide-containing compounds and enzymes. When the plant material is chewed or damaged (e.g., frost, crushing) free cyanide can be released triggering cyanide poisoning when ingested. Cyanide reduces the body\u2019s ability to process oxygen at a cellular level resulting in clinical signs including vomiting, drooling, gasping, collapse, seizure, and death. The occurrence of cyanide poisoning from Heavenly Bamboo ingestion is higher in livestock \u2013 animals that consume large amounts and chew their food well \u2013 vs. companion animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/heavenly-bamboo/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:20Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "horse-chestnut",
+      "name": "Horse Chestnut",
+      "scientific_name": "Aesculus glabra",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The seeds and leaves of horse chestnut trees contain triterpenoid saponins. Ingestion by companion animals and livestock results in gastrointestinal signs of vomiting and diarrhea and neurological symptoms including staggered gait, tremor, collapse and seizure.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/horse-chestnut/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:22Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "hops",
+      "name": "Hops",
+      "scientific_name": "Humulus lupulus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Hops flowers are used in the fermentation process of brewing beer. After fermentation the used hops are discarded. Ingestion of used hops by dogs can result in rapid onset, life-threatening high fever with clinical signs of panting, racing heart rate, vomiting, seizure, and death. Any breed or mixed-breed of dog may be affected, but breeds predisposed to high fever disorder including Greyhound, Labrador Retriever, Saint Bernard, Pointer breeds, Doberman, Border Collie, and American Cocker Spaniel are at higher risk for hops poisoning.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/hops/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:22Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "hosta",
+      "name": "Hosta",
+      "scientific_name": "Hosta plataginea",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Hosta plants contain saponin phytochemicals. Ingestion by companion animals leads to gastrointestinal distress (e.g. vomiting, diarrhea) and neurological signs (e.g. lethargy, depression).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/hosta/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:22Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "jack-pulpit",
+      "name": "Jack-in-the-pulpit",
+      "scientific_name": "Arisaema triphyllum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Jack-in-the-Pulpit plant contains microscopic crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/jack-in-the-pulpit/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:22Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "jade-plant",
+      "name": "Jade Plant",
+      "scientific_name": "Crassula argentea",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Ingestion of Jade plant typically causes no more than mild gastrointestinal distress. Less commonly reported clinical signs include lethargy and ataxia (i.e wobbly gait). While clinical signs are typically mild and self-limiting, it is recommended to seek veterinary care if signs are persistent. Clinical signs to watch for include: vomiting, diarrhea, anorexia, lethargy, and ataxia (wobbly gait).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/jade-plant/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:22Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "japanese-show-lily",
+      "name": "Japanese Show Lily",
+      "scientific_name": "Lilium speciosum",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "The most dangerous and potentially fatal lilies for cats are those found in the genus Lilium and Hemerocallis. Exposure to any part of the plant, including leaves, flowers, pollen, or even the water from the vase can result in sudden kidney failure in cats. These ingestions are medical emergencies requiring immediate veterinary care. A delay of treatment can result in irreversible kidney failure. Dogs may experience minor gastrointestinal upset after ingestion of these lilies but do not appear to develop kidney damage. If you suspect your cat has ingested any part of one of these lilies, bring",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/japanese-show-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:23Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "jerusalem-cherry",
+      "name": "Jerusalem Cherry",
+      "scientific_name": "Solanum pseudocapsicum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The Jerusalem Cherry contains beautiful red to yellow berries or fruit. All parts of this plant contain the toxin, solanine. Ingestion of this plant can cause gastrointestinal irritation and ulceration, depression, and in some cases seizures.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/jerusalem-cherry/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:23Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "japanese-yew",
+      "name": "Japanese Yew",
+      "scientific_name": "Taxus sp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Yew contain highly toxic compounds called taxines within throughout the plant. Although the red flesh of the fruit is non-toxic, the fruit contains a highly toxic small seed making ingestion poisonous. Ingestion of any amount or part of Yew by small animals results in gastrointestinal distress (e.g., vomiting, diarrhea, severe drooling), neurological signs (e.g., seizure, coma), low heart rate and low respiratory rate, and death. Ingestion by horses results in rapid onset collapse and sudden death. Livestock may have sudden death after ingestion or develop weakness, difficulty breathing, stumb",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/japanese-yew/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:24Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "jonquil",
+      "name": "Jonquil",
+      "scientific_name": "Narcissus jonquilla",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Jonquils contain the alkaloid toxin lycorine within all part of the plant. Ingestion by companion animals results in gastrointestinal distress with vomiting, drooling, and retching. Ingestion of large amounts of plant including bulbs may lead to low blood pressure and weakness.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/jonquil/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:24Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "kaffir-lily",
+      "name": "Kaffir Lily",
+      "scientific_name": "Clivia minata",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Kaffir Lily contains lycorine, an alkaloid toxin, within all part of the plant. Ingestion by companion animals results in gastrointestinal distress with vomiting, drooling, and retching. Ingestion of large amounts of plant including bulbs may lead to cardiovascular signs of low blood pressure, heart rhythm disturbance and weakness plus nervous system signs of seizure. This lily does NOT cause kidney injury in cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/kaffir-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:24Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "kalanchoe",
+      "name": "Kalanchoe",
+      "scientific_name": "Kalanchoe spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Kalanchoe is a common, beautiful houseplant with hundreds of flowers (which range in color from yellow to orange, pink, or red). This plant does belong to a group of plants that contain cardiac toxins (bufadienolides). However, ingestion by dogs and cats most often results in gastrointestinal irritation or upset. If a large enough amount is ingested there may still be risk for more severe signs including changes in heart rate and rhythm, weakness, and collapse. Common signs to watch for: vomiting diarrhea abnormal heart rhythm (rare)",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/kalanchoe/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:24Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "lantana",
+      "name": "Lantana",
+      "scientific_name": "Lantana camara",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Lantana contains the toxins lantadene A & B. Ingestion by pets commonly leads to gastrointestinal distress with vomiting, diarrhea, and loss of appetite. Large ingestions by livestock results in liver injury and photosensitivity with blistering of skin.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/lantana/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:25Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "larkspur",
+      "name": "Larkspur",
+      "scientific_name": "Delphinium species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Larkspur contains diterpene alkaloid toxins. Ingestion of larkspur leads to neurological signs of weakness and paralysis. Poisoning is reported primarily in grazing livestock; however, sheep are resistant to Larkspur intoxication.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/larkspur/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:25Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "lily-valley",
+      "name": "Lily of the Valley",
+      "scientific_name": "Convallaria majalis",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Lily of the Valley contains cardenolides (cardiac toxins). Ingestion by dogs and cats often results in gastrointestinal distress with vomiting and loss of appetite but may also lead severe signs including changes in heart rate and rhythm, weakness, and seizures.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/lily-of-the-valley/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:27Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "leek",
+      "name": "Leek",
+      "scientific_name": "Allium ampeloprasum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Leeks, along with onion, garlic, and chives, belong to the Allium family; all are poisonous to dogs, cats, and livestock. Certain animal species and breeds are more sensitive to Alliums including cats and Japanese breeds of dogs (e.g., Akita, Shiba Inu). Poisonous doses of Alliums damage red blood cells leading to anemia and cause GI distress with nausea, vomiting and diarrhea.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/leek/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:28Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "lily",
+      "name": "Lily",
+      "scientific_name": "Lilium species",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "Lily of the Valley contains cardenolides (cardiac toxins). Ingestion by dogs and cats often results in gastrointestinal distress with vomiting and loss of appetite but may also lead severe signs including changes in heart rate and rhythm, weakness, and seizures.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:28Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "madagascar-dragon-tree",
+      "name": "Madagascar Dragon Tree",
+      "scientific_name": "Dracaena marginata",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Madagascar Dragon Tree plant contains plant toxins (saponins) within the leaves and stems. Ingestion by companion animals causes drooling and vomiting. Clinical signs of dilated pupils and wobbly gait reported specifically in cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/madagascar-dragon-tree/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:29Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "marble-queen",
+      "name": "Marble Queen",
+      "scientific_name": "Scindapsus aureus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Marble Queen Pothos contains microscopic crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/marble-queen/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:29Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "marigold",
+      "name": "Marigold",
+      "scientific_name": "Calendula officinalis",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "Marigolds (Tagetes species) may cause mild irritation to the gastrointestinal tract when ingested. The sap from the plant may also cause irritation to the skin if dermal exposure occurs. Calendula officinalis (pictured here) may also be referred to as pot marigold and is considered non-toxic following ingestion.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/marigold/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:30Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "mauna-loa-peace-lily",
+      "name": "Mauna Loa Peace Lily",
+      "scientific_name": "Spathiphyllum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Peace Lily contains microscopic crystals within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur. It does not result in kidney damage in cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/mauna-loa-peace-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:30Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "milkweed",
+      "name": "Milkweed",
+      "scientific_name": "Asclepias species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Several types of plants contain naturally-occurring poisons that affect the heart, specifically cardenolides or bufadienolides. These poisons are called cardiac glycoside toxins, and they interfere directly with electrolyte balance within the heart muscle. The following plants are known to contain glycosides (please see specific plant for more information): Dogbane Foxglove Giant milkweed Kalanchoe Lily of the valley Oleander Star of Bethlehem The toxins within these plants are similar to digitalis or digoxin, a common heart medication used in both human and veterinary medicine. The level of p",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/milkweed/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:31Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "morning-glory",
+      "name": "Morning Glory",
+      "scientific_name": "Ipomoea spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Morning Glory contains ergot alkaloid toxins primarily in their seeds. Ingestion of a large number of Morning Glory seeds may cause in hallucinatory behavior in pet animals. Ingestion of foliage/ flowers by dogs or cats results in gastrointestinal distress (e.g., vomiting, diarrhea).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/morning-glory/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:31Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "oleander",
+      "name": "Oleander",
+      "scientific_name": "Nerium oleander",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Oleander contains oleandrin, a cardiac glycoside toxin, throughout the plant. Ingestion of oleander by animals results in gastrointestinal distress (e.g., vomiting and loss of appetite), cardiovascular dysfunction (e.g., irregular heart rate and rhythm) and neurological signs (e.g., weakness, collapse).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/oleander/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:33Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "onion",
+      "name": "Onion",
+      "scientific_name": "Allium cepa",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Onion, along with chives, garlic, and leeks, belong to the Allium family; all are poisonous to dogs, cats, and livestock. Certain animal species and breeds are more sensitive to Alliums including cats and Japanese breeds of dogs (e.g., Akita, Shiba Inu). Poisonous doses of Alliums damage red blood cells leading to anemia and cause GI distress with nausea, vomiting and diarrhea.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/onion/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:33Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "peony",
+      "name": "Peony",
+      "scientific_name": "Paeonis officinalis",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Peony contains the toxin paenol. Ingestion of large amounts of peony plant by companion animals results in gastrointestinal distress (e.g. vomiting, diarrhea).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/peony/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:36Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "periwinkle",
+      "name": "Periwinkle",
+      "scientific_name": "Vinca rosea",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Periwinkle contains multiple alkaloid phytochemicals that are used in the production of both traditional and homeopathic human medications. Ingestion of 1-2 leaves or flowers of periwinkle are unlikely to lead to poisoning in companion animals, but large ingestions of periwinkle may result in gastrointestinal distress (e.g., diarrhea, vomiting), cardiovascular disturbance (e.g., low blood pressure), and neurological signs (e.g., tremor, and seizure).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/periwinkle/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:36Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "peruvian-lily",
+      "name": "Peruvian Lily",
+      "scientific_name": "Alstroemeria",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "Peruvian Lily contains irritant glycoside phytochemicals. Ingestion of Peruvian Lily by companion animals results in mild gastrointestinal distress (e.g., vomiting, drooling). Thse plants do not cause kidney damage in cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/peruvian-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:36Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "peach",
+      "name": "Peach",
+      "scientific_name": "Prunus persica",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Seeds within peach pits have small amounts of cyanide-containing compounds and enzymes. If the peach pits are thoroughly chewed free cyanide can be released triggering cyanide poisoning. Cyanide reduces the body\u2019s ability to process oxygen at a cellular level resulting in clinical signs including vomiting, drooling, gasping, collapse, seizure, and death. Because cats and dogs do not thoroughly chew their food it is unlikely that cyanide poisoning would happen following a peach pit ingestion. Ingestion of a peach pit by a small breed dog or cat may result in a gastrointestinal obstruction.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/peach/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:37Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "pencil-cactus",
+      "name": "Pencil Cactus",
+      "scientific_name": "Euphorbia tirucalli",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Euphorbia species plants may cause irritation to the mouth, gastrointestinal tract, skin, and eyes following exposure. This is largely due to the milky sap within the plant that contains numerous irritants.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/pencil-cactus/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:37Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "poinsettia",
+      "name": "Poinsettia",
+      "scientific_name": "Euphorbia pulcherrima",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "During the holidays, poinsettias are a popular Christmas plant. Though they have a bad rap, poinsettia (Euphorbia pulcherrima) plants are only mildly toxic to cats and dogs. The milky white sap found in poinsettias contains chemicals called diterpenoid euphorbol esters and saponin-like detergents. While poinsettias are commonly \u201chyped\u201d as poisonous plants, they rarely are, and the poisoning is greatly exaggerated. When ingested, mild signs of vomiting, drooling, or rarely, diarrhea may be seen. If the milky sap is exposed to skin, dermal irritation (including redness, swelling, and itchiness) ",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/poinsettia/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:38Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "poinciana",
+      "name": "Poinciana",
+      "scientific_name": "Caesalpinia gilliessi",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "This plant is also referred to as Bird of Paradise, Barbados Pride (or Pride of Barbados), and the Peacock flower. The leaves contain hydrocyanic acid (hydrogen cyanide) and the seeds/pods contain tannins. Ingestion can result in irritation of the oral cavity, drooling, pawing at the mouth, difficulty swallowing, vomiting, diarrhea and possible incoordination.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/poinciana/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:38Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "poison-hemlock",
+      "name": "Poison Hemlock",
+      "scientific_name": "Conium maculatum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Poison hemlock is a highly toxic plant that rapidly causes neurologic signs in dogs and cats, as well as grazing animals like cattle, horses and small ruminants. Immediate veterinary examination and treatment is advised for any ingestion. Poison hemlock is often misidentified as there are many plants that appear similar. A reliable plant ID is necessary. Taking pictures of the whole plant as well as close up pictures of the leaves and stems can aide in identification.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/poison-hemlock/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:39Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "poison-ivy",
+      "name": "Poison Ivy",
+      "scientific_name": "Toxicodendron species",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "Poison ivy, oak and sumac are generally considered only mildly toxic despite their names. These plants contain an oily sap called urushiol. Ingestion of these plants can cause GI upset. Skin irritation similar to what humans experience is more likely to occur when in contact with non hairy areas. A bath is indicated if your pet has knowingly been in and around these plants, but use of gloves and protective clothing should be used to avoid transfer of oils to human skin.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/poison-ivy/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:39Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "primrose",
+      "name": "Primrose",
+      "scientific_name": "Primula vulgaris",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Primrose contain toxins within the hairs upon the leaves of the plant. Skin contact with the leaves may result in dermal irritation and ingestion of Primrose can lead to gastrointestinal distress (e.g., vomiting, drooling, diarrhea) in pet animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/primrose/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:39Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "privet",
+      "name": "Privet",
+      "scientific_name": "Ligustrum japonicum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Privet contains terpenoid glycosides in all parts of the plant. Ingestion may result in GI distress (e.g., vomiting, diarrhea, loss of appetite) in companion animals and livestock. Large ingestions may lead to cardiovascular disturbances (e.g., irregular heart rhythm, cardiac arrest), neurological signs (e.g., incoordination and stumbling gait) and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/privet/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:39Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "plum",
+      "name": "Plum",
+      "scientific_name": "Prunus domestica",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Plumosa fern contains sapogenins, an irritant plant chemical, within the berries. Ingestion of the berries may result in mild gastrointestinal distress (e.g., nausea, vomiting).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/plum/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:40Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "red-lily",
+      "name": "Red Lily",
+      "scientific_name": "Lilium umbellatum",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "All parts of the Red Lily are toxic for cats. This includes any amount of leaf, stem, flower, pollen, vase water, or rhizome (root). Ingestion results in vomiting, abdominal pain, dehydration and acute kidney failure. Early treatment is vital for cats following any exposure to these lilies. For more information about lilies, including safer alternative flowers for homes with cats and educational materials, visit our No Lilies for Kitties page.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/red-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:42Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "sago-palm",
+      "name": "Sago Palm",
+      "scientific_name": "Cycas revoluta, zamia species",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Sago Palm contains cycasin, a highly toxic plant chemical. Ingestion of any part of the plant, especially the seed (or nut), may result in severe gastrointestinal distress (e.g., vomiting, diarrhea, bloody vomitus), nervous system disturbance (e.g., stumbling gait, weakness, seizure), organ failure (e.g., liver), and death. Similar plants that result in the above life-threatening poisoning if ingested include the Coontie Plant and Cardboard Palm.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/sago-palm/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:43Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "skunk-cabbage",
+      "name": "Skunk Cabbage",
+      "scientific_name": "Symplocarpus foetidus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Skunk Cabbage contains microscopic crystals (i.e., insoluble oxalates) within the plant structure. When animals chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/skunk-cabbage/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:45Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "stargazer-lily",
+      "name": "Stargazer Lily",
+      "scientific_name": "Lilium orientalis",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "All parts of the Stargazer lily are toxic for cats. This includes any amount of leaf, stem, flower, pollen, vase water, or rhizome (root). Ingestion results in vomiting, abdominal pain, dehydration and acute kidney failure. Early treatment is vital for cats following any exposure to these lilies. For more information about lilies, including safer alternative flowers for homes with cats and educational materials, visit our No Lilies for Kitties page",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/stargazer-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:46Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "striped-dracaena",
+      "name": "Striped Dracaena",
+      "scientific_name": "Dracaena deremensis",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The\u00a0striped\u00a0Dracaena\u00a0(Dracaena deremensis \u2018Warneckii\u2019)\u00a0is an evergreen-like plant that varies in size, from a small ornamental plant to a small tree. Other common names include Warneckii Dracaena and Janet Craig plant. Dracaena species plants contain saponins which may cause drooling, vomiting, weakness, incoordination and dilated pupils (cats) when ingested.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/striped-dracaena/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:47Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "sweet-pea",
+      "name": "Sweet Pea",
+      "scientific_name": "Lathyrus latifolius",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "Sweet Pea contains toxic plant compounds throughout the plant structure including the \u201cpeas\u201d or seeds. Ingestion of large amounts of Sweet Pea result in loss of appetite, lethargy, and neuromuscular signs (e.g., lameness, stumbling, circling, seizure). Grazing livestock and free-ranging poultry are at higher risk for poisoning by Sweet Pea than pet animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/sweet-pea/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:47Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "tomato-plant",
+      "name": "Tomato Plant",
+      "scientific_name": "Lycopersicon spp",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Toxic plant alkaloids are found in all parts of the tomato plant. Ripe tomatoes have the least amount of these compounds and are considered non-toxic. Companion animal or livestock that ingest large amounts of green tomatoes, leaves, or stems may develop gastrointestinal distress (e.g., vomiting, diarrhea) and neurological signs (e.g., weakness, lethargy, stumbling, disorientation).",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/tomato-plant/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:48Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "tiger-lily",
+      "name": "Tiger Lily",
+      "scientific_name": "Lilium tigrinum",
+      "safety_status": "Non-toxic to dogs",
+      "pph_toxicity_note": "All parts of the Tiger Lily are toxic for cats. This includes any amount of leaf, stem, flower, pollen, vase water, or rhizome (root). Ingestion results in vomiting, abdominal pain, dehydration and acute kidney failure. Early treatment is vital for cats following any exposure to these lilies. For more information about lilies, including safer alternative flowers for homes with cats and educational materials, visit our No Lilies for Kitties page.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/tiger-lily/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:48Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "tulip",
+      "name": "Tulip",
+      "scientific_name": "Tulipa spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Tulips and Hyacinths contain toxic plant alkaloids throughout the plant structure. The highest concentration of toxin is found in the bulbs. Pet ingestion of small amounts of leaves, stems or flowers may result in mild nausea with vomiting. Consumption of bulb material poses risk for persistent gastrointestinal distress (e.g., vomiting, loss of appetite, diarrhea, drooling) and lethargy.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/tulip/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:49Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "schefflera",
+      "name": "Umbrella Tree",
+      "scientific_name": "Schefflera",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Schefflera contains microscopic crystals (i.e., insoluble oxalates) within the plant structure. When pets chew the plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/schefflera/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:50Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "wisteria",
+      "name": "Wisteria",
+      "scientific_name": "Wisteria spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Wisteria contain toxic compounds throughout the plant and concentrated in the seeds. Ingestion of wisteria seeds \u2013 found in pea-like pods \u2013 can result in gastrointestinal distress (e.g., severe vomiting, diarrhea), dehydration, weakness and collapse in companion animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/wisteria/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:52Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "weeping-fig",
+      "name": "Weeping Fig",
+      "scientific_name": "Ficus sp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Weeping fig is one common name for Ficus benjamina. Numerous species of plants belong to the genus Ficus and contain irritating sap. Following ingestion, irritation of the mouth and gastrointestinal tract may occur. Dermal irritation is also possible if the sap gets on the pet\u2019s skin. Common signs to watch for: Decreased appetite Drooling Vomiting Diarrhea Skin irritation",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/weeping-fig/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:52Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "yucca",
+      "name": "Yucca",
+      "scientific_name": "Yucca spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "The yucca plant, which commonly grows in warm climates, contains steroidal saponins. In dogs and cats, it typically causes only mild vomiting and diarrhea and possibly pupil dilation. In grazing animals who may chronically ingest it, this plant may also cause liver and kidney signs. The sharp points on the leaves may cause mechanical injury to skin or GI tract.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/yucca/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:53Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "anthurium-anthurium",
+      "name": "Anthurium",
+      "scientific_name": "Anthurium",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Anthurium contains microscopic oxalate crystals within the plant structure. Chewing the plant releases the crystals causing irritation and pain to a pet\u2019s lips, oral cavity, and throat.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/anthurium/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:53Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "delphinium-delphinium",
+      "name": "Delphinium",
+      "scientific_name": "Delphinium",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Grazing livestock that consume large amounts of delphinium develop nervous system signs of weakness and stumbling gait plus bloating, difficulty breathing, and death. Because dogs and cats usually ingest much smaller amounts of delphinium their signs are milder and include lethargy, vomiting, and diarrhea.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/delphinium/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "euonymus-euonymus-alatus-var-rotundatus",
+      "name": "Euonymus",
+      "scientific_name": "Euonymus alatus var. rotundatus",
+      "safety_status": "May be Toxic",
+      "pph_toxicity_note": "Leaves and seeds of the ornamental shrub Euonymus contain several toxins including cardenolides, a cardiotoxic chemical. Ingestion of several leaves/ seeds of Euonymus by companion animals commonly results in stomach upset; however, irregular heart rhythm and collapse may occur following a massive ingestion.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/euonymus/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "iris-iris",
+      "name": "Iris",
+      "scientific_name": "Iris",
+      "safety_status": "May be Toxic",
+      "pph_toxicity_note": "Iris plants cause irritation if ingested or mouthed/pawed by companion animals. The irritating compounds within an iris are present in highest concentration in the rhizome or rooting part of the plant. Ingestion of iris \u2013 especially the rhizome- can result in drooling, vomiting, diarrhea, and lethargy in pets.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/iris/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "ficus-ficus",
+      "name": "Ficus",
+      "scientific_name": "Ficus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Numerous species of plants belong to the genus Ficus and contain irritating sap. Following ingestion, irritation of the mouth and gastrointestinal tract may occur. Dermal irritation is also possible if the sap gets on the pet\u2019s skin. Common signs to watch for: Decreased appetite Drooling Vomiting Diarrhea Skin irritation",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/ficus/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "ricinus-ricinus-communis",
+      "name": "Castor Bean",
+      "scientific_name": "Ricinus communis",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Castor Bean Aka African Wonder Tree contains the highly potent toxin ricin within its seed. Chewing and swallowing 1-2 seeks can lead to severe gastrointestinal signs, organ failure, and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/castor-bean/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "sansevieria-sansevieria",
+      "name": "Sansevieria",
+      "scientific_name": "Sansevieria",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Sansevieria contains plant toxins (saponins) within the leaves and stems. Ingestion by companion animals causes drooling and vomiting. Clinical signs of dilated pupils and wobbly gait reported specifically in cats.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/sansevieria/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "philodendron-philodendron",
+      "name": "Philodendron",
+      "scientific_name": "Philodendron",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Philodenron contains microscopic crystals within the plant structure. When pets chew the Philodendron plant, it releases the crystals causing irritation and pain to the pet\u2019s lips, oral cavity, and throat. Drooling, gagging, and vomiting are common signs in animals following ingestion of this plant; in rare instances severe throat swelling resulting in breathing difficulty can occur.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/philodendron/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:54Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "narcissus-narcissus",
+      "name": "Narcissus",
+      "scientific_name": "Narcissus",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Narcissus contain alkaloid toxins within all part of the plant. Ingestion by companion animals results in gastrointestinal distress with vomiting, drooling, and retching. Ingestion of large amounts of plant including bulbs may lead to low blood pressure and weakness.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/narcissus/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:55Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "ilex-ilex-aquifolium",
+      "name": "Holly",
+      "scientific_name": "Ilex aquifolium",
+      "safety_status": "May be Toxic",
+      "pph_toxicity_note": "Holly plant contains saponin plant toxins. Ingestion of holly leaves/ berries by companion animals results in nausea with vomiting and diarrhea. Physical/ painful injury to the lips and gums of pets can occur secondary to chewing the spiky leaves.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/holly/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "cyclamen-cyclamen",
+      "name": "Cyclamen",
+      "scientific_name": "Cyclamen spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Ingestion of cultivated or houseplant varieties of Cyclamen commonly cause digestive irritation with drooling, vomiting, and diarrhea. Dangerous signs of poisoning including heart arrhythmias and seizures are possible with large ingestions but uncommon.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/cyclamen/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "rhododendron-rhododendron-ponticum",
+      "name": "Rhododendron",
+      "scientific_name": "Rhododendron ponticum",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Rhododendrons contain grayanotoxins within all parts of the plant. Ingestion of rhododendron by animals results in gastrointestinal distress (e.g., vomiting, hypersalivation, drooling, colic), cardiovascular abnormalities (e.g., heart rhythm irregularity, low blood pressure), and neurological signs (e.g., depression, seizure). Severe clinical signs are expected with large ingestion (e.g., grazing by goats or cattle) but also may occur in cats or dogs that consume only a few leaves or flowers.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/rhododendron/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "daffodil-daffodil",
+      "name": "Daffodil",
+      "scientific_name": "Narcissus spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Daffodils contain alkaloid toxins within all parts of the plant with highest concentration found in the bulbs. Ingestion of daffodil plant or bulbs results in vomiting, which may be severe, leading to profound dehydration, weakness, and shock in pet animals.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/daffodil/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "daphne-daphne",
+      "name": "Daphne",
+      "scientific_name": "Daphne spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Foliage, bark and berries of Daphne contain irritant toxins. Ocular or oral contact with this plant leads to blistering, redness, and swelling of eyes, mouth, or stomach/intestines. Vomiting and diarrhea \u2013 sometimes with blood \u2013 may also occur. Daphne is toxic to companion animals (dogs and cats) and livestock.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/daphne/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "foxglove-foxglove",
+      "name": "Foxglove",
+      "scientific_name": "Digitalis spp.",
+      "safety_status": "Toxic",
+      "pph_toxicity_note": "Foxglove contains cardiac glycosides, naturally occurring chemicals that affect the heart. Ingestion of foxglove by animals can result in Stomach upset, cardiovascular changes, and death.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/foxglove/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:56Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    },
+    {
+      "id": "lupin-lupinus",
+      "name": "Lupin",
+      "scientific_name": "Lupinus",
+      "safety_status": "May be Toxic",
+      "pph_toxicity_note": "Specific wild lupines contain the alkaloid toxin anagyrine. Ingestion of seeds/ seed pods by grazing livestock during pregnancy results in fetal birth defects; sheep are the most sensitive and goats the most resistant to this toxin. Other clinical signs reported in livestock grazing wild lupine seeds/ seed pods includes sudden respiratory failure and liver disease.",
+      "pph_source_url": "https://www.petpoisonhelpline.com/poison/lupin/",
+      "source_name": "Pet Poison Helpline",
+      "source_status": "Unreviewed broader-source candidate. Cross-check against live safety_status before any catalogue change.",
+      "audit_status": "pending",
+      "audit_history": [
+        {
+          "status": "pending",
+          "performed_at": "2026-08-30T00:14:57Z",
+          "note": "Auto-added from Pet Poison Helpline harvest. Never promoted to the live catalogue automatically."
+        }
+      ]
+    }
+  ],
+  "audit_log": [
+    {
+      "plant_id": "gardenia-gardenia",
+      "plant_name": "Gardenia",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued for broader-source review and explicit toxicity labeling."
+    },
+    {
+      "plant_id": "hellebore-helleborus",
+      "plant_name": "Hellebore",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Kept in review because toxic status should remain explicit."
+    },
+    {
+      "plant_id": "euphorbia-euphorbia",
+      "plant_name": "Euphorbia",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued to keep sap irritation risk visible and labeled."
+    },
+    {
+      "plant_id": "mandevilla-mandevilla",
+      "plant_name": "Mandevilla",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued until pet-safety evidence and labeling are consistent."
+    },
+    {
+      "plant_id": "pelargonium-pelargonium",
+      "plant_name": "Pelargonium",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued as a low-risk addition that still needs explicit source-based confirmation."
+    },
+    {
+      "plant_id": "hosta-hosta",
+      "plant_name": "Hosta",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued for a well-scoped non-toxic verification pass and image/source confirmation."
+    },
+    {
+      "plant_id": "agapanthus-agapanthus",
+      "plant_name": "Agapanthus",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued to preserve toxic labeling and review transparency."
+    },
+    {
+      "plant_id": "daphne-daphne",
+      "plant_name": "Daphne",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued because pet toxicity must remain explicit and visible."
+    },
+    {
+      "plant_id": "pachysandra-pachysandra",
+      "plant_name": "Pachysandra",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:47:00Z",
+      "note": "Queued for explicit toxicity review and approval tracking."
+    },
+    {
+      "plant_id": "daffodil-daffodil",
+      "plant_name": "Daffodil",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:55:00Z",
+      "note": "Queued after ASPCA source checks confirming bulbs are toxic and should remain explicitly labeled."
+    },
+    {
+      "plant_id": "foxglove-foxglove",
+      "plant_name": "Foxglove",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:55:00Z",
+      "note": "Queued because source evidence lists it as toxic and the risk should stay visible to pet owners."
+    },
+    {
+      "plant_id": "lily-of-the-valley-lily-of-the-valley",
+      "plant_name": "Lily of the Valley",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:55:00Z",
+      "note": "Queued after hazard checks flagged it as toxic; keep it out of the dog-safe catalogue unless explicitly approved."
+    },
+    {
+      "plant_id": "oleander-oleander",
+      "plant_name": "Oleander",
+      "status": "review-only",
+      "performed_at": "2026-08-28T02:55:00Z",
+      "note": "Queued to preserve explicit toxic labeling and safety-first catalogue handling."
+    },
+    {
+      "plant_id": "agapanthus-agapanthus",
+      "plant_name": "Agapanthus",
+      "status": "approved",
+      "performed_at": "2026-08-30T00:06:41.824274+00:00",
+      "note": "Approved into the live catalogue and tagged with its toxicity status."
+    },
+    {
+      "plant_id": "cyclamen-cyclamen",
+      "plant_name": "Cyclamen",
+      "status": "approved",
+      "performed_at": "2026-08-30T00:06:47.453130+00:00",
+      "note": "Approved into the live catalogue and tagged with its toxicity status."
+    },
+    {
+      "plant_id": "daffodil-daffodil",
+      "plant_name": "Daffodil",
+      "status": "approved",
+      "performed_at": "2026-08-30T00:06:56.025119+00:00",
+      "note": "Approved into the live catalogue and tagged with its toxicity status."
+    },
+    {
+      "plant_id": "daphne-daphne",
+      "plant_name": "Daphne",
+      "status": "approved",
+      "performed_at": "2026-08-30T00:07:00.021052+00:00",
+      "note": "Approved into the live catalogue and tagged with its toxicity status."
+    },
+    {
+      "plant_id": "foxglove-foxglove",
+      "plant_name": "Foxglove",
+      "status": "approved",
+      "performed_at": "2026-08-30T00:07:02.623742+00:00",
+      "note": "Approved into the live catalogue and tagged with its toxicity status."
+    }
+  ]
+}

@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dog-Safe Garden Plants</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='plants.css') }}">
+</head>
+<body>
+  <header class="plant-header">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5">
+      <div><p class="plant-eyebrow">Garden companion</p><h1 class="mt-1 text-3xl font-bold tracking-tight">Dog-Safe Garden Plants</h1></div>
+      <div class="flex items-center gap-2">
+        <div class="dropdown-menu">
+          <button id="plant-menu-toggle" type="button" class="back-link" aria-expanded="false" aria-controls="plant-menu">☰ Menu</button>
+          <div id="plant-menu" class="dropdown-menu-content hidden">
+            <button id="plant-settings-toggle" type="button" class="dropdown-item">⚙️ Plant Settings</button>
+            <a href="{{ url_for('image_manager') }}" class="dropdown-item">📸 Photo Manager</a>
+            <a href="{{ url_for('serve_docs') }}" class="dropdown-item">📖 Documentation</a>
+            <a href="{{ url_for('ai_garden_planner') }}" class="dropdown-item">🤖 AI Garden Generator</a>
+            <hr class="my-2">
+            <a href="{{ url_for('plants') }}" class="dropdown-item">🏠 Plant home</a>
+          </div>
+        </div>
+        <label class="theme-toggle" for="plant-dark-toggle" aria-label="Toggle dark mode"><span class="theme-toggle-label">Dark mode</span><input id="plant-dark-toggle" type="checkbox" role="switch" aria-checked="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span></label>
+      </div>
+    </div>
+  </header>
+  <main class="mx-auto max-w-7xl px-5 py-8">
+    <!-- Settings Modal -->
+    <div id="plant-settings" class="hidden fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center" role="dialog" aria-modal="true">
+      <div class="bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-2xl max-h-[90vh] overflow-y-auto w-full mx-4 p-6">
+        <div class="flex justify-between items-center mb-6">
+          <h2 class="text-2xl font-bold text-stone-900 dark:text-white">⚙️ Plant Settings</h2>
+          <button onclick="document.getElementById('plant-settings').classList.add('hidden')" class="text-stone-400 hover:text-stone-600 dark:hover:text-stone-300 text-2xl">✕</button>
+        </div>
+
+        <div class="space-y-6">
+          <!-- Quick Links -->
+          <div class="rounded-lg bg-emerald-50 dark:bg-emerald-900/20 p-4 border border-emerald-200 dark:border-emerald-800">
+            <h3 class="font-bold text-stone-900 dark:text-white mb-3">📚 Quick Access</h3>
+            <div class="grid grid-cols-2 gap-2">
+              <a href="{{ url_for('image_manager') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">📸 Photo Manager</a>
+              <a href="{{ url_for('serve_docs') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">📖 View Docs</a>
+              <a href="{{ url_for('serve_doc_file', filename='FEATURES_SUMMARY.md') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">✨ Features</a>
+              <a href="{{ url_for('serve_doc_file', filename='DOG_SAFETY.md') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">🐕 Dog Safety</a>
+              <a href="{{ url_for('ai_garden_planner') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">🤖 AI Generator</a>
+            </div>
+          </div>
+
+          <!-- Plant Import -->
+          <div>
+            <h3 class="font-bold text-stone-900 dark:text-white mb-2">📥 Import dog-safe plants</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 mb-3">JSON only. Every record must include a category, non-toxic status, image, description, and HTTPS ASPCA source. Existing IDs or names are skipped.</p>
+            <input id="plant-import-file" class="block w-full text-sm mb-2 dark:bg-gray-700 dark:text-white dark:border-gray-600" type="file" accept=".json,application/json">
+            <p id="plant-import-preview" class="text-sm text-stone-500 dark:text-stone-400 mb-2">Choose a JSON file to preview it.</p>
+            <button id="plant-import-button" type="button" disabled class="rounded-lg bg-emerald-700 px-4 py-2 font-bold text-white disabled:opacity-40 hover:bg-emerald-800">Verify and import</button>
+          </div>
+
+          <!-- Photo Management -->
+          <div class="border-t border-stone-200 dark:border-stone-700 pt-4">
+            <h3 class="font-bold text-stone-900 dark:text-white mb-2">📸 Photo Management</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 mb-3">Find and update plant photos from various sources.</p>
+            <button id="bulk-find-photos" type="button" class="rounded-lg border border-emerald-700 dark:border-emerald-500 px-4 py-2 font-bold text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 mr-2">Find missing photos in bulk</button>
+          </div>
+
+          <!-- Catalogue Merge -->
+          <div class="border-t border-stone-200 dark:border-stone-700 pt-4">
+            <h3 class="font-bold text-stone-900 dark:text-white mb-2">🔄 Merge Catalogues</h3>
+            <p class="text-sm text-stone-600 dark:text-stone-400 mb-3">Merge scraped plant data into the database.</p>
+            <button id="merge-scraped-plants" type="button" class="rounded-lg border border-emerald-700 dark:border-emerald-500 px-4 py-2 font-bold text-emerald-700 dark:text-emerald-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20">Merge scraped catalogue</button>
+          </div>
+
+          <!-- Status Message -->
+          <p id="plant-import-status" class="hidden rounded-lg p-3 text-sm" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+    </div>
+    <div class="max-w-2xl"><p class="plant-eyebrow text-emerald-700">Plant thoughtfully</p><h2 class="mt-2 text-4xl font-bold tracking-tight text-stone-900">Colour, crops, and herbs for a kinder garden.</h2><p class="mt-3 text-stone-600">Browse plants listed as non-toxic to dogs by the ASPCA. Individual dogs can react differently, so avoid letting pets eat large quantities.</p></div>
+    <nav id="plant-view-tabs" class="plant-view-tabs" aria-label="Plant views">
+      <button type="button" class="plant-view-tab is-active" data-view="catalogue" aria-selected="true">Plant catalogue</button>
+      <button type="button" class="plant-view-tab" data-view="favorites" aria-selected="false">My favorites</button>
+      <button type="button" class="plant-view-tab" data-view="library" aria-selected="false">My plant library</button>
+    </nav>
+    <section id="catalogue-view" class="plant-view" aria-label="Plant catalogue">
+    <div class="mt-8 rounded-lg bg-emerald-50 dark:bg-emerald-900/20 p-4 border border-emerald-200 dark:border-emerald-800">
+      <p class="mb-2 font-semibold text-stone-900 dark:text-white">Filter by your climate zone</p>
+      <div class="flex flex-wrap gap-2 items-center">
+        <div class="flex-1 min-w-64">
+          <label class="block text-sm font-medium text-stone-700 dark:text-stone-300">Enter UK postcode</label>
+          <input id="climate-postcode-input" type="text" placeholder="e.g., SW1A 1AA, NW10" class="mt-1 w-full rounded border border-stone-300 dark:border-stone-600 px-3 py-2 text-sm bg-white dark:bg-gray-800 text-stone-900 dark:text-white">
+        </div>
+        <button id="climate-lookup-button" type="button" class="mt-6 rounded-lg bg-emerald-700 hover:bg-emerald-800 px-4 py-2 font-bold text-white disabled:opacity-40">Find my zone</button>
+        <div id="climate-zone-display" class="mt-6 text-sm text-stone-600 dark:text-stone-300"></div>
+      </div>
+      <p id="climate-status" class="mt-2 text-xs text-stone-500 dark:text-stone-400"></p>
+    </div>
+    <nav id="category-tabs" class="mt-8 flex flex-wrap gap-2" aria-label="Plant categories">
+      <button class="category-tab is-active" data-category="all">All</button><button class="category-tab" data-category="flowers">Flowers</button><button class="category-tab" data-category="fruit">Fruit</button><button class="category-tab" data-category="vegetables">Vegetables</button><button class="category-tab" data-category="herbs">Herbs</button><button class="category-tab" data-category="grasses">Grasses</button>
+    </nav>
+    <form id="plant-filters" class="plant-filters" role="search">
+      <div>
+        <label>Search plants<input id="plant-search" type="search" placeholder="Name or scientific name"></label>
+        <div id="search-correction" class="hidden mt-2 rounded border border-emerald-200 bg-emerald-50 px-2 py-1 text-xs text-emerald-800 dark:border-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">
+          <span>Did you mean </span><button id="search-correction-button" type="button" class="font-semibold underline underline-offset-2"> </button>
+        </div>
+      </div>
+      <label>Safety status<select id="safety-filter"><option value="all">All statuses</option><option value="Non-toxic to dogs">Non-toxic to dogs</option><option value="May be Toxic">May be Toxic</option><option value="Toxic">Toxic</option></select></label>
+      <label>Blooming in<select id="season-filter"><option value="all">Any time</option><option value="all-year">All year</option><option value="spring">Spring (Mar-May)</option><option value="summer">Summer (Jun-Aug)</option><option value="autumn">Autumn (Sep-Nov)</option><option value="winter">Winter (Dec-Feb)</option></select></label>
+      <label>Lifecycle<select id="lifecycle-filter"><option value="all">Any lifecycle</option><option value="annual">Annual</option><option value="hardy-annual">Hardy annual</option><option value="half-hardy-annual">Half-hardy annual</option><option value="tender-annual">Tender annual</option><option value="biennial">Biennial</option><option value="perennial">Perennial</option><option value="short-lived-perennial">Short-lived perennial</option><option value="bulb">Bulb</option><option value="shrub">Shrub</option></select></label>
+      <details id="advanced-plant-filters" class="advanced-filter-menu">
+        <summary>Advanced filters</summary>
+        <div class="advanced-filter-grid">
+          <label>Light<select id="light-filter"><option value="all">Any light</option><option value="full sun">Full sun</option><option value="partial shade">Partial shade</option><option value="full shade">Full shade</option><option value="bright indirect light">Bright indirect light</option></select></label>
+          <div class="colour-filter-group placement-chip-group">
+            <p class="placement-chip-label">Flower colour</p>
+            <div class="placement-chip-row">
+              <button type="button" class="chip-button is-active" data-colour-group="flowerColour" data-colour-value="all" aria-pressed="true">Any</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="blue">Blue</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="purple">Purple</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="pink">Pink</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="red">Red</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="orange">Orange</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="yellow">Yellow</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="white">White</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="green">Green</button>
+              <button type="button" class="chip-button" data-colour-group="flowerColour" data-colour-value="silver">Silver</button>
+            </div>
+          </div>
+          <div class="colour-filter-group placement-chip-group">
+            <p class="placement-chip-label">Foliage colour</p>
+            <div class="placement-chip-row">
+              <button type="button" class="chip-button is-active" data-colour-group="foliageColour" data-colour-value="all" aria-pressed="true">Any</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="blue">Blue</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="purple">Purple</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="pink">Pink</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="red">Red</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="orange">Orange</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="yellow">Yellow</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="white">White</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="green">Green</button>
+              <button type="button" class="chip-button" data-colour-group="foliageColour" data-colour-value="silver">Silver</button>
+            </div>
+          </div>
+          <div class="colour-filter-group placement-chip-group">
+            <p class="placement-chip-label">Pattern</p>
+            <div class="placement-chip-row">
+              <button type="button" class="chip-button is-active" data-colour-group="colourPattern" data-colour-value="all" aria-pressed="true">Any</button>
+              <button type="button" class="chip-button" data-colour-group="colourPattern" data-colour-value="bicolour">Bicolour / multicolour</button>
+              <button type="button" class="chip-button" data-colour-group="colourPattern" data-colour-value="variegated">Variegated</button>
+              <button type="button" class="chip-button" data-colour-group="colourPattern" data-colour-value="mixed">Mixed colours</button>
+            </div>
+          </div>
+          <label>Height<select id="height-filter"><option value="all">Any height</option><option value="compact">Compact (under 30 cm)</option><option value="small">Small (30-90 cm)</option><option value="medium">Medium (90-180 cm)</option><option value="large">Large (over 180 cm)</option></select></label>
+          <label>Spread<select id="spread-filter"><option value="all">Any spread</option><option value="compact">Compact (under 30 cm)</option><option value="small">Small (30-90 cm)</option><option value="medium">Medium (90-180 cm)</option><option value="large">Large (over 180 cm)</option></select></label>
+          <label>Winter tenderness<select id="tenderness-filter"><option value="all">Any tenderness</option><option value="hardy">Hardy</option><option value="half-hardy">Half-hardy</option><option value="frost-tender">Frost-tender</option></select></label>
+          <label>Container suitability<select id="container-filter"><option value="all">Any suitability</option><option value="excellent">Excellent</option><option value="very good">Very good</option><option value="possible">Possible</option></select></label>
+          <label>Watering<select id="watering-filter"><option value="all">Any watering</option><option value="dry">Dry / drought tolerant</option><option value="average">Average</option><option value="moist">Moist / evenly moist</option></select></label>
+          <label>Pollinator value<select id="pollinator-filter"><option value="all">Any value</option><option value="high">High</option><option value="moderate">Moderate</option><option value="low">Low</option></select></label>
+          <label>Fragrance<select id="fragrance-filter"><option value="all">Any fragrance</option><option value="aromatic">Aromatic / scented</option><option value="mild">Mild</option><option value="none">None</option></select></label>
+          <label>Growth habit<select id="habit-filter"><option value="all">Any habit</option><option value="upright">Upright</option><option value="clumping">Clumping</option><option value="trailing">Trailing</option><option value="spreading">Spreading</option><option value="vining">Vining</option></select></label>
+        </div>
+      </details>
+      <div class="placement-chip-group" role="group" aria-label="Placement filters">
+        <p class="placement-chip-label">Placement</p>
+        <div class="placement-chip-row">
+          <button type="button" class="chip-button is-active" data-habitat-chip="indoor" aria-pressed="true">Indoor</button>
+          <button type="button" class="chip-button is-active" data-habitat-chip="outdoor" aria-pressed="true">Outdoor</button>
+        </div>
+      </div>
+      <label class="filter-check"><input id="favorites-filter" type="checkbox"> Favourites only</label>
+      <label class="filter-check"><input id="hide-trees-filter" type="checkbox"> Hide trees</label>
+      <label class="filter-check"><input id="show-toxic-filter" type="checkbox"> Show toxic plants</label>
+      <button id="clear-plant-filters" type="button" class="clear-filters">Clear filters</button>
+    </form>
+    <div class="plant-tools mt-3">
+      <div class="view-toggle" role="group" aria-label="Plant display mode">
+        <button id="plant-view-cards" type="button" class="tool-chip is-active">Card view</button>
+        <button id="plant-view-list" type="button" class="tool-chip">List view</button>
+      </div>
+      <div class="view-toggle" role="group" aria-label="Plant review mode">
+        <button id="missing-plants-review" type="button" class="tool-chip" title="Show the broader-source plants review queue">Broader-source review queue</button>
+      </div>
+      <button id="export-plants-button" type="button" class="library-button">Export…</button>
+    </div>
+    <p id="plants-status" class="mt-5 text-sm text-stone-500" aria-live="polite">Loading plants...</p>
+    <section id="plant-grid" class="mt-4 grid gap-5 sm:grid-cols-2 lg:grid-cols-3" aria-live="polite"></section>
+    <nav id="plant-pagination" class="mt-8 flex items-center justify-center gap-2" aria-label="Plant pages">
+      <button id="pagination-prev" type="button" class="pagination-button" disabled>Previous</button>
+      <div id="pagination-pages" class="flex gap-1"></div>
+      <button id="pagination-next" type="button" class="pagination-button">Next</button>
+    </nav>
+    </section>
+    <section id="favorites-view" class="plant-view hidden" aria-labelledby="favorites-title">
+      <div><p class="plant-eyebrow text-emerald-700">Quick reference</p><h2 id="favorites-title" class="text-2xl font-bold text-stone-900">My favorite plants</h2></div>
+      <p id="favorites-status" class="mt-2 text-sm text-stone-500">Starred plants from the catalogue appear here.</p>
+      <div id="plant-favorites-list" class="mt-4 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"></div>
+    </section>
+    <section id="library-view" class="plant-view hidden" aria-labelledby="library-title">
+      <div class="flex flex-wrap items-center justify-between gap-3"><div><p class="plant-eyebrow text-emerald-700">Your garden</p><h2 id="library-title" class="text-2xl font-bold text-stone-900">My plant library</h2><p class="mt-2 text-sm text-stone-500">Track plants you grow at home with care schedules and health notes.</p></div><div class="flex gap-2"><button id="add-new-plant-button" type="button" class="library-button">+ Add plant</button><button id="export-library-csv" type="button" class="library-button">Export…</button></div></div>
+      <div id="plant-library-list" class="mt-6 space-y-4"></div>
+      <section class="watering-calendar mt-8" aria-labelledby="watering-title">
+        <h2 id="watering-title" class="text-xl font-bold text-stone-900">Care schedule</h2>
+        <p class="mt-1 text-sm text-stone-500">Upcoming watering and care tasks for your plants.</p>
+        <div id="care-tasks-list" class="mt-4 space-y-2"></div>
+      </section>
+    </section>
+    <section id="add-plant-modal" class="plant-modal hidden" role="dialog" aria-modal="true" aria-labelledby="add-plant-title">
+      <div class="plant-modal-card add-plant-modal-card">
+        <button id="add-plant-close" class="plant-modal-close" type="button" aria-label="Close add plant form">&times;</button>
+        <h2 id="add-plant-title" class="text-2xl font-bold text-stone-900">Add plant to My Garden</h2>
+        <form id="add-plant-form" class="mt-4 grid gap-4">
+          <div>
+            <label class="block text-sm font-bold" for="add-plant-search">Find a plant <span class="text-red-600">*</span></label>
+            <input id="add-plant-search" class="input mt-1" type="search" placeholder="Search by name or scientific name">
+            <div class="mt-2 flex flex-wrap gap-2" id="add-plant-category-filters"></div>
+            <div class="mt-2 grid max-h-64 gap-2 overflow-y-auto" id="add-plant-results"></div>
+            <select name="plant_id" id="add-plant-select" class="hidden" required></select>
+            <div id="add-plant-summary" class="add-plant-summary mt-3 hidden">
+              <img id="add-plant-summary-image" alt="" loading="lazy">
+              <div>
+                <p id="add-plant-summary-name" class="font-bold text-stone-900"></p>
+                <p id="add-plant-summary-scientific" class="text-sm text-stone-500"></p>
+              </div>
+            </div>
+            <p id="add-plant-selected" class="mt-2 text-sm text-emerald-700">No plant selected</p>
+          </div>
+
+          <div class="add-plant-grid">
+            <label class="block text-sm font-bold">Location name <span class="text-red-600">*</span>
+              <input name="location_name" class="input mt-1" placeholder="Patio planter" list="location-name-suggestions" required>
+              <datalist id="location-name-suggestions"></datalist>
+            </label>
+            <label class="block text-sm font-bold">Location zone
+              <input name="location_zone" class="input mt-1" placeholder="Front raised bed" list="location-zone-suggestions">
+              <datalist id="location-zone-suggestions"></datalist>
+            </label>
+            <div>
+              <label class="block text-sm font-bold">Date planted</label>
+              <input name="date_planted" type="date" class="input mt-1">
+              <div class="mt-2 flex gap-2">
+                <button id="add-plant-date-today" type="button" class="chip-button">Today</button>
+                <button id="add-plant-date-last-week" type="button" class="chip-button">Last week</button>
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-bold">Quantity</label>
+              <div class="qty-stepper mt-1">
+                <button id="add-plant-qty-dec" type="button" aria-label="Decrease quantity">−</button>
+                <input id="add-plant-qty-input" name="quantity_planted" type="number" min="1" step="1" value="1" class="input">
+                <button id="add-plant-qty-inc" type="button" aria-label="Increase quantity">+</button>
+              </div>
+            </div>
+            <label class="block text-sm font-bold">Source nursery
+              <input name="source_nursery" class="input mt-1" placeholder="Nursery or shop">
+            </label>
+            <label class="block text-sm font-bold add-plant-notes">Notes
+              <textarea name="plant_notes" class="input mt-1" rows="3"></textarea>
+            </label>
+          </div>
+          <div class="add-plant-footer">
+            <button id="save-add-another-button" class="button-secondary" type="button">Save & add another</button>
+            <button class="button" type="submit">Save to My Garden</button>
+          </div>
+        </form>
+        <p id="add-plant-status" class="mt-3 text-sm" role="status"></p>
+      </div>
+    </section>
+  </main>
+  <div id="plants-export-modal" class="plant-modal hidden" role="dialog" aria-modal="true" aria-labelledby="plants-export-title">
+    <div class="plant-modal-card plants-export-modal-card">
+      <button id="plants-export-close" class="plant-modal-close" type="button" aria-label="Close export menu">&times;</button>
+      <h2 id="plants-export-title" class="text-2xl font-bold text-stone-900">Export plants data</h2>
+      <p class="mt-2 text-sm text-stone-500">Choose a dataset, format, and preview before download.</p>
+      <div class="mt-4 grid gap-4 md:grid-cols-2">
+        <div class="space-y-3">
+          <label class="block text-sm font-bold">Dataset
+            <select id="plants-export-scope" class="input mt-1">
+              <option value="catalogue_all">Full catalogue (includes toxic)</option>
+              <option value="catalogue_visible">Catalogue results (current filters)</option>
+              <option value="catalogue_page">Catalogue current page</option>
+              <option value="favorites">My favorites</option>
+              <option value="library">My plant library</option>
+            </select>
+          </label>
+          <label class="block text-sm font-bold">Format
+            <select id="plants-export-format" class="input mt-1">
+              <option value="csv">CSV</option>
+              <option value="tsv">TSV</option>
+              <option value="json">JSON</option>
+              <option value="ndjson">NDJSON (JSON Lines)</option>
+              <option value="markdown">Markdown table</option>
+              <option value="html">HTML table</option>
+            </select>
+          </label>
+          <label class="block text-sm font-bold">Filename
+            <input id="plants-export-filename" class="input mt-1" value="plants-export">
+          </label>
+          <label class="filter-check"><input id="plants-export-headers" type="checkbox" checked> Include headers</label>
+          <p id="plants-export-meta" class="text-xs text-stone-500"></p>
+        </div>
+        <div>
+          <p class="text-sm font-bold text-stone-700">Preview</p>
+          <pre id="plants-export-preview" class="mt-2 max-h-72 overflow-auto rounded-lg border border-stone-200 bg-stone-50 p-3 text-xs text-stone-700"></pre>
+        </div>
+      </div>
+      <div class="mt-5 flex justify-end gap-2">
+        <button id="plants-export-cancel" type="button" class="button-secondary">Cancel</button>
+        <button id="plants-export-download" type="button" class="button">Download export</button>
+      </div>
+    </div>
+  </div>
+  <div id="plant-profile-modal" class="plant-modal hidden" role="dialog" aria-modal="true" aria-labelledby="plant-profile-title"><div class="plant-modal-card"><button id="plant-profile-close" class="plant-modal-close" type="button" aria-label="Close plant profile">&times;</button><div id="plant-profile-content"></div></div></div>
+  <footer class="border-t border-stone-200 bg-white py-5 text-center text-xs text-stone-400">
+    <p>Built with care for gardeners &amp; their dogs.</p>
+    <p class="mt-1">Developed by <a href="https://github.com/28Riptide12" target="_blank" rel="noopener" class="font-medium text-stone-500 underline decoration-stone-300 underline-offset-2 transition-colors hover:text-emerald-600 hover:decoration-emerald-400">Riptide</a> &middot; <span>&copy; 2025</span></p>
+  </footer>
+  <script src="{{ url_for('static', filename='plants.js') }}?v=20260827"></script>
+</body>
+</html>

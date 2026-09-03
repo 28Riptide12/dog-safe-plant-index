@@ -1,0 +1,9 @@
+__pycache__/
+.venv/
+.pytest_cache/
+backups/
+plant_user_data.db
+plant_image_cache/
+database/image_stats.json
+data/generated-json/
+*.log

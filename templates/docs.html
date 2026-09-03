@@ -1,0 +1,343 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Documentation - Dog-Safe Garden Plants</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+  <style>
+    :root {
+      --doc-bg: #ffffff;
+      --doc-panel: #fafaf9;
+      --doc-border: #e7e5e4;
+      --doc-text: #292524;
+      --doc-muted: #57534e;
+      --doc-link: #047857;
+      --doc-link-hover: #059669;
+    }
+    body { background: #f5f5f4; color: var(--doc-text); }
+    .progress-wrap { position: sticky; top: 0; z-index: 40; height: 4px; background: rgba(0, 0, 0, 0.08); }
+    .progress-bar { height: 100%; width: 0%; background: linear-gradient(90deg, #10b981, #34d399); transition: width 0.1s linear; }
+    .docs-grid { display: grid; grid-template-columns: 280px minmax(0, 1fr); gap: 1.25rem; align-items: start; }
+    .docs-sidebar { position: sticky; top: 1rem; border: 1px solid var(--doc-border); background: var(--doc-bg); border-radius: 0.75rem; padding: 1rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+    .docs-panel { border: 1px solid var(--doc-border); background: var(--doc-bg); border-radius: 0.75rem; padding: 1.5rem; box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05); }
+    .sidebar-title { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #78716c; margin-bottom: 0.6rem; }
+    .doc-switcher { display: grid; gap: 0.45rem; margin-bottom: 1rem; }
+    .doc-link { display: block; padding: 0.45rem 0.6rem; border-radius: 0.45rem; font-size: 0.92rem; color: var(--doc-muted); text-decoration: none; border: 1px solid transparent; }
+    .doc-link:hover { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
+    .doc-link.active { background: #ecfdf5; color: #065f46; border-color: #6ee7b7; font-weight: 700; }
+    .toc-filter { width: 100%; border: 1px solid var(--doc-border); border-radius: 0.5rem; padding: 0.5rem 0.65rem; font-size: 0.9rem; margin-bottom: 0.75rem; outline: none; background: var(--doc-panel); color: var(--doc-text); }
+    .toc-filter:focus { border-color: #34d399; box-shadow: 0 0 0 3px rgba(52, 211, 153, 0.2); }
+    .toc-list { max-height: 48vh; overflow: auto; padding-right: 0.2rem; }
+    .toc-item { display: block; color: #44403c; text-decoration: none; font-size: 0.86rem; line-height: 1.35; padding: 0.35rem 0.4rem; border-radius: 0.4rem; margin-bottom: 0.2rem; }
+    .toc-item[data-level="3"] { padding-left: 1rem; font-size: 0.82rem; color: #57534e; }
+    .toc-item:hover { background: #f0fdf4; color: #065f46; }
+    .toc-item.active { background: #d1fae5; color: #065f46; font-weight: 700; }
+    .heading-anchor { opacity: 0; margin-left: 0.35rem; font-size: 0.9rem; text-decoration: none; color: #10b981; transition: opacity 0.15s ease; }
+    .doc-content h1:hover .heading-anchor, .doc-content h2:hover .heading-anchor, .doc-content h3:hover .heading-anchor { opacity: 1; }
+    .doc-section { border: 1px solid var(--doc-border); border-radius: 0.65rem; background: var(--doc-panel); margin-bottom: 0.85rem; overflow: hidden; }
+    .doc-section > summary { list-style: none; cursor: pointer; padding: 0.8rem 1rem; background: rgba(16, 185, 129, 0.08); border-bottom: 1px solid var(--doc-border); }
+    .doc-section > summary::-webkit-details-marker { display: none; }
+    .doc-section > summary::after { content: '▾'; float: right; font-size: 0.9rem; opacity: 0.8; }
+    .doc-section:not([open]) > summary::after { content: '▸'; }
+    .doc-section > summary h2 { margin: 0; border: 0; padding: 0; font-size: 1.25rem; display: inline; }
+    .doc-section > *:not(summary) { margin-left: 1rem; margin-right: 1rem; }
+    .section-controls { display: flex; gap: 0.5rem; justify-content: flex-end; margin-bottom: 0.75rem; }
+    .section-controls button { border: 1px solid var(--doc-border); background: var(--doc-bg); color: var(--doc-muted); border-radius: 0.45rem; padding: 0.3rem 0.55rem; font-size: 0.78rem; font-weight: 700; }
+    .section-controls button:hover { border-color: #6ee7b7; color: #065f46; background: #ecfdf5; }
+    .doc-pager { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.25rem; padding-top: 1rem; border-top: 1px solid var(--doc-border); }
+    .doc-pager a, .doc-pager span { display: block; border: 1px solid var(--doc-border); border-radius: 0.6rem; padding: 0.7rem 0.8rem; text-decoration: none; font-size: 0.9rem; }
+    .doc-pager a { background: var(--doc-bg); color: var(--doc-text); }
+    .doc-pager a:hover { border-color: #6ee7b7; background: #ecfdf5; }
+    .doc-pager .next { text-align: right; }
+    .doc-pager span { color: #9ca3af; background: transparent; }
+    .doc-content { line-height: 1.75; }
+    .doc-content h1 { font-size: 2.25rem; font-weight: 800; margin-top: 2rem; margin-bottom: 1rem; color: #292524; }
+    .doc-content h2 { font-size: 1.875rem; font-weight: 700; margin-top: 1.75rem; margin-bottom: 0.75rem; color: #292524; border-bottom: 2px solid #ecfdf5; padding-bottom: 0.5rem; }
+    .doc-content h3 { font-size: 1.5rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #292524; }
+    .doc-content h4, .doc-content h5, .doc-content h6 { font-weight: 700; margin-top: 1.25rem; margin-bottom: 0.5rem; }
+    .doc-content p { margin-bottom: 1rem; color: #57534e; }
+    .doc-content ul, .doc-content ol { margin-left: 1.5rem; margin-bottom: 1rem; }
+    .doc-content li { margin-bottom: 0.5rem; color: #57534e; }
+    .doc-content code { background-color: #f5f5f4; padding: 0.25rem 0.5rem; border-radius: 0.375rem; font-family: 'Courier New', monospace; color: #14532d; font-size: 0.9em; }
+    .doc-content pre { background-color: #292524; color: #ecfdf5; padding: 1rem; border-radius: 0.5rem; overflow-x: auto; margin-bottom: 1rem; }
+    .doc-content pre code { background: none; padding: 0; border-radius: 0; color: inherit; }
+    .doc-content a { color: var(--doc-link); text-decoration: underline; }
+    .doc-content a:hover { color: var(--doc-link-hover); }
+    .doc-content blockquote { border-left: 4px solid #047857; padding-left: 1rem; margin-left: 0; margin-bottom: 1rem; color: #57534e; font-style: italic; }
+    .doc-content table { width: 100%; border-collapse: collapse; margin-bottom: 1rem; }
+    .doc-content table th { background-color: #ecfdf5; padding: 0.75rem; text-align: left; font-weight: 700; border: 1px solid #d1fae5; }
+    .doc-content table td { padding: 0.75rem; border: 1px solid #d1fae5; }
+    .doc-content table tr:nth-child(even) { background-color: #f0fdf4; }
+    body.dark-mode { background-color: #111827; color: #ecfdf5; --doc-bg: #1f2937; --doc-panel: #111827; --doc-border: #374151; --doc-text: #ecfdf5; --doc-muted: #cbd5e1; --doc-link: #7dd3b0; --doc-link-hover: #6ee7b7; }
+    body.dark-mode .docs-sidebar, body.dark-mode .docs-panel { box-shadow: none; }
+    body.dark-mode .doc-link { color: #cbd5e1; }
+    body.dark-mode .doc-link:hover, body.dark-mode .doc-link.active { background: rgba(16, 185, 129, 0.2); color: #ecfdf5; border-color: rgba(110, 231, 183, 0.35); }
+    body.dark-mode .sidebar-title { color: #9ca3af; }
+    body.dark-mode .toc-item { color: #d1d5db; }
+    body.dark-mode .toc-item[data-level="3"] { color: #9ca3af; }
+    body.dark-mode .toc-item:hover, body.dark-mode .toc-item.active { background: rgba(16, 185, 129, 0.2); color: #ecfdf5; }
+    body.dark-mode .toc-filter { background: #111827; color: #e5e7eb; border-color: #374151; }
+    body.dark-mode .doc-section > summary { background: rgba(16, 185, 129, 0.18); }
+    body.dark-mode .section-controls button { color: #cbd5e1; background: #111827; border-color: #374151; }
+    body.dark-mode .section-controls button:hover { color: #ecfdf5; border-color: rgba(110, 231, 183, 0.35); background: rgba(16, 185, 129, 0.2); }
+    body.dark-mode .doc-pager a { color: #ecfdf5; background: #111827; border-color: #374151; }
+    body.dark-mode .doc-pager a:hover { background: rgba(16, 185, 129, 0.2); border-color: rgba(110, 231, 183, 0.35); }
+    body.dark-mode .doc-pager span { color: #6b7280; border-color: #374151; }
+    body.dark-mode .doc-content h1, body.dark-mode .doc-content h2, body.dark-mode .doc-content h3, body.dark-mode .doc-content h4, body.dark-mode .doc-content h5, body.dark-mode .doc-content h6 { color: #ecfdf5; }
+    body.dark-mode .doc-content h2 { border-bottom-color: rgba(18, 88, 63, 0.32); }
+    body.dark-mode .doc-content p, body.dark-mode .doc-content li { color: #cbd5e1; }
+    body.dark-mode .doc-content code { background-color: #1f2937; color: #7dd3b0; }
+    body.dark-mode .doc-content a { color: #7dd3b0; }
+    body.dark-mode .doc-content a:hover { color: #6ee7b7; }
+    body.dark-mode .doc-content blockquote { border-left-color: #7dd3b0; color: #cbd5e1; }
+    body.dark-mode .doc-content table th { background-color: rgba(18, 88, 63, 0.32); border-color: rgba(110, 231, 183, 0.2); }
+    body.dark-mode .doc-content table td { border-color: rgba(110, 231, 183, 0.2); }
+    body.dark-mode .doc-content table tr:nth-child(even) { background-color: rgba(18, 88, 63, 0.16); }
+    @media (max-width: 1024px) {
+      .docs-grid { grid-template-columns: 1fr; }
+      .docs-sidebar { position: static; }
+      .toc-list { max-height: 32vh; }
+    }
+  </style>
+</head>
+<body>
+  <header class="bg-green-900 text-white">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5">
+      <div>
+        <p class="text-xs font-bold tracking-widest uppercase">Documentation</p>
+        <h1 class="mt-1 text-3xl font-bold tracking-tight">Dog-Safe Garden Plants</h1>
+      </div>
+      <div class="flex items-center gap-2">
+        <label class="flex items-center gap-2 border border-white border-opacity-45 rounded px-3 py-2 text-sm font-bold cursor-pointer hover:bg-white hover:bg-opacity-10">
+          <span>Dark mode</span>
+          <input id="doc-dark-toggle" type="checkbox" class="w-4 h-4">
+        </label>
+        <a href="{{ url_for('plants') }}" class="border border-white border-opacity-45 rounded px-3 py-2 text-sm font-bold hover:bg-white hover:bg-opacity-10">← Back to plants</a>
+      </div>
+    </div>
+  </header>
+  <div class="progress-wrap" aria-hidden="true"><div id="reading-progress" class="progress-bar"></div></div>
+
+  <main class="mx-auto max-w-7xl px-5 py-8">
+    <div class="docs-grid">
+      <aside class="docs-sidebar" aria-label="Documentation navigation">
+        <p class="sidebar-title">Library</p>
+        <nav class="doc-switcher" id="doc-switcher">
+          <a class="doc-link" href="{{ url_for('serve_docs') }}">Overview</a>
+          <a class="doc-link" href="{{ url_for('serve_doc_file', filename='PLANTS_GUIDE.md') }}">Plant Guide</a>
+          <a class="doc-link" href="{{ url_for('serve_doc_file', filename='FEATURES.md') }}">Features</a>
+          <a class="doc-link" href="{{ url_for('serve_doc_file', filename='FEATURES_SUMMARY.md') }}">Features Summary</a>
+          <a class="doc-link" href="{{ url_for('serve_doc_file', filename='PLANT_CARE.md') }}">Plant Care</a>
+          <a class="doc-link" href="{{ url_for('serve_doc_file', filename='DOG_SAFETY.md') }}">Dog Safety</a>
+        </nav>
+        <p class="sidebar-title">On this page</p>
+        <input id="toc-filter" class="toc-filter" type="search" placeholder="Filter sections...">
+        <nav id="toc-list" class="toc-list" aria-label="Table of contents"></nav>
+      </aside>
+      <section class="docs-panel">
+        <article class="doc-content" id="doc-content"></article>
+        <nav id="doc-pager" class="doc-pager" aria-label="Documentation pager"></nav>
+      </section>
+    </div>
+  </main>
+
+  <footer class="border-t border-stone-200 bg-stone-50 py-8 text-center text-sm text-stone-600">
+    <div class="mx-auto max-w-7xl px-5">
+      <p>&copy; 2025 Dog-Safe Garden Plants. All documentation and plant information is provided for educational purposes.</p>
+      <p class="mt-2">Always verify information with your veterinarian before introducing new plants to your garden.</p>
+      <p class="mt-2 text-xs text-stone-400">Developed by <a href="https://github.com/28Riptide12" target="_blank" rel="noopener" class="font-medium underline decoration-stone-300 underline-offset-2 transition-colors hover:text-emerald-600 hover:decoration-emerald-400">Riptide</a></p>
+    </div>
+  </footer>
+
+  <script>
+    function slugify(text) {
+      return String(text || '')
+        .toLowerCase()
+        .trim()
+        .replace(/[^\w\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-');
+    }
+
+    function highlightActiveDocLink() {
+      const path = window.location.pathname.toLowerCase();
+      document.querySelectorAll('#doc-switcher .doc-link').forEach(link => {
+        const href = (link.getAttribute('href') || '').toLowerCase();
+        link.classList.toggle('active', href === path);
+      });
+    }
+
+    function setupReadingProgress() {
+      const bar = document.getElementById('reading-progress');
+      if (!bar) return;
+      const update = () => {
+        const doc = document.documentElement;
+        const scrollTop = doc.scrollTop || document.body.scrollTop;
+        const scrollHeight = doc.scrollHeight - doc.clientHeight;
+        const pct = scrollHeight > 0 ? (scrollTop / scrollHeight) * 100 : 0;
+        bar.style.width = `${Math.max(0, Math.min(100, pct))}%`;
+      };
+      update();
+      window.addEventListener('scroll', update, { passive: true });
+      window.addEventListener('resize', update);
+    }
+
+    function makeCollapsibleSections() {
+      const root = document.getElementById('doc-content');
+      if (!root) return;
+      const headings = Array.from(root.querySelectorAll('h2'));
+      if (headings.length < 3) return;
+
+      headings.forEach((heading, index) => {
+        if (heading.closest('details.doc-section')) return;
+        const details = document.createElement('details');
+        details.className = 'doc-section';
+        details.open = index < 4;
+        const summary = document.createElement('summary');
+        summary.className = 'doc-section-summary';
+        heading.parentNode.insertBefore(details, heading);
+        summary.appendChild(heading);
+        details.appendChild(summary);
+        let cursor = details.nextSibling;
+        while (cursor && !(cursor.nodeType === 1 && cursor.tagName === 'H2')) {
+          const next = cursor.nextSibling;
+          details.appendChild(cursor);
+          cursor = next;
+        }
+      });
+
+      const controls = document.createElement('div');
+      controls.className = 'section-controls';
+      controls.innerHTML = '<button type="button" id="expand-sections">Expand all</button><button type="button" id="collapse-sections">Collapse all</button>';
+      root.insertBefore(controls, root.firstChild);
+      controls.querySelector('#expand-sections')?.addEventListener('click', () => root.querySelectorAll('details.doc-section').forEach(section => { section.open = true; }));
+      controls.querySelector('#collapse-sections')?.addEventListener('click', () => root.querySelectorAll('details.doc-section').forEach(section => { section.open = false; }));
+    }
+
+    function buildToc() {
+      const root = document.getElementById('doc-content');
+      const tocList = document.getElementById('toc-list');
+      if (!root || !tocList) return;
+
+      const headings = Array.from(root.querySelectorAll('h2, h3'));
+      if (!headings.length) {
+        tocList.innerHTML = '<p class="text-sm text-stone-500">No sections found.</p>';
+        return;
+      }
+
+      const usedIds = new Set();
+      headings.forEach(heading => {
+        if (!heading.id) {
+          let base = slugify(heading.textContent);
+          if (!base) base = 'section';
+          let candidate = base;
+          let i = 2;
+          while (usedIds.has(candidate) || document.getElementById(candidate)) {
+            candidate = `${base}-${i}`;
+            i += 1;
+          }
+          heading.id = candidate;
+          usedIds.add(candidate);
+        }
+
+        const anchor = document.createElement('a');
+        anchor.className = 'heading-anchor';
+        anchor.href = `#${heading.id}`;
+        anchor.textContent = '#';
+        anchor.setAttribute('aria-label', `Link to section ${heading.textContent.trim()}`);
+        heading.appendChild(anchor);
+      });
+
+      tocList.innerHTML = headings.map(heading => {
+        const level = heading.tagName === 'H3' ? '3' : '2';
+        return `<a class="toc-item" data-level="${level}" data-target="${heading.id}" href="#${heading.id}">${heading.textContent.replace('#', '').trim()}</a>`;
+      }).join('');
+
+      const tocItems = Array.from(tocList.querySelectorAll('.toc-item'));
+      const observer = new IntersectionObserver(entries => {
+        const visible = entries
+          .filter(entry => entry.isIntersecting)
+          .sort((a, b) => a.boundingClientRect.top - b.boundingClientRect.top)[0];
+        if (!visible) return;
+        const id = visible.target.id;
+        tocItems.forEach(item => item.classList.toggle('active', item.dataset.target === id));
+      }, { rootMargin: '0px 0px -70% 0px', threshold: [0, 1] });
+      headings.forEach(heading => observer.observe(heading));
+    }
+
+    function setupTocFilter() {
+      const filterInput = document.getElementById('toc-filter');
+      const tocList = document.getElementById('toc-list');
+      if (!filterInput || !tocList) return;
+      filterInput.addEventListener('input', () => {
+        const query = filterInput.value.trim().toLowerCase();
+        tocList.querySelectorAll('.toc-item').forEach(item => {
+          item.style.display = item.textContent.toLowerCase().includes(query) ? '' : 'none';
+        });
+      });
+    }
+
+    function setupDocPager() {
+      const pager = document.getElementById('doc-pager');
+      if (!pager) return;
+      const docs = [
+        { url: '/docs', label: 'Overview' },
+        { url: '/docs/PLANTS_GUIDE.md', label: 'Plant Guide' },
+        { url: '/docs/FEATURES.md', label: 'Features' },
+        { url: '/docs/FEATURES_SUMMARY.md', label: 'Features Summary' },
+        { url: '/docs/PLANT_CARE.md', label: 'Plant Care' },
+        { url: '/docs/DOG_SAFETY.md', label: 'Dog Safety' }
+      ];
+      const path = window.location.pathname;
+      const index = docs.findIndex(doc => doc.url.toLowerCase() === path.toLowerCase());
+      const activeIndex = index === -1 ? 0 : index;
+      const prev = docs[activeIndex - 1];
+      const next = docs[activeIndex + 1];
+      pager.innerHTML = `
+        ${prev ? `<a href="${prev.url}" class="prev">← ${prev.label}</a>` : '<span class="prev">Start of docs</span>'}
+        ${next ? `<a href="${next.url}" class="next">${next.label} →</a>` : '<span class="next">End of docs</span>'}
+      `;
+    }
+
+    const content = {{ content_json | safe }};
+    if (typeof marked !== 'undefined' && content) {
+      try {
+        const parsed = marked.parse(content);
+        document.getElementById('doc-content').innerHTML = parsed;
+        document.querySelectorAll('#doc-content a[href]').forEach(link => {
+          const href = link.getAttribute('href');
+          if (!href || href.startsWith('#')) return;
+          if (/^(https?:|mailto:|tel:)/i.test(href)) return;
+          const match = href.match(/^([^#]+\.md)(#.*)?$/i);
+          if (match) {
+            const filePart = match[1].replace(/^\.?\//, '');
+            const hashPart = match[2] || '';
+            link.setAttribute('href', `/docs/${filePart}${hashPart}`);
+          }
+        });
+        highlightActiveDocLink();
+        makeCollapsibleSections();
+        buildToc();
+        setupTocFilter();
+        setupDocPager();
+        setupReadingProgress();
+      } catch (e) {
+        console.error('Markdown parsing error:', e);
+        document.getElementById('doc-content').innerHTML = '<pre>' + content + '</pre>';
+      }
+    }
+
+    const darkToggle = document.getElementById('doc-dark-toggle');
+    const savedDarkMode = localStorage.getItem('docDarkMode') === '1';
+    function applyDarkMode(enabled) {
+      document.body.classList.toggle('dark-mode', enabled);
+      darkToggle.checked = enabled;
+      localStorage.setItem('docDarkMode', enabled ? '1' : '0');
+    }
+    applyDarkMode(savedDarkMode);
+    darkToggle?.addEventListener('change', e => applyDarkMode(e.target.checked));
+  </script>
+</body>
+</html>

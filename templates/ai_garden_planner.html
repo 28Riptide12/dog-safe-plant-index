@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Garden Planner</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .fade-in {
+            animation: fadeIn 0.3s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .plant-suggestion {
+            border-left: 4px solid #22c55e;
+            padding-left: 16px;
+        }
+        .loading {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 3px solid #e5e7eb;
+            border-radius: 50%;
+            border-top-color: #22c55e;
+            animation: spin 0.8s linear infinite;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-emerald-50 via-white to-green-50">
+    <div class="min-h-screen">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-200">
+            <div class="max-w-6xl mx-auto px-6 py-8">
+                <div class="flex items-center gap-3 mb-4">
+                    <div class="text-4xl">🌱</div>
+                    <div>
+                        <h1 class="text-3xl font-bold text-emerald-700">AI Garden Planner</h1>
+                        <p class="text-gray-600">Describe your garden, get personalized plant recommendations</p>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="max-w-6xl mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Input Panel -->
+                <div class="lg:col-span-1">
+                    <div class="bg-white rounded-lg shadow-lg p-6 sticky top-6">
+                        <h2 class="text-xl font-bold text-gray-900 mb-6">Describe Your Garden</h2>
+                        
+                        <!-- Garden Size -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Garden Size</label>
+                            <select id="garden-size" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                <option value="">Select size...</option>
+                                <option value="small">Small (under 5m²)</option>
+                                <option value="medium">Medium (5-20m²)</option>
+                                <option value="large">Large (20m²+)</option>
+                            </select>
+                        </div>
+
+                        <!-- Sunlight -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Sunlight</label>
+                            <select id="sunlight" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                <option value="">Select exposure...</option>
+                                <option value="full-sun">Full sun (6+ hours)</option>
+                                <option value="partial-sun">Partial sun (3-6 hours)</option>
+                                <option value="shade">Partial shade (1-3 hours)</option>
+                                <option value="full-shade">Full shade (less than 1 hour)</option>
+                            </select>
+                        </div>
+
+                        <!-- Soil Type -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Soil Type</label>
+                            <select id="soil-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                <option value="">Select soil...</option>
+                                <option value="clay">Clay (heavy, moist)</option>
+                                <option value="loam">Loam (balanced)</option>
+                                <option value="sandy">Sandy (well-draining)</option>
+                                <option value="rocky">Rocky (poor)</option>
+                            </select>
+                        </div>
+
+                        <!-- Climate Zone -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">UK Hardiness Zone</label>
+                            <input type="text" id="climate-zone" placeholder="e.g., H4, H5" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                        </div>
+
+                        <!-- Special Preferences -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">What would you like?</label>
+                            <div class="space-y-2">
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" id="pref-flowers" value="flowers" checked>
+                                    <span class="text-sm">Flowers (color & pollinator-friendly)</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" id="pref-herbs" value="herbs">
+                                    <span class="text-sm">Herbs (culinary or medicinal)</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" id="pref-vegetables" value="vegetables">
+                                    <span class="text-sm">Vegetables (edible)</span>
+                                </label>
+                                <label class="flex items-center gap-2">
+                                    <input type="checkbox" id="pref-low-maintenance" value="low-maintenance">
+                                    <span class="text-sm">Low maintenance</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Additional Notes -->
+                        <div class="mb-6">
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Additional Details</label>
+                            <textarea id="garden-notes" placeholder="E.g., 'I want a cutting garden', 'Need groundcover for slopes', 'Want plants that attract butterflies'" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent resize-none h-24"></textarea>
+                        </div>
+
+                        <div class="mb-6 rounded-lg border border-emerald-200 bg-emerald-50 p-4">
+                            <p class="text-sm font-semibold text-emerald-800 mb-3">Budget mode + planter setup</p>
+                            <label class="flex items-center gap-2 text-sm text-gray-700 mb-3">
+                                <input type="checkbox" id="budget-mode">
+                                Enable budget mode (max spend + cheapest delivered mix)
+                            </label>
+                            <div class="grid grid-cols-1 gap-3">
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">Max spend (£)</label>
+                                    <input type="number" id="budget-max" min="1" step="0.01" placeholder="e.g., 200" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">Delivery postcode (optional)</label>
+                                    <input type="text" id="budget-postcode" placeholder="e.g., DY10 1AX" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-medium text-gray-600 mb-1">Planter count</label>
+                                    <input type="number" id="planter-count" min="1" max="50" value="3" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-emerald-500 focus:border-transparent">
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Generate Button -->
+                        <button id="generate-btn" class="w-full bg-emerald-600 text-white py-3 rounded-lg font-semibold hover:bg-emerald-700 transition-colors flex items-center justify-center gap-2">
+                            <span>✨ Generate Garden Plan</span>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Results Panel -->
+                <div class="lg:col-span-2">
+                    <div id="results-container" class="space-y-6">
+                        <!-- Initial state -->
+                        <div class="bg-white rounded-lg shadow-lg p-12 text-center">
+                            <div class="text-6xl mb-4">🌿</div>
+                            <h3 class="text-2xl font-bold text-gray-900 mb-3">Ready to Plan Your Garden?</h3>
+                            <p class="text-gray-600 text-lg">Fill in your garden details and I'll suggest plants perfectly suited to your space and style.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-gray-50 border-t border-gray-200 mt-16 py-8">
+            <div class="max-w-6xl mx-auto px-6 text-center text-gray-600">
+                <p>All plant recommendations are verified to be non-toxic to dogs by the ASPCA</p>
+                <p class="text-sm mt-2">AI suggestions are based on UK growing conditions. Verify your hardiness zone before planting.</p>
+                <p class="text-xs mt-3 text-gray-400">Developed by <a href="https://github.com/28Riptide12" target="_blank" rel="noopener" class="font-medium underline decoration-gray-300 underline-offset-2 transition-colors hover:text-emerald-600 hover:decoration-emerald-400">Riptide</a></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        const generateBtn = document.getElementById('generate-btn');
+        const resultsContainer = document.getElementById('results-container');
+        const plannerState = { recommendations: [], selectedIds: new Set(), criteria: null, zoneAssignments: {}, draggedPlantId: null };
+        const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+
+        function escapeHtml(value) {
+            return String(value || '').replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));
+        }
+        function text(value) { return String(value || '').toLowerCase(); }
+        function popupText() { return document.querySelector('[data-popup-body]'); }
+
+        function showPopup(message, title = 'Notice') {
+            const overlay = document.createElement('div');
+            overlay.style.cssText = 'position:fixed;inset:0;background:rgba(15,23,42,0.55);display:flex;align-items:center;justify-content:center;z-index:9999;padding:16px;';
+            const panel = document.createElement('div');
+            panel.style.cssText = 'width:min(520px,100%);background:#fff;color:#111827;border:1px solid #e5e7eb;border-radius:12px;box-shadow:0 20px 40px rgba(0,0,0,0.25);padding:18px;';
+            panel.innerHTML = `<h3 style="margin:0 0 8px 0;font-size:1.05rem;font-weight:800;">${escapeHtml(title)}</h3><p data-popup-body style="margin:0 0 14px 0;white-space:pre-wrap;line-height:1.5;">${escapeHtml(message)}</p><div style="display:flex;justify-content:flex-end;"><button id="popup-ok" type="button" style="padding:8px 12px;border-radius:8px;border:1px solid #047857;background:#047857;color:#fff;font-weight:700;">OK</button></div>`;
+            overlay.appendChild(panel);
+            document.body.appendChild(overlay);
+            panel.querySelector('#popup-ok')?.addEventListener('click', () => overlay.remove());
+            overlay.addEventListener('click', e => { if (e.target === overlay) overlay.remove(); });
+        }
+
+        function collectCriteria() {
+            const prefs = [];
+            if (document.getElementById('pref-flowers').checked) prefs.push('flowers');
+            if (document.getElementById('pref-herbs').checked) prefs.push('herbs');
+            if (document.getElementById('pref-vegetables').checked) prefs.push('vegetables');
+            if (document.getElementById('pref-low-maintenance').checked) prefs.push('low-maintenance');
+            return {
+                gardenSize: document.getElementById('garden-size').value,
+                sunlight: document.getElementById('sunlight').value,
+                soilType: document.getElementById('soil-type').value,
+                climateZone: document.getElementById('climate-zone').value.trim(),
+                notes: document.getElementById('garden-notes').value.trim(),
+                prefs,
+                budgetMode: document.getElementById('budget-mode').checked,
+                budgetMax: Number.parseFloat(document.getElementById('budget-max').value || ''),
+                budgetPostcode: document.getElementById('budget-postcode').value.trim(),
+                planterCount: Math.max(1, Number.parseInt(document.getElementById('planter-count').value || '1', 10) || 1),
+            };
+        }
+
+        function buildPrompt(criteria) {
+            return `I have a ${criteria.gardenSize} garden with ${criteria.sunlight} exposure and ${criteria.soilType} soil.
+My UK hardiness zone is ${criteria.climateZone || 'unknown'}.
+I want: ${criteria.prefs.join(', ') || 'mixed plants'}.
+Additional notes: ${criteria.notes || 'None'}`;
+        }
+
+        function matchesSunlight(plantSun, target) {
+            const value = text(plantSun);
+            if (!value) return true;
+            if (target === 'full-sun') return value.includes('full sun') || value.includes('sun');
+            if (target === 'partial-sun') return value.includes('partial sun') || value.includes('full sun') || value.includes('sun');
+            if (target === 'shade') return value.includes('shade') || value.includes('partial shade');
+            if (target === 'full-shade') return value.includes('full shade') || value.includes('shade');
+            return true;
+        }
+        function matchesSoil(plantSoil, target) {
+            const value = text(plantSoil);
+            if (!value) return true;
+            if (target === 'clay') return value.includes('clay') || value.includes('moist');
+            if (target === 'loam') return value.includes('loam') || value.includes('balanced');
+            if (target === 'sandy') return value.includes('sandy') || value.includes('drain');
+            if (target === 'rocky') return value.includes('rock') || value.includes('gravel') || value.includes('poor');
+            return true;
+        }
+        function matchesPreference(plant, preference) {
+            const bucket = `${text(plant.category)} ${text(plant.description)} ${text(plant.name)} ${text(plant.scientific_name)}`;
+            if (preference === 'flowers') return bucket.includes('flower') || bucket.includes('bloom') || bucket.includes('rose') || bucket.includes('lily');
+            if (preference === 'herbs') return bucket.includes('herb') || bucket.includes('mint') || bucket.includes('rosemary') || bucket.includes('thyme');
+            if (preference === 'vegetables') return bucket.includes('vegetable') || bucket.includes('edible') || bucket.includes('tomato') || bucket.includes('pepper');
+            if (preference === 'low-maintenance') return bucket.includes('low maintenance') || bucket.includes('easy') || bucket.includes('hardy') || bucket.includes('drought');
+            return true;
+        }
+        function isConfirmedToxic(plant) {
+            const safety = text(plant.safety_status || plant.toxicity || '');
+            if (!safety) return false;
+            return safety === 'toxic' || (safety.includes('toxic') && !safety.includes('may be toxic'));
+        }
+        const plannerTreeKeywords = [
+            'tree', 'shade tree', 'orchard tree', 'fruit tree', 'flowering tree', 'conifer',
+            'evergreen tree', 'deciduous tree', 'shade canopy', 'woody perennial',
+            'maple', 'oak', 'pine', 'spruce', 'fir', 'cedar', 'birch', 'willow', 'elm',
+            'sycamore', 'juniper', 'cypress', 'sequoia', 'redwood', 'eucalyptus', 'acacia',
+            'palm', 'poplar', 'aspen', 'beech', 'hornbeam', 'hawthorn', 'dogwood', 'magnolia',
+            'linden', 'chestnut', 'ash', 'holly', 'rowan', 'larch', 'yew', 'arborvitae',
+            'hickory', 'shellbark', 'shagbark', 'walnut', 'pecan',
+            'acer', 'quercus', 'pinus', 'picea', 'abies', 'cedrus', 'betula', 'salix', 'ulmus',
+            'platanus', 'juniperus', 'cupressus', 'sequoiadendron', 'fraxinus', 'ilex', 'sorbus',
+            'malus', 'pyrus', 'ficus', 'populus', 'fagus', 'carpinus', 'crataegus', 'cornus',
+            'tilia', 'aesculus', 'washingtonia', 'morus', 'carya', 'juglans'
+        ];
+        function plannerClassifyTree(plant) {
+            const plantText = [plant?.name, plant?.scientific_name, plant?.description, plant?.growth_habit, plant?.category]
+                .filter(Boolean)
+                .join(' ')
+                .toLowerCase()
+                .replace(/[^a-z0-9]+/g, ' ');
+            const normalized = ` ${plantText.trim()} `;
+            const plainName = String(plant?.name || '').toLowerCase().replace(/[^a-z0-9]+/g, ' ').trim();
+            const normalizedName = ` ${plainName} `;
+            const isExplicitLargePlant = normalizedName.includes(' algaroba ') || normalizedName.includes(' banana plant ') || plainName === 'banana';
+            const isTreeKeyword = plannerTreeKeywords.some(keyword => normalized.includes(` ${keyword.toLowerCase()} `));
+            return isExplicitLargePlant || isTreeKeyword;
+        }
+        function isTenderWinterRisk(plant) {
+            const bucket = `${text(plant.name)} ${text(plant.scientific_name)} ${text(plant.description)} ${text(plant.indoor_outdoor)}`;
+            return bucket.includes('amaryllis') || bucket.includes('hippeastrum') || bucket.includes('tropical') || bucket.includes('houseplant') || bucket.includes('indoor');
+        }
+        function scorePlant(plant, criteria) {
+            let score = 0;
+            if (matchesSunlight(plant.sun_exposure, criteria.sunlight)) score += 3;
+            if (matchesSoil(plant.soil_preference, criteria.soilType)) score += 2;
+            if (criteria.climateZone && text(plant.hardiness_zone).includes(text(criteria.climateZone))) score += 2;
+            if (isTenderWinterRisk(plant)) score -= 2;
+            for (const pref of criteria.prefs) if (matchesPreference(plant, pref)) score += 2;
+            if (!criteria.prefs.length) score += 1;
+            return score;
+        }
+        function planLimit(size) { return size === 'small' ? 6 : (size === 'large' ? 14 : 10); }
+        function recommendPlants(plants, criteria) {
+            const relevant = plants.filter(plant => {
+                if (!plant?.id) return false;
+                if (isConfirmedToxic(plant)) return false;
+                if (plannerClassifyTree(plant)) return false;
+                if (!matchesSunlight(plant.sun_exposure, criteria.sunlight)) return false;
+                if (!matchesSoil(plant.soil_preference, criteria.soilType)) return false;
+                if (isTenderWinterRisk(plant) && criteria.sunlight !== 'full-shade') return false;
+                return !criteria.prefs.length || criteria.prefs.some(pref => matchesPreference(plant, pref));
+            });
+            return relevant
+                .map(plant => ({ ...plant, planner_score: scorePlant(plant, criteria) }))
+                .sort((a, b) => b.planner_score - a.planner_score || a.name.localeCompare(b.name))
+                .slice(0, planLimit(criteria.gardenSize));
+        }
+
+        function plantCardHtml(plant) {
+            const confidence = plant.source_confidence || '';
+            const safety = text(plant.toxicity || 'non-toxic') === 'non-toxic' ? 'Non-toxic' : (plant.toxicity || 'Check safety');
+            const winterWarning = isTenderWinterRisk(plant) ? '<p class="text-[11px] mt-1 text-amber-700">Tender in UK winters: grow indoors or lift/protect before frost.</p>' : '';
+            return `<label class="border border-emerald-100 rounded-lg p-3 bg-white hover:border-emerald-400 cursor-pointer transition block"><div class="flex items-start gap-3"><input type="checkbox" class="planner-plant-checkbox mt-1" data-plant-id="${escapeHtml(plant.id)}" checked><img src="${escapeHtml(plant.image_url || 'https://images.unsplash.com/photo-1501004318641-b39e6451bec6?w=300&q=80&auto=format&fit=crop')}" alt="${escapeHtml(plant.name)}" class="w-20 h-20 rounded object-cover border border-gray-200"><div class="min-w-0"><p class="font-semibold text-gray-900">${escapeHtml(plant.name)}</p><p class="text-xs text-gray-500 italic">${escapeHtml(plant.scientific_name || '')}</p><p class="text-xs mt-1 text-emerald-700">${escapeHtml(safety)}${confidence ? ` · Source ${escapeHtml(confidence)}` : ''}</p><p class="text-xs mt-1 text-gray-600">${escapeHtml(plant.category || 'Plant')} · Score ${escapeHtml(plant.planner_score)}</p>${winterWarning}</div></div></label>`;
+        }
+
+        function selectedPlantsOrThrow() {
+            const selected = plannerState.recommendations.filter(plant => plannerState.selectedIds.has(plant.id));
+            if (!selected.length) throw new Error('Select at least one plant before saving.');
+            return selected;
+        }
+        function selectedPlantsNoThrow() { return plannerState.recommendations.filter(plant => plannerState.selectedIds.has(plant.id)); }
+
+        function updateSelectedSummary() {
+            const count = plannerState.selectedIds.size;
+            const summary = document.getElementById('selected-summary');
+            const favoriteBtn = document.getElementById('save-selected-favorites');
+            const libraryBtn = document.getElementById('save-selected-library');
+            if (summary) summary.textContent = `${count} plant${count === 1 ? '' : 's'} selected`;
+            if (favoriteBtn) favoriteBtn.disabled = count === 0;
+            if (libraryBtn) libraryBtn.disabled = count === 0;
+        }
+
+        async function saveSelectedFavorites() {
+            try {
+                const selected = selectedPlantsOrThrow();
+                let added = 0; let existing = 0;
+                for (const plant of selected) {
+                    const response = await fetch('/api/plant-favorites', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ user_id: 'default', plant_id: plant.id }) });
+                    if (response.status === 201) added += 1;
+                    else if (response.status === 409) existing += 1;
+                    else { const payload = await response.json(); throw new Error(payload.error || `Failed to save ${plant.name}.`); }
+                }
+                showPopup(`Favorites updated.\nAdded: ${added}\nAlready in favorites: ${existing}`, 'Favorites saved');
+            } catch (error) { showPopup(error.message || 'Could not save favorites.', 'Save failed'); }
+        }
+
+        async function saveSelectedLibrary() {
+            try {
+                const selected = selectedPlantsOrThrow();
+                const locationName = `AI Plan · ${plannerState.criteria?.gardenSize || 'garden'}`;
+                let addedPlants = 0; let createdTasks = 0;
+                for (const plant of selected) {
+                    const plantResponse = await fetch('/api/user-plants', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ user_id: 'default', plant_id: plant.id, plant_name: plant.name, location_name: locationName, location_zone: plannerState.criteria?.climateZone || '', quantity_planted: 1, plant_notes: 'Added from AI Garden Planner recommendations.' }) });
+                    if (!plantResponse.ok) { const payload = await plantResponse.json(); throw new Error(payload.error || `Failed to add ${plant.name}.`); }
+                    const createdPlant = await plantResponse.json(); addedPlants += 1;
+                    const taskResponse = await fetch('/api/care-tasks', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ user_plant_id: createdPlant.id, task_type: 'inspect', frequency_days: 14 }) });
+                    if (taskResponse.ok) createdTasks += 1;
+                }
+                showPopup(`Library updated.\nPlants added: ${addedPlants}\nCare reminders created: ${createdTasks}`, 'Library saved');
+            } catch (error) { showPopup(error.message || 'Could not save plants to your library.', 'Save failed'); }
+        }
+
+        function inferBloomMonths(plant) {
+            const bucket = `${text(plant.category)} ${text(plant.description)} ${text(plant.name)}`;
+            if (bucket.includes('winter')) return [10, 11, 0, 1];
+            if (bucket.includes('spring')) return [2, 3, 4];
+            if (bucket.includes('autumn') || bucket.includes('fall')) return [8, 9, 10];
+            if (bucket.includes('grasses') || bucket.includes('grass')) return [5, 6, 7, 8, 9];
+            if (bucket.includes('fruit')) return [4, 5, 6, 7, 8];
+            if (bucket.includes('vegetable')) return [5, 6, 7, 8, 9];
+            if (bucket.includes('herb')) return [4, 5, 6, 7, 8, 9];
+            return [3, 4, 5, 6, 7, 8];
+        }
+
+        function renderSeasonalTimeline() {
+            const container = document.getElementById('seasonal-timeline');
+            if (!container) return;
+            const selected = selectedPlantsNoThrow();
+            if (!selected.length) { container.innerHTML = '<p class="text-sm text-gray-600">Select plants to see a month-by-month bloom timeline.</p>'; return; }
+            const buckets = monthNames.map(() => []);
+            selected.forEach(plant => inferBloomMonths(plant).forEach(index => { if (!buckets[index].includes(plant.name)) buckets[index].push(plant.name); }));
+            container.innerHTML = `<div class="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-2">${buckets.map((names, i) => `<div class="rounded border border-emerald-100 bg-white p-2"><p class="text-xs font-semibold text-emerald-700">${monthNames[i]}</p><p class="text-xs text-gray-600 mt-1">${names.length ? names.slice(0, 3).map(escapeHtml).join(', ') + (names.length > 3 ? ` +${names.length - 3}` : '') : 'No peak bloom'}</p></div>`).join('')}</div>`;
+        }
+
+        function defaultZoneForPlant(plant) {
+            const sun = text(plant.sun_exposure);
+            if (sun.includes('shade')) return 'shade';
+            if (sun.includes('sun')) return 'sun';
+            return 'mixed';
+        }
+
+        function syncZoneAssignments() {
+            const selected = selectedPlantsNoThrow();
+            const selectedIds = new Set(selected.map(plant => plant.id));
+            Object.keys(plannerState.zoneAssignments).forEach(id => { if (!selectedIds.has(id)) delete plannerState.zoneAssignments[id]; });
+            selected.forEach(plant => { if (!plannerState.zoneAssignments[plant.id]) plannerState.zoneAssignments[plant.id] = defaultZoneForPlant(plant); });
+        }
+
+        function zonePlantChip(plant) {
+            return `<div class="zone-chip rounded bg-white border border-emerald-200 px-2 py-1 text-xs text-gray-700 cursor-move" draggable="true" data-zone-plant-id="${escapeHtml(plant.id)}">${escapeHtml(plant.name)}</div>`;
+        }
+
+        function renderZoningBoard() {
+            const container = document.getElementById('zoning-board');
+            if (!container) return;
+            const selected = selectedPlantsNoThrow();
+            if (!selected.length) { container.innerHTML = '<p class="text-sm text-gray-600">Select plants to auto-assign them into sun/shade/mixed planter zones.</p>'; return; }
+            syncZoneAssignments();
+            const zones = [
+                { key: 'sun', title: '☀️ Sun bed' },
+                { key: 'shade', title: '🌤 Shade bed' },
+                { key: 'mixed', title: '🌿 Mixed bed' },
+            ];
+            container.innerHTML = `<div class="grid md:grid-cols-3 gap-3">${zones.map(zone => {
+                const plants = selected.filter(plant => plannerState.zoneAssignments[plant.id] === zone.key);
+                return `<div class="rounded-lg border border-emerald-200 bg-emerald-50 p-3 min-h-[140px]" data-zone="${zone.key}"><p class="text-sm font-semibold text-emerald-800 mb-2">${zone.title}</p><div class="space-y-2">${plants.length ? plants.map(zonePlantChip).join('') : '<p class="text-xs text-gray-500">Drop plants here</p>'}</div></div>`;
+            }).join('')}</div>`;
+            container.querySelectorAll('[data-zone-plant-id]').forEach(chip => {
+                chip.addEventListener('dragstart', () => { plannerState.draggedPlantId = chip.dataset.zonePlantId; });
+                chip.addEventListener('dragend', () => { plannerState.draggedPlantId = null; });
+            });
+            container.querySelectorAll('[data-zone]').forEach(zone => {
+                zone.addEventListener('dragover', e => e.preventDefault());
+                zone.addEventListener('drop', e => {
+                    e.preventDefault();
+                    if (!plannerState.draggedPlantId) return;
+                    plannerState.zoneAssignments[plannerState.draggedPlantId] = zone.dataset.zone;
+                    renderZoningBoard();
+                });
+            });
+        }
+
+        async function renderWateringForecast() {
+            const container = document.getElementById('watering-forecast');
+            if (!container) return;
+            const criteria = plannerState.criteria;
+            const selected = selectedPlantsNoThrow();
+            if (!selected.length) {
+                container.innerHTML = '<p class="text-sm text-gray-600">Select plants to generate a watering forecast.</p>';
+                return;
+            }
+            const soilMultiplier = criteria.soilType === 'sandy' ? 1.25 : criteria.soilType === 'clay' ? 0.8 : criteria.soilType === 'rocky' ? 1.15 : 1.0;
+            const baseLitres = Math.max(0.8, Math.min(2.2, (criteria.gardenSize === 'large' ? 1.8 : criteria.gardenSize === 'small' ? 1.0 : 1.4) * soilMultiplier));
+            const fallback = () => {
+                const forecast = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].map((day, idx) => `${day}: ${idx % 2 === 0 ? `Water ${baseLitres.toFixed(1)}L/plant` : 'Check moisture first; skip if topsoil is damp'}`);
+                container.innerHTML = `<div class="rounded border border-emerald-200 bg-white p-3 text-sm"><p><strong>Soil-adjusted baseline:</strong> ${baseLitres.toFixed(1)}L per plant when watering.</p><p class="text-xs text-gray-600 mt-1">Weather lookup unavailable, so this uses a conservative weekly pattern.</p><ul class="mt-2 space-y-1">${forecast.map(line => `<li>${escapeHtml(line)}</li>`).join('')}</ul></div>`;
+            };
+            if (!criteria.budgetPostcode) {
+                fallback();
+                return;
+            }
+            container.innerHTML = '<p class="text-sm text-gray-600">Loading weather-aware watering forecast…</p>';
+            try {
+                const geocodeResp = await fetch('/api/geocode', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ address: criteria.budgetPostcode }) });
+                const geocode = await geocodeResp.json();
+                if (!geocodeResp.ok || geocode.latitude == null || geocode.longitude == null) throw new Error(geocode.error || 'Could not geocode postcode.');
+                const weatherUrl = `https://api.open-meteo.com/v1/forecast?latitude=${encodeURIComponent(geocode.latitude)}&longitude=${encodeURIComponent(geocode.longitude)}&daily=precipitation_sum,temperature_2m_max&forecast_days=5&timezone=auto`;
+                const weatherResp = await fetch(weatherUrl);
+                const weather = await weatherResp.json();
+                const times = weather?.daily?.time || [];
+                const rain = weather?.daily?.precipitation_sum || [];
+                const temp = weather?.daily?.temperature_2m_max || [];
+                if (!times.length) throw new Error('No weather data returned.');
+                const plan = times.map((date, idx) => {
+                    const rainMm = Number(rain[idx] ?? 0);
+                    const maxC = Number(temp[idx] ?? 15);
+                    const needsWater = rainMm < 1.5 && maxC >= 14;
+                    const litres = Math.max(0.6, baseLitres + (maxC >= 24 ? 0.4 : 0) - (rainMm >= 1.5 ? 0.5 : 0));
+                    return { date, rainMm, maxC, needsWater, litres };
+                });
+                container.innerHTML = `<div class="rounded border border-emerald-200 bg-white p-3 text-sm"><p><strong>Location:</strong> ${escapeHtml(String(geocode.display_name || criteria.budgetPostcode))}</p><p><strong>Soil-adjusted baseline:</strong> ${baseLitres.toFixed(1)}L per plant.</p><ul class="mt-2 space-y-1">${plan.map(item => `<li>${escapeHtml(item.date)} · ${item.maxC.toFixed(0)}°C · rain ${item.rainMm.toFixed(1)}mm → ${item.needsWater ? `Water ${item.litres.toFixed(1)}L/plant` : 'Skip watering'}</li>`).join('')}</ul></div>`;
+            } catch (_) {
+                fallback();
+            }
+        }
+
+        function estimateSoilLitres() {
+            const selectedCount = selectedPlantsNoThrow().length;
+            const criteria = plannerState.criteria;
+            if (!criteria) return 0;
+            const base = criteria.gardenSize === 'small' ? 70 : criteria.gardenSize === 'large' ? 360 : 180;
+            return Math.round(base + criteria.planterCount * 12 + selectedCount * 6);
+        }
+
+        async function renderBudgetAnalysis() {
+            const container = document.getElementById('budget-analysis');
+            if (!container) return;
+            const criteria = plannerState.criteria;
+            if (!criteria?.budgetMode) {
+                container.innerHTML = '<p class="text-sm text-gray-600">Enable budget mode to compare cheapest delivered soil mix against your spend cap.</p>';
+                return;
+            }
+            const selected = selectedPlantsNoThrow();
+            if (!selected.length) {
+                container.innerHTML = '<p class="text-sm text-gray-600">Select at least one plant to run budget analysis.</p>';
+                return;
+            }
+            const requiredLitres = estimateSoilLitres();
+            container.innerHTML = '<p class="text-sm text-gray-600">Calculating cheapest delivered mix…</p>';
+            try {
+                const response = await fetch('/api/calculate', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ volume_litres: requiredLitres, postcode: criteria.budgetPostcode || '' })
+                });
+                const payload = await response.json();
+                if (!response.ok) throw new Error(payload.error || 'Budget calculation failed.');
+                const offer = payload.cheapest_delivered || payload.offers?.[0];
+                if (!offer) {
+                    container.innerHTML = '<p class="text-sm text-amber-700">No supplier offers available right now for this volume.</p>';
+                    return;
+                }
+                const deliveredSoil = Number(offer.delivered_cost_gbp ?? offer.whole_package_cost_gbp ?? 0);
+                const estimatedPlants = selected.length * 8.5;
+                const total = deliveredSoil + estimatedPlants;
+                const hasBudget = Number.isFinite(criteria.budgetMax) && criteria.budgetMax > 0;
+                const delta = hasBudget ? (criteria.budgetMax - total) : null;
+                const status = !hasBudget ? 'No max budget set.' : (delta >= 0 ? `Within budget by £${delta.toFixed(2)}` : `Over budget by £${Math.abs(delta).toFixed(2)}`);
+                container.innerHTML = `<div class="rounded border border-emerald-200 bg-white p-3 text-sm"><p><strong>Volume target:</strong> ${requiredLitres}L across ${criteria.planterCount} planter(s)</p><p><strong>Cheapest delivered soil mix:</strong> ${escapeHtml(offer.supplier_name)} · ${escapeHtml(offer.product_name)} (${offer.packages_needed} package${offer.packages_needed === 1 ? '' : 's'})</p><p><strong>Soil delivered cost:</strong> £${deliveredSoil.toFixed(2)}</p><p><strong>Estimated plant spend:</strong> £${estimatedPlants.toFixed(2)} (${selected.length} plant${selected.length === 1 ? '' : 's'} × £8.50)</p><p><strong>Estimated total:</strong> £${total.toFixed(2)}</p><p class="${hasBudget && delta < 0 ? 'text-red-700' : 'text-emerald-700'}"><strong>Budget status:</strong> ${escapeHtml(status)}</p></div>`;
+            } catch (error) {
+                container.innerHTML = `<p class="text-sm text-red-700">Budget analysis failed: ${escapeHtml(error.message || 'Unknown error')}</p>`;
+            }
+        }
+
+        async function refreshAdvancedPlannerPanels() {
+            renderSeasonalTimeline();
+            renderZoningBoard();
+            await renderWateringForecast();
+            await renderBudgetAnalysis();
+        }
+
+        function attachSelectionHandlers() {
+            const checkboxes = Array.from(document.querySelectorAll('.planner-plant-checkbox'));
+            const selectAll = document.getElementById('select-all-plants');
+            plannerState.selectedIds = new Set(checkboxes.filter(box => box.checked).map(box => box.dataset.plantId));
+            updateSelectedSummary();
+            checkboxes.forEach(box => box.addEventListener('change', async () => {
+                if (box.checked) plannerState.selectedIds.add(box.dataset.plantId); else plannerState.selectedIds.delete(box.dataset.plantId);
+                if (selectAll) selectAll.checked = checkboxes.every(item => item.checked);
+                updateSelectedSummary();
+                await refreshAdvancedPlannerPanels();
+            }));
+            if (selectAll) {
+                selectAll.addEventListener('change', async () => {
+                    checkboxes.forEach(box => {
+                        box.checked = selectAll.checked;
+                        if (selectAll.checked) plannerState.selectedIds.add(box.dataset.plantId); else plannerState.selectedIds.delete(box.dataset.plantId);
+                    });
+                    updateSelectedSummary();
+                    await refreshAdvancedPlannerPanels();
+                });
+            }
+            document.getElementById('save-selected-favorites')?.addEventListener('click', saveSelectedFavorites);
+            document.getElementById('save-selected-library')?.addEventListener('click', saveSelectedLibrary);
+        }
+
+        function renderResults(criteria, prompt, recommendations) {
+            const recommendationHtml = recommendations.length ? recommendations.map(plantCardHtml).join('') : '<p class="text-sm text-amber-800 bg-amber-50 border border-amber-200 rounded-lg p-3">No close matches found for this exact combination. Try changing sunlight, soil type, or preferences.</p>';
+            resultsContainer.innerHTML = `<div class="bg-white rounded-lg shadow-lg p-8 fade-in"><h2 class="text-2xl font-bold text-gray-900 mb-4">Your Garden Plan</h2><div class="bg-emerald-50 border border-emerald-200 rounded-lg p-4 mb-6 text-sm text-gray-700"><strong>Your Garden:</strong> ${escapeHtml(prompt)}</div><div class="space-y-4"><div class="plant-suggestion bg-green-50 rounded-lg p-4 border-l-4 border-emerald-500"><div class="flex items-center justify-between gap-3 mb-2"><h3 class="font-semibold text-gray-900">Selectable Plant Recommendations</h3><label class="text-xs text-gray-700 flex items-center gap-2"><input type="checkbox" id="select-all-plants" checked>Select all</label></div><p class="text-gray-700 text-sm mb-3">Select plants to save to favorites and your library, then tune budget and planter zones.</p><div class="grid sm:grid-cols-2 gap-3">${recommendationHtml}</div><div class="mt-3 flex flex-wrap items-center gap-2"><span id="selected-summary" class="text-xs font-medium text-emerald-700">0 plants selected</span><button id="save-selected-favorites" type="button" class="px-3 py-2 rounded bg-emerald-700 text-white text-xs font-semibold hover:bg-emerald-800 disabled:opacity-50 disabled:cursor-not-allowed">Save selected to favorites</button><button id="save-selected-library" type="button" class="px-3 py-2 rounded bg-indigo-700 text-white text-xs font-semibold hover:bg-indigo-800 disabled:opacity-50 disabled:cursor-not-allowed">Add selected to library + care reminders</button></div></div><div class="plant-suggestion bg-sky-50 rounded-lg p-4 border-l-4 border-sky-500"><h3 class="font-semibold text-gray-900 mb-2">1) Watering forecast by weather + soil type</h3><div id="watering-forecast"></div></div><div class="plant-suggestion bg-cyan-50 rounded-lg p-4 border-l-4 border-cyan-500"><h3 class="font-semibold text-gray-900 mb-2">2) Budget mode — cheapest delivered mix</h3><div id="budget-analysis"></div></div><div class="plant-suggestion bg-violet-50 rounded-lg p-4 border-l-4 border-violet-500"><h3 class="font-semibold text-gray-900 mb-2">3) Seasonal bloom timeline (month-by-month)</h3><div id="seasonal-timeline"></div></div><div class="plant-suggestion bg-amber-50 rounded-lg p-4 border-l-4 border-amber-500"><h3 class="font-semibold text-gray-900 mb-2">4) Auto-planter zoning (drag & drop)</h3><p class="text-xs text-gray-700 mb-2">Plants are auto-assigned by sunlight preference. Drag chips between Sun, Shade, and Mixed beds.</p><div id="zoning-board"></div></div><div class="plant-suggestion bg-orange-50 rounded-lg p-4 border-l-4 border-orange-500"><h3 class="font-semibold text-gray-900 mb-2">More AI planter ideas</h3><ul class="text-sm text-gray-700 space-y-1"><li>• Companion clash alerts (space, watering, toxicity proximity).</li><li>• Restock reminders when seasonal windows open.</li><li>• Plant health trend timeline with photo checkpoints.</li><li>• Winter protection reminders for tender plants.</li></ul></div></div><div class="mt-6 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm text-yellow-800"><strong>💡 Next Steps:</strong> Open the <a href="/plants" class="underline font-semibold">Plant Catalogue</a> for full details, photos, and advanced filtering.</div></div>`;
+            plannerState.criteria = criteria;
+            plannerState.recommendations = recommendations;
+            plannerState.zoneAssignments = {};
+            attachSelectionHandlers();
+            updateSelectedSummary();
+            refreshAdvancedPlannerPanels();
+        }
+
+        generateBtn.addEventListener('click', generatePlan);
+        async function generatePlan() {
+            const criteria = collectCriteria();
+            if (!criteria.gardenSize || !criteria.sunlight || !criteria.soilType) {
+                showPopup('Please fill in garden size, sunlight, and soil type.', 'Missing information');
+                return;
+            }
+            if (criteria.budgetMode && (!Number.isFinite(criteria.budgetMax) || criteria.budgetMax <= 0)) {
+                showPopup('Budget mode is enabled. Please enter a valid max spend (£).', 'Missing budget value');
+                return;
+            }
+            const prompt = buildPrompt(criteria);
+            generateBtn.disabled = true;
+            generateBtn.innerHTML = '<div class="loading"></div> Generating your plan...';
+            try {
+                const [planResponse, catalogResponse] = await Promise.all([
+                    fetch('/api/generate-garden-plan', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ prompt }) }),
+                    fetch('/api/dog-safe-plants?hide_trees=true')
+                ]);
+                const planData = await planResponse.json();
+                if (!planResponse.ok) throw new Error(planData.error || 'Failed to generate plan.');
+                const catalogData = await catalogResponse.json();
+                if (!catalogResponse.ok) throw new Error(catalogData.error || 'Failed to load plant catalogue.');
+                renderResults(criteria, prompt, recommendPlants(catalogData.plants || [], criteria));
+            } catch (error) {
+                resultsContainer.innerHTML = `<div class="bg-red-50 border border-red-200 rounded-lg p-6 text-red-800"><h3 class="font-semibold mb-2">Error Generating Plan</h3><p>${escapeHtml(error.message || 'Unexpected error')}</p></div>`;
+            } finally {
+                generateBtn.disabled = false;
+                generateBtn.innerHTML = '<span>✨ Generate Garden Plan</span>';
+            }
+        }
+    </script>
+</body>
+</html>

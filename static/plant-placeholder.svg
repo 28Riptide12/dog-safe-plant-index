@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" role="img" aria-label="Plant photo unavailable">
+  <rect width="800" height="520" fill="#dff5ec"/>
+  <rect x="0" y="0" width="800" height="520" fill="url(#g)" opacity="0.5"/>
+  <g fill="none" stroke="#2e7d5f" stroke-width="10" stroke-linecap="round">
+    <path d="M380 118c-54 36-62 84-58 126 8 80 72 120 160 148"/>
+    <path d="M390 120c18 42 18 91 4 134-28 84-120 122-180 154"/>
+    <path d="M390 160c60 22 106 76 122 142"/>
+  </g>
+  <g fill="#6bbd8c" opacity="0.7">
+    <ellipse cx="282" cy="188" rx="44" ry="64" transform="rotate(-16 282 188)"/>
+    <ellipse cx="356" cy="178" rx="48" ry="72" transform="rotate(18 356 178)"/>
+    <ellipse cx="472" cy="188" rx="44" ry="68" transform="rotate(14 472 188)"/>
+    <ellipse cx="560" cy="218" rx="52" ry="78" transform="rotate(-18 560 218)"/>
+  </g>
+  <defs>
+    <linearGradient id="g" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0%" stop-color="#edf8f2"/>
+      <stop offset="100%" stop-color="#d1f0df"/>
+    </linearGradient>
+  </defs>
+</svg>

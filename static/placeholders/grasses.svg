@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 900" role="img" aria-label="Grass placeholder">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ecfccb"/>
+      <stop offset="100%" stop-color="#dcfce7"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#bg)"/>
+  <g stroke="#15803d" stroke-width="16" stroke-linecap="round">
+    <path d="M300 760C350 620 350 460 320 300"/>
+    <path d="M430 760C500 610 510 450 500 240"/>
+    <path d="M560 760C620 610 650 440 660 230"/>
+    <path d="M690 760C740 620 780 450 840 260"/>
+    <path d="M820 760C880 620 940 470 1040 330"/>
+  </g>
+</svg>
