@@ -4,6 +4,9 @@ A curated, evidence-first catalogue of garden and houseplants that are safe for 
 review queue for uncertain candidates, a personal favourites/plant library, care reminders, and
 an AI garden planner.
 
+**🔗 [Live demo](https://dog-safe-plant-index.onrender.com)** — hosted on Render's free tier, so
+the first load after inactivity may take ~30s to wake up.
+
 ![Dog Safe Plant Index hero](screenshots/hero.png)
 
 ## Features
@@ -74,21 +77,6 @@ python tools/harvest_plant_profiles.py --limit 80
 
 `harvest_plant_horticulture.py` is an interactive, resumable multi-source harvester — see
 `run_horticulture_harvest.ps1` for a scripted batch-mode entry point.
-
-## Deploying a live preview (Render)
-
-This repo includes a [`render.yaml`](render.yaml) and `Procfile` so it deploys to
-[Render](https://render.com)'s free tier with almost no setup:
-
-1. Push this repo to GitHub (already done if you're reading this on GitHub).
-2. On Render, choose **New → Blueprint** and point it at this repository — it will pick up
-   `render.yaml` automatically and run `gunicorn app:app`.
-3. Alternatively, choose **New → Web Service**, set the build command to
-   `pip install -r requirements.txt` and the start command to `gunicorn app:app --bind 0.0.0.0:$PORT`.
-
-The free tier spins down after inactivity, so the first request after a while may take ~30s to wake up.
-Note: harvesting/scraping scripts (Playwright-based) are meant to be run locally/offline to populate
-`database/*.json` — they aren't invoked by the deployed web service itself.
 
 ## Safety disclaimer
 
