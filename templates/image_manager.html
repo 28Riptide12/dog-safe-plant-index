@@ -184,7 +184,7 @@
 
     function imageStatus(plant) {
       const imageUrl = String(plant?.image_url || '').trim();
-      if (!imageUrl || !/^https?:\/\//i.test(imageUrl)) return { code: 'missing', label: 'Missing image' };
+      if (!imageUrl || (!/^https?:\/\//i.test(imageUrl) && !imageUrl.startsWith('/static/'))) return { code: 'missing', label: 'Missing image' };
       if (imageUrlIsPlaceholder(imageUrl)) return { code: 'placeholder', label: 'Placeholder image' };
       return { code: 'valid', label: 'Has image' };
     }
@@ -375,86 +375,300 @@
       }
     }
     
-    // Find images for a plant
+    // Find / Source images for a plant
     async function findImages(plantId, plantName, scientificName = '') {
       const container = document.getElementById(`images-${plantId}`);
-      container.innerHTML = '<p style="color: #999;"><span class="loading">⟳</span> Searching for images...</p>';
       container.style.display = 'block';
       
-      try {
-        const response = await fetch(`${API_BASE}/dog-safe-plants/photo-suggestion?name=${encodeURIComponent(plantName)}&scientific_name=${encodeURIComponent(scientificName || '')}`);
-        if (!response.ok) {
-          const errorBody = await response.json().catch(() => ({}));
-          throw new Error(errorBody.error || 'No images found in photo manager');
-        }
-        
-        const data = await response.json();
-        const allCandidates = data.candidates || [data];
-        const allowed = allowedConfidenceSet();
-        const candidates = allCandidates.filter(item => allowed.has(String(item?.confidence || 'low').toLowerCase()));
-        
-        if (!candidates || candidates.length === 0) {
-          container.innerHTML = `<p style="color: #999;">No candidates match the current strict mode. Try changing strict mode to show more options.</p>`;
-          return;
-        }
+      // Render the tabbed sourcing panel
+      container.innerHTML = `
+        <div style="background: #f8fafc; border: 1px solid #cbd5e1; border-radius: 0.5rem; padding: 1rem; margin-top: 0.75rem;">
+          <div style="display: flex; gap: 0.5rem; border-bottom: 2px solid #e2e8f0; padding-bottom: 0.5rem; margin-bottom: 1rem; flex-wrap: wrap;">
+            <button type="button" class="btn btn-primary" id="tab-auto-${escapeHtml(plantId)}" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">🔍 Auto Search (APIs)</button>
+            <button type="button" class="btn btn-secondary" id="tab-upload-${escapeHtml(plantId)}" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">📤 Upload Local Photo</button>
+            <button type="button" class="btn btn-secondary" id="tab-custom-${escapeHtml(plantId)}" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">🔗 Paste Custom URL</button>
+          </div>
 
-        selectedCandidateByPlant[plantId] = null;
-        const imageHtml = `
-        <div class="candidate-toolbar">
-          <button type="button" class="btn btn-primary" data-confirm-candidate data-plant-id="${escapeHtml(plantId)}" data-plant-name="${escapeHtml(plantName)}" disabled>Confirm selected image</button>
-          <span class="candidate-note">Click a candidate to preview it in the thumbnail, then confirm. Low confidence items need manual review.</span>
-        </div>
-        <div class="image-grid">
-          ${candidates.map((img, i) => `
-            <button type="button" class="image-candidate" data-candidate-image="${escapeHtml(img.image_url)}" data-candidate-source="${escapeHtml(img.source_url || 'https://commons.wikimedia.org/wiki/')}" data-candidate-title="${escapeHtml(img.title || '')}">
-              <img src="${img.image_url}" alt="${img.title}" loading="lazy" onerror="this.style.display='none'">
-              <div style="padding: 0.5rem; font-size: 0.75rem;">
-                <p style="margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #047857;">✓ ${escapeHtml(img.source_name || 'Source')}</p>
-                <p style="margin: 0.2rem 0 0 0; color: #6b7280;">
-                  Match:
-                  <span class="candidate-confidence ${escapeHtml(String(img.confidence || 'low'))}">${escapeHtml(String(img.confidence || 'low').toUpperCase())}</span>
-                </p>
+          <!-- Section 1: Auto Search -->
+          <div id="sec-auto-${escapeHtml(plantId)}">
+            <div style="display: flex; gap: 0.5rem; align-items: center; margin-bottom: 0.75rem;">
+              <input type="text" id="query-input-${escapeHtml(plantId)}" value="${escapeHtml(plantName)}" placeholder="Search keywords..." style="flex: 1; padding: 0.4rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.85rem;" />
+              <button type="button" class="btn btn-primary" id="btn-search-${escapeHtml(plantId)}" style="font-size: 0.85rem; padding: 0.4rem 0.8rem;">Search</button>
+            </div>
+            <div id="auto-results-${escapeHtml(plantId)}">
+              <p style="color: #999;"><span class="loading">⟳</span> Querying iNaturalist, GBIF, Wikimedia & Openverse...</p>
+            </div>
+          </div>
+
+          <!-- Section 2: Upload Local File -->
+          <div id="sec-upload-${escapeHtml(plantId)}" style="display: none;">
+            <form id="form-upload-${escapeHtml(plantId)}" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Select image file (JPG, PNG, WEBP, GIF, AVIF):</label>
+                <input type="file" id="file-input-${escapeHtml(plantId)}" accept="image/*" required style="font-size: 0.85rem;" />
               </div>
-            </button>
-          `).join('')}
-        </div>`;
-        
-        container.innerHTML = imageHtml;
-        const thumb = document.getElementById(`thumb-${plantId}`);
-        const confirmButton = container.querySelector('[data-confirm-candidate]');
-        const candidatesButtons = [...container.querySelectorAll('.image-candidate')];
+              <div id="upload-preview-box-${escapeHtml(plantId)}" style="display: none; padding: 0.65rem; background: #fff; border: 1px solid #cbd5e1; border-radius: 0.375rem; align-items: center; gap: 0.75rem;">
+                <img id="upload-preview-img-${escapeHtml(plantId)}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 0.375rem; border: 1px solid #e2e8f0;" alt="Upload preview" />
+                <div style="font-size: 0.75rem; color: #334155;">
+                  <p id="upload-preview-name-${escapeHtml(plantId)}" style="font-weight: bold; margin: 0; word-break: break-all;"></p>
+                  <p id="upload-preview-status-${escapeHtml(plantId)}" style="margin: 0.25rem 0 0 0; color: #047857; font-weight: 600;">✓ Local image ready to upload</p>
+                </div>
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Source attribution / credit (optional):</label>
+                <input type="text" id="file-source-${escapeHtml(plantId)}" value="User Upload" placeholder="e.g. My Garden Photo" style="width: 100%; padding: 0.4rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.85rem;" />
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self: start; font-size: 0.85rem; padding: 0.4rem 1rem;">📤 Upload & Apply Photo</button>
+            </form>
+          </div>
 
-        candidatesButtons.forEach(button => {
-          button.addEventListener('click', () => {
-            candidatesButtons.forEach(item => item.classList.remove('is-selected'));
-            button.classList.add('is-selected');
-            const selectedImageUrl = button.dataset.candidateImage || '';
-            const selectedSourceUrl = button.dataset.candidateSource || 'https://commons.wikimedia.org/wiki/';
-            selectedCandidateByPlant[plantId] = {
-              image_url: selectedImageUrl,
-              source_url: selectedSourceUrl,
-            };
-            if (thumb && selectedImageUrl) {
-              thumb.src = selectedImageUrl;
-            }
-            if (confirmButton) {
-              confirmButton.disabled = false;
-            }
-          });
+          <!-- Section 3: Custom Web URL -->
+          <div id="sec-custom-${escapeHtml(plantId)}" style="display: none;">
+            <form id="form-custom-${escapeHtml(plantId)}" style="display: flex; flex-direction: column; gap: 0.75rem;">
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Direct Image URL (HTTPS):</label>
+                <div style="display: flex; gap: 0.5rem;">
+                  <input type="url" id="url-input-${escapeHtml(plantId)}" placeholder="https://images.unsplash.com/photo-..." required style="flex: 1; padding: 0.4rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.85rem;" />
+                  <button type="button" class="btn btn-secondary" id="btn-preview-url-${escapeHtml(plantId)}" style="font-size: 0.8rem; padding: 0.4rem 0.8rem;">👁️ Test Preview</button>
+                </div>
+              </div>
+              <div id="custom-preview-box-${escapeHtml(plantId)}" style="display: none; padding: 0.65rem; background: #fff; border: 1px solid #cbd5e1; border-radius: 0.375rem; align-items: center; gap: 0.75rem;">
+                <img id="custom-preview-img-${escapeHtml(plantId)}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 0.375rem; border: 1px solid #e2e8f0;" alt="Custom URL preview" />
+                <div style="font-size: 0.75rem; color: #334155;">
+                  <p id="custom-preview-status-${escapeHtml(plantId)}" style="font-weight: bold; margin: 0;"></p>
+                  <p id="custom-preview-url-text-${escapeHtml(plantId)}" style="margin: 0.25rem 0 0 0; color: #64748b; word-break: break-all; max-width: 320px;"></p>
+                </div>
+              </div>
+              <div>
+                <label style="display: block; font-size: 0.8rem; font-weight: 600; margin-bottom: 0.25rem;">Source page / Credit link:</label>
+                <input type="text" id="url-source-${escapeHtml(plantId)}" placeholder="https://unsplash.com or Photo Credit" style="width: 100%; padding: 0.4rem 0.6rem; border: 1px solid #cbd5e1; border-radius: 0.375rem; font-size: 0.85rem;" />
+              </div>
+              <button type="submit" class="btn btn-primary" style="align-self: start; font-size: 0.85rem; padding: 0.4rem 1rem;">🔗 Save Custom Image URL</button>
+            </form>
+          </div>
+        </div>
+      `;
+
+      // Tab switching
+      const tabAuto = document.getElementById(`tab-auto-${plantId}`);
+      const tabUpload = document.getElementById(`tab-upload-${plantId}`);
+      const tabCustom = document.getElementById(`tab-custom-${plantId}`);
+      const secAuto = document.getElementById(`sec-auto-${plantId}`);
+      const secUpload = document.getElementById(`sec-upload-${plantId}`);
+      const secCustom = document.getElementById(`sec-custom-${plantId}`);
+
+      function switchTab(activeTab, activeSec) {
+        [tabAuto, tabUpload, tabCustom].forEach(t => {
+          t.className = 'btn btn-secondary';
         });
+        [secAuto, secUpload, secCustom].forEach(s => s.style.display = 'none');
+        activeTab.className = 'btn btn-primary';
+        activeSec.style.display = 'block';
+      }
 
-        confirmButton?.addEventListener('click', async () => {
-          const selected = selectedCandidateByPlant[plantId];
-          if (!selected?.image_url) {
-            setStatus('Select an image candidate first.', 'info');
+      tabAuto.addEventListener('click', () => switchTab(tabAuto, secAuto));
+      tabUpload.addEventListener('click', () => switchTab(tabUpload, secUpload));
+      tabCustom.addEventListener('click', () => switchTab(tabCustom, secCustom));
+
+      // Auto search handler
+      const btnSearch = document.getElementById(`btn-search-${plantId}`);
+      const inputQuery = document.getElementById(`query-input-${plantId}`);
+      
+      async function runAutoSearch() {
+        const queryVal = inputQuery.value.trim();
+        const resultsEl = document.getElementById(`auto-results-${plantId}`);
+        resultsEl.innerHTML = '<p style="color: #999;"><span class="loading">⟳</span> Searching iNaturalist, GBIF, Wikimedia & Openverse...</p>';
+        
+        try {
+          const url = `${API_BASE}/dog-safe-plants/photo-suggestion?name=${encodeURIComponent(plantName)}&scientific_name=${encodeURIComponent(scientificName || '')}&q=${encodeURIComponent(queryVal)}`;
+          const response = await fetch(url);
+          if (!response.ok) {
+            const errorBody = await response.json().catch(() => ({}));
+            throw new Error(errorBody.error || 'No candidates found.');
+          }
+
+          const data = await response.json();
+          const allCandidates = data.candidates || [data];
+          const allowed = allowedConfidenceSet();
+          const candidates = allCandidates.filter(item => allowed.has(String(item?.confidence || 'low').toLowerCase()));
+
+          if (!candidates || candidates.length === 0) {
+            resultsEl.innerHTML = `<p style="color: #999;">No candidates found matching strict mode for "${escapeHtml(queryVal)}". Try changing strict mode or trying a different keyword.</p>`;
             return;
           }
-          await approveImage(plantId, selected.image_url, plantName, selected.source_url);
-        });
-      } catch (error) {
-        console.error('Error finding images:', error);
-        container.innerHTML = '<p style="color: #f87171;">Error finding images: ' + error.message + '</p>';
+
+          selectedCandidateByPlant[plantId] = null;
+          resultsEl.innerHTML = `
+            <div class="candidate-toolbar">
+              <button type="button" class="btn btn-primary" data-confirm-candidate disabled>Confirm selected image</button>
+              <span class="candidate-note">Click a candidate to preview it, then confirm.</span>
+            </div>
+            <div class="image-grid">
+              ${candidates.map(img => `
+                <button type="button" class="image-candidate" data-candidate-image="${escapeHtml(img.image_url)}" data-candidate-source="${escapeHtml(img.source_url || 'https://commons.wikimedia.org/wiki/')}" data-candidate-title="${escapeHtml(img.title || '')}">
+                  <img src="${img.image_url}" alt="${img.title}" loading="lazy" onerror="this.style.display='none'">
+                  <div style="padding: 0.5rem; font-size: 0.75rem;">
+                    <p style="margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; color: #047857;">✓ ${escapeHtml(img.source_name || 'Source')}</p>
+                    <p style="margin: 0.2rem 0 0 0; color: #6b7280;">
+                      Match: <span class="candidate-confidence ${escapeHtml(String(img.confidence || 'low'))}">${escapeHtml(String(img.confidence || 'low').toUpperCase())}</span>
+                    </p>
+                  </div>
+                </button>
+              `).join('')}
+            </div>
+          `;
+
+          const thumb = document.getElementById(`thumb-${plantId}`);
+          const confirmBtn = resultsEl.querySelector('[data-confirm-candidate]');
+          const candButtons = [...resultsEl.querySelectorAll('.image-candidate')];
+
+          candButtons.forEach(button => {
+            button.addEventListener('click', () => {
+              candButtons.forEach(item => item.classList.remove('is-selected'));
+              button.classList.add('is-selected');
+              const selectedImageUrl = button.dataset.candidateImage || '';
+              const selectedSourceUrl = button.dataset.candidateSource || 'https://commons.wikimedia.org/wiki/';
+              selectedCandidateByPlant[plantId] = {
+                image_url: selectedImageUrl,
+                source_url: selectedSourceUrl,
+              };
+              if (thumb && selectedImageUrl) thumb.src = selectedImageUrl;
+              if (confirmBtn) confirmBtn.disabled = false;
+            });
+          });
+
+          confirmBtn?.addEventListener('click', async () => {
+            const selected = selectedCandidateByPlant[plantId];
+            if (!selected?.image_url) return;
+            await approveImage(plantId, selected.image_url, plantName, selected.source_url);
+          });
+        } catch (err) {
+          resultsEl.innerHTML = `<p style="color: #ef4444;">Error: ${escapeHtml(err.message)}</p>`;
+        }
       }
+
+      btnSearch.addEventListener('click', runAutoSearch);
+      runAutoSearch();
+
+      // Upload file handler & live preview
+      const formUpload = document.getElementById(`form-upload-${plantId}`);
+      const fileInput = document.getElementById(`file-input-${plantId}`);
+      const uploadPreviewBox = document.getElementById(`upload-preview-box-${plantId}`);
+      const uploadPreviewImg = document.getElementById(`upload-preview-img-${plantId}`);
+      const uploadPreviewName = document.getElementById(`upload-preview-name-${plantId}`);
+      const thumb = document.getElementById(`thumb-${plantId}`);
+
+      if (fileInput) {
+        fileInput.addEventListener('change', () => {
+          const file = fileInput.files[0];
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = (e) => {
+              const dataUrl = e.target.result;
+              if (uploadPreviewImg) uploadPreviewImg.src = dataUrl;
+              if (uploadPreviewName) uploadPreviewName.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+              if (uploadPreviewBox) uploadPreviewBox.style.display = 'flex';
+              if (thumb) thumb.src = dataUrl;
+            };
+            reader.readAsDataURL(file);
+          } else {
+            if (uploadPreviewBox) uploadPreviewBox.style.display = 'none';
+          }
+        });
+      }
+
+      formUpload.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const sourceInput = document.getElementById(`file-source-${plantId}`);
+        if (!fileInput.files.length) return;
+
+        const formData = new FormData();
+        formData.append('file', fileInput.files[0]);
+        formData.append('source_url', sourceInput.value.trim() || 'User Upload');
+
+        try {
+          setStatus(`Uploading image for ${plantName}...`, 'info');
+          const res = await fetch(`${API_BASE}/dog-safe-plants/${encodeURIComponent(plantId)}/upload-photo`, {
+            method: 'POST',
+            body: formData
+          });
+          const data = await res.json();
+          if (!res.ok) throw new Error(data.error || 'Upload failed');
+
+          if (thumb) thumb.src = data.image_url;
+          
+          const plantItem = container.closest('.plant-item');
+          const badge = plantItem?.querySelector('.plant-preview-badge');
+          if (badge) {
+            badge.className = 'plant-preview-badge valid';
+            badge.textContent = 'Has image';
+          }
+          container.style.display = 'none';
+          setStatus(`✓ Local photo uploaded & saved for ${plantName}!`, 'success');
+        } catch (err) {
+          setStatus(`Upload error: ${err.message}`, 'error');
+        }
+      });
+
+      // Custom URL handler & live preview
+      const formCustom = document.getElementById(`form-custom-${plantId}`);
+      const urlInput = document.getElementById(`url-input-${plantId}`);
+      const btnPreviewUrl = document.getElementById(`btn-preview-url-${plantId}`);
+      const customPreviewBox = document.getElementById(`custom-preview-box-${plantId}`);
+      const customPreviewImg = document.getElementById(`custom-preview-img-${plantId}`);
+      const customPreviewStatus = document.getElementById(`custom-preview-status-${plantId}`);
+      const customPreviewUrlText = document.getElementById(`custom-preview-url-text-${plantId}`);
+
+      function runCustomUrlPreview() {
+        const urlVal = (urlInput?.value || '').trim();
+        if (!urlVal) {
+          if (customPreviewBox) customPreviewBox.style.display = 'none';
+          return;
+        }
+        if (customPreviewBox) customPreviewBox.style.display = 'flex';
+        if (customPreviewStatus) {
+          customPreviewStatus.style.color = '#0284c7';
+          customPreviewStatus.textContent = '⟳ Testing image URL...';
+        }
+        if (customPreviewUrlText) customPreviewUrlText.textContent = urlVal;
+
+        const testImg = new Image();
+        testImg.onload = () => {
+          if (customPreviewImg) customPreviewImg.src = urlVal;
+          if (customPreviewStatus) {
+            customPreviewStatus.style.color = '#047857';
+            customPreviewStatus.textContent = `✓ Image loaded successfully (${testImg.naturalWidth}×${testImg.naturalHeight}px)`;
+          }
+          if (thumb) thumb.src = urlVal;
+        };
+        testImg.onerror = () => {
+          if (customPreviewStatus) {
+            customPreviewStatus.style.color = '#dc2626';
+            customPreviewStatus.textContent = '✖ Could not load image from URL (check link, CORS, or format)';
+          }
+          if (customPreviewImg) customPreviewImg.src = '/static/plant-placeholder.svg';
+        };
+        testImg.src = urlVal;
+      }
+
+      if (btnPreviewUrl) btnPreviewUrl.addEventListener('click', runCustomUrlPreview);
+      if (urlInput) {
+        urlInput.addEventListener('change', runCustomUrlPreview);
+        urlInput.addEventListener('blur', runCustomUrlPreview);
+      }
+
+      formCustom.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const urlVal = (urlInput?.value || '').trim();
+        const sourceVal = document.getElementById(`url-source-${plantId}`).value.trim() || 'Custom Source';
+        if (!urlVal) return;
+
+        try {
+          await approveImage(plantId, urlVal, plantName, sourceVal, true);
+        } catch (err) {
+          setStatus(`Error saving custom URL: ${err.message}`, 'error');
+        }
+      });
     }
     
     async function saveImageFraming(plantId, plantName) {
@@ -476,12 +690,12 @@
     }
 
     // Approve an image for a plant
-    async function approveImage(plantId, imageUrl, plantName, imageSourceUrl = 'https://commons.wikimedia.org/wiki/') {
+    async function approveImage(plantId, imageUrl, plantName, imageSourceUrl = 'https://commons.wikimedia.org/wiki/', isCustom = false) {
       try {
         const response = await fetch(`${API_BASE}/dog-safe-plants/${plantId}/photo`, {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ image_url: imageUrl, image_source_url: imageSourceUrl })
+          body: JSON.stringify({ image_url: imageUrl, image_source_url: imageSourceUrl, is_custom: isCustom })
         });
         
         if (!response.ok) {

@@ -673,7 +673,7 @@
       "description": "ASPCA-listed dog non-toxic plant: Areca Palm.",
       "name": "Areca Palm",
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Chrysalidocarpus_lutescens_1zz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
-      "scientific_name": "Dypsis lutescens",
+      "scientific_name": "Dypsis lutescens; Dypsis lutescens, chrysalidocarpus lutescens (alternate scientific name)",
       "id": "areca-palm",
       "safety_status": "Non-toxic to dogs",
       "category": "flowers",
@@ -1127,11 +1127,12 @@
       "scientific_name": "Cordyline terminalis",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Cordyline_terminalis_dsc03651.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Baby Doll Ti Plant.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/baby-doll-ti-plant",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/w/index.php?curid=293518"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Baby\u2019s Breath.",
@@ -1494,11 +1495,12 @@
       "scientific_name": "Aloe barbadensis",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/6a/Aloe_barbadensis.JPG",
       "description": "ASPCA-listed toxic plant for dogs: Barbados Aloe.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/barbados-aloe",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/w/index.php?curid=17928138"
     },
     {
       "id": "barbados-lily",
@@ -1525,18 +1527,6 @@
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
       "toxicity_details": "Toxic to Dogs, Toxic to Cats",
       "image_source_url": "https://www.inaturalist.org/observations/250897215"
-    },
-    {
-      "id": "barbados-pride-2",
-      "name": "Barbados Pride 2",
-      "scientific_name": "Poinciana gilliesii",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
-      "description": "ASPCA-listed toxic plant for dogs: Barbados Pride 2.",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/barbados-pride-2",
-      "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Barnaby's Thistle.",
@@ -1629,13 +1619,14 @@
       "id": "bay-laurel",
       "name": "Bay Laurel",
       "scientific_name": "Laurus nobilis",
-      "category": "flowers",
+      "category": "herbs",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/bay-leaf_facebook.jpg",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/468860918/large.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Bay Laurel.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bay-laurel",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/261022536"
     },
     {
       "id": "bead-tree",
@@ -1643,11 +1634,12 @@
       "scientific_name": "Melia azedarach",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/125348591/large.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Bead Tree.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bead-tree",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/76636763"
     },
     {
       "category": "flowers",
@@ -1744,11 +1736,12 @@
       "scientific_name": "Begonia spp.",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/e/ea/Begonia_spp.-1-bsi-yercaud-salem-India.jpg/960px-Begonia_spp.-1-bsi-yercaud-salem-India.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "description": "ASPCA-listed toxic plant for dogs: Begonia.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/begonia",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Begonia_spp.-1-bsi-yercaud-salem-India.jpg"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Begonia, Climbing.",
@@ -1891,11 +1884,12 @@
       "scientific_name": "Citrus Aurantium",
       "category": "fruit",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/2/2e/Citrus_aurantium.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Bergamot Orange.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bergamot-orange",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/w/index.php?curid=3954738"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Big Shagbark Hickory.",
@@ -1945,10 +1939,10 @@
     {
       "id": "bird-paradise",
       "name": "Bird of Paradise",
-      "scientific_name": "Caesalpinia gilliesii",
+      "scientific_name": "Caesalpinia gilliesii; Poinciana gilliesii",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/toxic-non-toxic-plants_bird-of-paradise_fb.jpg",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/6/62/Caesalpinia_gilliesii_1.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Bird of Paradise.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bird-paradise",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
@@ -1960,7 +1954,8 @@
           "performed_at": "2026-09-05T21:02:22.943104+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
-      ]
+      ],
+      "image_source_url": "https://commons.wikimedia.org/w/index.php?curid=1677787"
     },
     {
       "id": "bird-paradise-flower",
@@ -1968,11 +1963,12 @@
       "scientific_name": "Strelitzia reginae",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/232773100/large.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Bird of Paradise Flower.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bird-paradise-flower",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/136395523"
     },
     {
       "id": "bird-s-nest-fern-asplenium-nidus",
@@ -1980,13 +1976,14 @@
       "scientific_name": "Asplenium nidus",
       "category": "flowers",
       "safety_status": "Non-toxic to dogs",
-      "image_url": "",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/561406450/large.jpg",
       "description": "Dog-friendly plant reference from external source. Verify cultivar-specific safety and care locally.",
       "source_url": "https://www.purepetfood.com/blog/the-ultimate-list-of-dog-friendly-plants",
       "source_status": "Listed in Pure Pet Food dog-friendly houseplants guide.",
       "indoor_outdoor": [
         "indoor"
-      ]
+      ],
+      "image_source_url": "https://www.inaturalist.org/observations/311021693"
     },
     {
       "id": "bishops-weed",
@@ -2124,11 +2121,12 @@
       "scientific_name": "Prunus serotina",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/18571083/large.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Black Cherry.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/black-cherry",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/12806817"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Black Haw.",
@@ -2220,11 +2218,12 @@
       "scientific_name": "Leucothoe spp.",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b2/Leucothoe_axillaris2.jpg/960px-Leucothoe_axillaris2.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "description": "ASPCA-listed toxic plant for dogs: Black Laurel.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/black-laurel",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Leucothoe_axillaris2.jpg"
     },
     {
       "id": "black-mondo-grass",
@@ -2232,11 +2231,11 @@
       "scientific_name": "Ophiopogon planiscapus 'Nigrescens'",
       "category": "grasses",
       "safety_status": "Non-toxic to dogs",
-      "image_url": "/static/placeholders/grasses.svg",
+      "image_url": "https://live.staticflickr.com/7480/15444596634_c63041e988_b.jpg",
       "description": "A lily relative used as a grass-like groundcover with near-black leaves.",
       "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants",
       "source_status": "Not individually listed by ASPCA; verify with a veterinarian. Reclassified to Non-toxic to dogs (ornamental grass policy review).",
-      "image_source_url": "/static/placeholders/grasses.svg",
+      "image_source_url": "https://www.flickr.com/photos/32179778@N00/15444596634",
       "hardiness_zones_uk": "H3-H7",
       "hardiness_info": {
         "zones_uk": "H3-H7",
@@ -2274,11 +2273,12 @@
       "scientific_name": "Solanum nigrum",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/329003218/large.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Black Nightshade.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/black-nightshade",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/188048247"
     },
     {
       "id": "black-walnut",
@@ -2286,11 +2286,12 @@
       "scientific_name": "Juglans nigra",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/320471996/large.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Black Walnut.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/black-walnut",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/183667596"
     },
     {
       "category": "fruit",
@@ -2724,19 +2725,20 @@
       "scientific_name": "Phlebodium aureum",
       "category": "flowers",
       "safety_status": "Non-toxic to dogs",
-      "image_url": "",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/112116926/large.jpeg",
       "description": "Dog-friendly plant reference from external source. Verify cultivar-specific safety and care locally.",
       "source_url": "https://www.purepetfood.com/blog/the-ultimate-list-of-dog-friendly-plants",
       "source_status": "Listed in Pure Pet Food dog-friendly houseplants guide.",
       "indoor_outdoor": [
         "indoor"
-      ]
+      ],
+      "image_source_url": "https://www.inaturalist.org/observations/69136332"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Blue-dicks.",
       "name": "Blue-dicks",
-      "image_url": "https://www.aspca.org/sites/default/files/styles/medium_image_300x200/public/field/image/plants/dichelostemma_pulchellum_blue-dicks-300x200.jpg?itok=j4TcNijQ",
-      "scientific_name": "Dichelostemma pulchellum",
+      "image_url": "https://live.staticflickr.com/2832/9580095591_f4db413ea2.jpg",
+      "scientific_name": "Dichelostemma pulchellum; Hookera pulchella; Brodiaea pulchella",
       "id": "blue-dicks",
       "safety_status": "Non-toxic to dogs",
       "category": "flowers",
@@ -2774,97 +2776,8 @@
           9,
           10
         ]
-      }
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Blue-dicks 2.",
-      "name": "Blue-dicks 2",
-      "image_url": "https://images.mobot.org/RISScanning03/detailimages/RISScanning03/103644000/D9087919-9B94-4545-A46E-410A4717B81B.jpg",
-      "scientific_name": "Hookera pulchella",
-      "id": "blue-dicks-2",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/blue-dicks-2",
-      "image_source_url": "https://www.gbif.org/occurrence/1258359139",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
       },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Blue-dicks 3.",
-      "name": "Blue-dicks 3",
-      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/620494492/medium.jpg",
-      "scientific_name": "Brodiaea pulchella",
-      "id": "blue-dicks-3",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/blue-dicks-3",
-      "image_source_url": "https://www.inaturalist.org/taxa/1196784",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
-      },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
+      "image_source_url": "https://www.flickr.com/photos/12017190@N06/9580095591"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Blue-eyed African Daisy.",
@@ -2985,7 +2898,7 @@
       "description": "ASPCA-listed dog non-toxic plant: Boston Fern.",
       "name": "Boston Fern",
       "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/36696151/large.jpg",
-      "scientific_name": "Nephrolepis exalta bostoniensis",
+      "scientific_name": "Nephrolepis exalta bostoniensis; Nephrolepis exalta",
       "id": "boston-fern",
       "safety_status": "Non-toxic to dogs",
       "category": "flowers",
@@ -3028,9 +2941,9 @@
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Bottle Palm.",
-      "name": "Bottle Palm",
+      "name": "Ponytail Palm / Bottle Palm",
       "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/364586363/large.jpeg",
-      "scientific_name": "Beaucarnea recurvata",
+      "scientific_name": "Beaucarnea recurvata; Nolina tuberculata",
       "id": "bottle-palm",
       "safety_status": "Non-toxic to dogs",
       "category": "flowers",
@@ -3070,51 +2983,6 @@
         ]
       },
       "image_source_url": "https://www.inaturalist.org/observations/206159353"
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Bottle Palm 2.",
-      "name": "Bottle Palm 2",
-      "image_url": "/static/placeholders/flowers.svg",
-      "scientific_name": "Nolina tuberculata",
-      "id": "bottle-palm-2",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bottle-palm-2",
-      "image_source_url": "/static/placeholders/flowers.svg",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
-      },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Bottlebrush.",
@@ -3167,7 +3035,7 @@
       "scientific_name": "Buxus spp.",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/boxwood_facebook.jpg",
+      "image_url": "https://www.treesandshrubsonline.org/site/assets/files/4525/buxus-sempervirens-3.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Boxwood.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/boxwood",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
@@ -3179,7 +3047,8 @@
           "performed_at": "2026-09-05T21:02:23.149797+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
-      ]
+      ],
+      "image_source_url": "Custom Source"
     },
     {
       "id": "branching-ivy",
@@ -3187,7 +3056,7 @@
       "scientific_name": "Hedera helix",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://www.myperfectgarden.eu/wp-content/themes/theme/inc/dwl-file.php?get_image=https://files.plytix.com/api/v1.1/rn/public_files/pim/assets/42/1a/77/5f/5f771a42758cab15f10cfaf8/images/d3/9d/38/61/61389dd3c955af200f084fe5/Hedera%2520helix_sfeerbeeldtuin.jpg/HEHELIX15_11.jpg?s=700x",
       "description": "ASPCA-listed toxic plant for dogs: Branching Ivy.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/branching-ivy",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
@@ -3199,7 +3068,8 @@
           "performed_at": "2026-09-05T21:02:22.983259+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
-      ]
+      ],
+      "image_source_url": "Custom Source"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Brazilian Orchid.",
@@ -3247,16 +3117,17 @@
       "image_source_url": "https://commons.wikimedia.org/wiki/File:Ornithidium_sophronitis_01.jpg"
     },
     {
-      "id": "bread-and-butter-plant",
-      "name": "Bread and Butter Plant",
-      "scientific_name": "Coleus ampoinicus",
-      "category": "flowers",
+      "id": "broad-leaf-thyme",
+      "name": "Broad Leaf Thyme",
+      "scientific_name": "Coleus amboinicus / Plectranthus amboinicus",
+      "category": "herbs",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1b/Leaf_-pani_koorkka.JPG?utm_source=en.wikipedia.org&utm_campaign=imageinfo&utm_content=original",
       "description": "ASPCA-listed toxic plant for dogs: Bread and Butter Plant.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/bread-and-butter-plant",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "Custom Source"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Bride's Bonnet.",
@@ -3398,13 +3269,14 @@
       "scientific_name": "Bromeliaceae",
       "category": "flowers",
       "safety_status": "Non-toxic to dogs",
-      "image_url": "",
+      "image_url": "https://bouqs.com/blog/wp-content/uploads/2024/09/shutterstock_1059679373-min.jpg",
       "description": "Dog-friendly plant reference from external source. Verify cultivar-specific safety and care locally.",
       "source_url": "https://www.purepetfood.com/blog/the-ultimate-list-of-dog-friendly-plants",
       "source_status": "Listed in Pure Pet Food dog-friendly houseplants guide.",
       "indoor_outdoor": [
         "indoor"
-      ]
+      ],
+      "image_source_url": "Custom Source"
     },
     {
       "id": "brunfelsia",
@@ -3412,11 +3284,12 @@
       "scientific_name": "Brunfelsia species",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8d/Brunfelsia_grandiflora_grandiflora_1zz.jpg/960px-Brunfelsia_grandiflora_grandiflora_1zz.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "description": "ASPCA-listed toxic plant for dogs: Brunfelsia.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/brunfelsia",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Brunfelsia_grandiflora_grandiflora_1zz.jpg"
     },
     {
       "id": "buckeye",
@@ -3424,7 +3297,7 @@
       "scientific_name": "Aesculus spp",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://live.staticflickr.com/4047/4487523387_29d1d040ec_b.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Buckeye.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/buckeye",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
@@ -3436,7 +3309,8 @@
           "performed_at": "2026-09-05T21:02:23.027772+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
-      ]
+      ],
+      "image_source_url": "https://www.flickr.com/photos/13892958@N07/4487523387"
     },
     {
       "id": "buckwheat",
@@ -3444,11 +3318,12 @@
       "scientific_name": "Fagopyrum spp.",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/8/8c/Fagopyrum_esculentum_kz12.jpg/960px-Fagopyrum_esculentum_kz12.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "description": "ASPCA-listed toxic plant for dogs: Buckwheat.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/buckwheat",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Fagopyrum_esculentum_kz12.jpg"
     },
     {
       "id": "buddhist-pine",
@@ -3456,7 +3331,7 @@
       "scientific_name": "Podocarpus macrophylla",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/ad/Podocarpus_laetus_%C3%97_Podocarpus_nivalis.jpg/960px-Podocarpus_laetus_%C3%97_Podocarpus_nivalis.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "description": "ASPCA-listed toxic plant for dogs: Buddhist Pine.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/buddhist-pine",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
@@ -3468,7 +3343,8 @@
           "performed_at": "2026-09-05T21:02:23.069412+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
-      ]
+      ],
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Podocarpus_laetus_%C3%97_Podocarpus_nivalis.jpg"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Bullbrier.",
@@ -3799,11 +3675,12 @@
       "scientific_name": "Iris spuria",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/butterfly-iris_facebook.jpg",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/392932866/large.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Butterfly Iris.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/butterfly-iris",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/221859332"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Butternut Squash.",
@@ -3855,7 +3732,7 @@
       "scientific_name": "Caladium hortulanum",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://upload.wikimedia.org/wikipedia/commons/7/76/Caladium_hortulanum-6-akshya_nagar-bagaloru-India.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Caladium.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/caladium",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
@@ -3867,7 +3744,8 @@
           "performed_at": "2026-09-05T21:02:23.248192+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
-      ]
+      ],
+      "image_source_url": "https://commons.wikimedia.org/w/index.php?curid=151895946"
     },
     {
       "id": "calamondin-orange",
@@ -3875,11 +3753,12 @@
       "scientific_name": "Citrus mitis",
       "category": "fruit",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://live.staticflickr.com/7197/6805405926_5404deb65d_b.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Calamondin Orange.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calamondin-orange",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.flickr.com/photos/81918877@N00/6805405926"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Calathea.",
@@ -3925,96 +3804,6 @@
         ]
       },
       "image_source_url": "https://commons.wikimedia.org/wiki/File:Calathea_%27Helen_Kennedy%27_kz1.jpg"
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Calathea Lancifolia 2.",
-      "name": "Calathea Lancifolia 2",
-      "image_url": "https://static.inaturalist.org/photos/103706378/medium.jpg",
-      "scientific_name": "Maranta insignis",
-      "id": "calathea-lancifolia-2",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calathea-lancifolia-2",
-      "image_source_url": "https://www.inaturalist.org/taxa/867364",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
-      },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Calathea Lancifolia 3.",
-      "name": "Calathea Lancifolia 3",
-      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/650313826/medium.jpg",
-      "scientific_name": "Calathea insignis",
-      "id": "calathea-lancifolia-3",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calathea-lancifolia-3",
-      "image_source_url": "https://www.inaturalist.org/taxa/68031",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
-      },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: California Pitcher Plant.",
@@ -4105,51 +3894,6 @@
         ]
       },
       "image_source_url": "https://commons.wikimedia.org/wiki/File:Calochortus_lyallii_2.jpg"
-    },
-    {
-      "category": "flowers",
-      "id": "camellia",
-      "name": "Camellia",
-      "description": "Glossy evergreen shrub with gorgeous rose-like winter blossoms.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list",
-      "scientific_name": "Camellia japonica",
-      "safety_status": "Non-toxic to dogs",
-      "image_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/20260317_Camellia_japonica_02.jpg/960px-20260317_Camellia_japonica_02.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "image_source_url": "https://commons.wikimedia.org/wiki/File:20260317_Camellia_japonica_02.jpg",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
-      },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Canada Hemlock.",
@@ -4289,7 +4033,7 @@
     {
       "description": "ASPCA-listed dog non-toxic plant: Candycorn Plant.",
       "name": "Candycorn Plant",
-      "image_url": "https://www.aspca.org/sites/default/files/styles/medium_image_300x200/public/field/image/plants/hypocyrta-r.jpg?itok=uackgxJL",
+      "image_url": "https://live.staticflickr.com/7433/27241009566_c754cb1408_b.jpg",
       "scientific_name": "Hypocyrta nummularia",
       "id": "candycorn-plant",
       "safety_status": "Non-toxic to dogs",
@@ -4328,52 +4072,8 @@
           9,
           10
         ]
-      }
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Cane Palm.",
-      "name": "Cane Palm",
-      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/606334537/original.jpg",
-      "scientific_name": "Dypsis lutescens, chrysalidocarpus lutescens (alternate scientific name)",
-      "id": "cane-palm",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cane-palm",
-      "image_source_url": "https://www.gbif.org/occurrence/6130242584",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
       },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
+      "image_source_url": "https://www.flickr.com/photos/130637544@N02/27241009566"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Canna.",
@@ -4558,11 +4258,12 @@
       "scientific_name": "Gardenia jasminoides",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://static.inaturalist.org/photos/436442824/large.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Cape Jasmine.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cape-jasmine",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/244653799"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Cape Marigold.",
@@ -4612,7 +4313,7 @@
     {
       "description": "ASPCA-listed dog non-toxic plant: Cape Primrose.",
       "name": "Cape Primrose",
-      "image_url": "https://www.aspca.org/sites/default/files/styles/medium_image_300x200/public/cape-primrose.jpg?itok=7dolAlju",
+      "image_url": "https://thumb.wikimedia.org/wikipedia/commons/thumb/1/1d/Streptocarpus_sp._%28Cape_primrose%29_1.jpg/960px-Streptocarpus_sp._%28Cape_primrose%29_1.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
       "scientific_name": "Streptocarpus spp.",
       "id": "cape-primrose",
       "safety_status": "Non-toxic to dogs",
@@ -4648,7 +4349,8 @@
           2,
           3
         ]
-      }
+      },
+      "image_source_url": "https://commons.wikimedia.org/wiki/File:Streptocarpus_sp._(Cape_primrose)_1.jpg"
     },
     {
       "id": "caraway",
@@ -4656,11 +4358,12 @@
       "scientific_name": "Carum carvi",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/caraway_facebook.jpg",
+      "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/208696750/large.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Caraway.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/caraway",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/123207863"
     },
     {
       "id": "cardboard-cycad",
@@ -4668,11 +4371,12 @@
       "scientific_name": "Zamia furfuracea",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://static.inaturalist.org/photos/118832514/large.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Cardboard Cycad.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cardboard-cycad",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "https://www.inaturalist.org/observations/72838703"
     },
     {
       "id": "cardboard-palm",
@@ -4680,11 +4384,12 @@
       "scientific_name": "Zamia spp.",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://artistree.com/wp-content/uploads/2017/05/Cardboard-palm-pic.jpeg",
       "description": "ASPCA-listed toxic plant for dogs: Cardboard Palm.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cardboard-palm",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "Custom Source"
     },
     {
       "id": "cardinal-flower",
@@ -4692,11 +4397,12 @@
       "scientific_name": "Lobelia cardinalis",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/cardinal-flower_facebook.jpg",
+      "image_url": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSwWnM1uqbcGlqJOtCMpHV_6MyB0P5NJg3U5v-Lx_I4bqcnfndkXXXYY2H0&s=10",
       "description": "ASPCA-listed toxic plant for dogs: Cardinal Flower.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/cardinal-flower",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "Custom Source"
     },
     {
       "id": "carnation",
@@ -4704,11 +4410,12 @@
       "scientific_name": "Dianthus caryophyllus",
       "category": "flowers",
       "safety_status": "Toxic",
-      "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
+      "image_url": "https://www.farmyardnurseries.co.uk/wp-content/uploads/2026/08/EASI-D_dianthus-chabaud-benigma.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Carnation.",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/carnation",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
-      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses"
+      "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
+      "image_source_url": "Custom Source"
     },
     {
       "id": "sweet-william",
@@ -5073,7 +4780,7 @@
       "id": "catmint-nepeta-mussinii",
       "name": "Catmint",
       "scientific_name": "Nepeta mussinii",
-      "category": "flowers",
+      "category": "herbs",
       "safety_status": "Non-toxic to dogs",
       "image_url": "https://purl.org/gbifnorway/img/ipt-specimens/barstow-garden/2007/IMG_1471.jpg",
       "description": "Dog-friendly plant reference from external source. Verify cultivar-specific safety and care locally.",
@@ -5271,7 +4978,7 @@
       "id": "chamomile",
       "name": "Chamomile",
       "scientific_name": "Anthemis nobilis",
-      "category": "flowers",
+      "category": "herbs",
       "safety_status": "Toxic",
       "image_url": "https://observation.org/photos/75210082.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Chamomile.",
@@ -7399,7 +7106,7 @@
     {
       "id": "cyclamen",
       "name": "Cyclamen",
-      "scientific_name": "Cyclamen spp",
+      "scientific_name": "Cyclamen spp; Cyclamen spp.",
       "category": "flowers",
       "safety_status": "Toxic",
       "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
@@ -7419,7 +7126,7 @@
     {
       "id": "daffodil",
       "name": "Daffodil",
-      "scientific_name": "Narcissus spp",
+      "scientific_name": "Narcissus spp; Narcissus spp.",
       "category": "flowers",
       "safety_status": "Toxic",
       "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
@@ -7981,50 +7688,6 @@
       "category": "flowers",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/dwarf-date-palm",
       "image_source_url": "https://www.inaturalist.org/taxa/365728",
-      "hardiness_zones_uk": "H2-H7",
-      "hardiness_info": {
-        "zones_uk": "H2-H7",
-        "min_temp_c": 5,
-        "max_temp_c": 40
-      },
-      "seasonality": {
-        "bloom_start_month": 5,
-        "bloom_end_month": 10,
-        "peak_bloom_months": [
-          6,
-          7,
-          8,
-          9
-        ],
-        "planting_season": [
-          "spring",
-          "autumn"
-        ],
-        "growth_habit": "Annual/Perennial",
-        "dormancy_months": [
-          12,
-          1,
-          2
-        ],
-        "harvest_season": null,
-        "best_months_to_plant": [
-          3,
-          4,
-          5,
-          9,
-          10
-        ]
-      }
-    },
-    {
-      "description": "ASPCA-listed dog non-toxic plant: Dwarf Feather Palm.",
-      "name": "Dwarf Feather Palm",
-      "image_url": "https://www.aspca.org/sites/default/files/styles/medium_image_300x200/public/field/image/plants/feather-palm-r.jpg?itok=LTxGb635",
-      "scientific_name": "Nephrolepis exalta",
-      "id": "dwarf-feather-palm",
-      "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/dwarf-feather-palm",
       "hardiness_zones_uk": "H2-H7",
       "hardiness_info": {
         "zones_uk": "H2-H7",
@@ -8830,7 +8493,7 @@
       "scientific_name": "Foeniculum vulgare",
       "id": "fennel",
       "safety_status": "Non-toxic to dogs",
-      "category": "flowers",
+      "category": "herbs",
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/fennel",
       "hardiness_zones_uk": "H2-H7",
       "hardiness_info": {
@@ -9462,7 +9125,7 @@
     {
       "id": "foxglove",
       "name": "Foxglove",
-      "scientific_name": "Digitalis purpurea",
+      "scientific_name": "Digitalis purpurea; Digitalis spp.",
       "category": "flowers",
       "safety_status": "Toxic",
       "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
@@ -11299,7 +10962,7 @@
     {
       "id": "hosta",
       "name": "Hosta",
-      "scientific_name": "Hosta plataginea",
+      "scientific_name": "Hosta plataginea; Hosta spp.",
       "category": "flowers",
       "safety_status": "Toxic",
       "image_url": "https://www.aspca.org/sites/default/files/aspca-logo-square.png",
@@ -12529,7 +12192,7 @@
       "id": "large-catmint-nepeta-grandiflora",
       "name": "Large catmint",
       "scientific_name": "Nepeta grandiflora",
-      "category": "flowers",
+      "category": "herbs",
       "safety_status": "Non-toxic to dogs",
       "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/113914092/large.jpeg",
       "description": "Dog-friendly plant reference from external source. Verify cultivar-specific safety and care locally.",
@@ -12576,7 +12239,7 @@
       "id": "lavender",
       "name": "Lavender",
       "scientific_name": "Lavandula angustifolia",
-      "category": "flowers",
+      "category": "herbs",
       "safety_status": "Non-toxic to dogs",
       "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/181838/medium.jpg",
       "description": "Fragrant purple flowers on compact evergreen shrubs. Dog-friendly and drought-tolerant. Attracts pollinators.",
@@ -15901,7 +15564,7 @@
       "name": "Phalaenopsis Orchid",
       "description": "Elegant indoor tropical flower safe for pets.",
       "source_url": "https://www.aspca.org/pet-care/animal-poison-control/dogs-plant-list",
-      "scientific_name": "Phalaenopsis spp.",
+      "scientific_name": "Phalaenopsis spp.; Phalaenopsis sp.",
       "safety_status": "Non-toxic to dogs",
       "image_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/OJ_L_169_of_2013_-_ET_Estonian.pdf?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
       "image_source_url": "commons",
@@ -15939,16 +15602,6 @@
           10
         ]
       }
-    },
-    {
-      "id": "phalaenopsis-orchid",
-      "name": "Phalaenopsis Orchid",
-      "scientific_name": "Phalaenopsis sp.",
-      "category": "flowers",
-      "safety_status": "Non-toxic to dogs",
-      "image_url": "https://www.aspca.org/sites/default/files/styles/medium_image_300x200/public/field/image/plants/phalaenopsis-r.jpg?itok=migfsXeY",
-      "description": "ASPCA-listed dog non-toxic plant: Phalaenopsis Orchid.",
-      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/phalaenopsis-orchid"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Pheasant Plant.",
@@ -18527,7 +18180,7 @@
       "id": "sorrel",
       "name": "Sorrel",
       "scientific_name": "Rumex scutatus",
-      "category": "flowers",
+      "category": "herbs",
       "safety_status": "Toxic",
       "image_url": "https://www.aspca.org/sites/default/files/sorrel_facebook.jpg",
       "description": "ASPCA-listed toxic plant for dogs: Sorrel.",
@@ -21588,51 +21241,6 @@
       ]
     },
     {
-      "id": "ricinus-ricinus-communis",
-      "name": "Castor Bean",
-      "scientific_name": "Ricinus communis",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "image_url": "",
-      "description": "Review candidate for weed and ornamental uses; keep clearly labelled as toxic.",
-      "source_url": "https://www.petpoisonhelpline.com/poisons/",
-      "source_status": "Staged from Pet Poison Helpline; no live-safe import without verification.",
-      "source_name": "Pet Poison Helpline",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high",
-      "source_domain": "petpoisonhelpline.com",
-      "audit_status": "approved",
-      "audit_last_updated": "2026-08-28T00:29:50.969827+00:00",
-      "audit_history": [
-        {
-          "status": "approved",
-          "performed_at": "2026-08-28T00:29:50.969827+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:26.668757+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ]
-    },
-    {
       "id": "hydrangea-hydrangea",
       "name": "Hydrangea",
       "scientific_name": "Hydrangea",
@@ -21852,46 +21460,6 @@
         {
           "status": "approved",
           "performed_at": "2026-09-05T21:02:26.589651+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ]
-    },
-    {
-      "id": "hedera-hedera-helix",
-      "name": "Ivy",
-      "scientific_name": "Hedera helix",
-      "category": "climbers",
-      "safety_status": "May be Toxic",
-      "image_url": "",
-      "description": "Review item for careful dog-safety classification and broader ornamental collection QA.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants",
-      "source_status": "Staged from ASPCA references; should remain labelled accurately.",
-      "source_name": "ASPCA",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high",
-      "source_domain": "aspca.org",
-      "audit_status": "approved",
-      "audit_last_updated": "2026-08-28T00:41:13.764169+00:00",
-      "audit_history": [
-        {
-          "status": "approved",
-          "performed_at": "2026-08-28T00:41:13.764169+00:00",
           "note": "Approved into the live catalogue and tagged with its toxicity status."
         }
       ],
@@ -22253,51 +21821,6 @@
       ]
     },
     {
-      "id": "ilex-ilex-aquifolium",
-      "name": "Holly",
-      "scientific_name": "Ilex aquifolium",
-      "category": "shrubs",
-      "safety_status": "May be Toxic",
-      "image_url": "",
-      "description": "Broader-source review candidate; confirm actual dog risk before any catalogue merge.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants",
-      "source_status": "Staged from ASPCA references for manual curation.",
-      "source_name": "ASPCA",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "medium",
-      "source_domain": "aspca.org",
-      "audit_status": "approved",
-      "audit_last_updated": "2026-08-28T00:41:41.632742+00:00",
-      "audit_history": [
-        {
-          "status": "approved",
-          "performed_at": "2026-08-28T00:41:41.632742+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:26.825265+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ]
-    },
-    {
       "id": "lupin-lupinus",
       "name": "Lupin",
       "scientific_name": "Lupinus",
@@ -22388,124 +21911,6 @@
       "source_confidence": "medium"
     },
     {
-      "id": "cyclamen-cyclamen",
-      "name": "Cyclamen",
-      "scientific_name": "Cyclamen spp.",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "Cyclamen is repeatedly flagged as toxic, particularly the tubers; it should stay out of the live dog-safe list until reviewed and labeled.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/cyclamen",
-      "source_name": "ASPCA",
-      "source_status": "Review-only because ASPCA and veterinary sources note toxicity, especially in the tuber/root area.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:56:00Z",
-          "note": "Queued as another veterinary-source toxic candidate that must remain explicitly labeled."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:06:47.453113+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:26.866876+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "review_batch": "2026-08-28-source-set-2",
-      "evidence_sources": [
-        {
-          "source_name": "ASPCA",
-          "url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/cyclamen",
-          "confidence": "high"
-        },
-        {
-          "source_name": "VCA Animal Hospitals",
-          "url": "https://vcahospitals.com/know-your-pet/",
-          "confidence": "high"
-        },
-        {
-          "source_name": "RHS",
-          "url": "https://www.rhs.org.uk/plants/cyclamen",
-          "confidence": "medium"
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:06:47.453113+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
-    },
-    {
-      "id": "daffodil-daffodil",
-      "name": "Daffodil",
-      "scientific_name": "Narcissus spp.",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "ASPCA lists daffodils as toxic to pets, particularly the bulb. This entry remains review-only so the toxic status stays explicit.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/daffodil",
-      "source_name": "ASPCA",
-      "source_status": "Confirmed toxic by ASPCA; not suitable for the dog-safe catalogue without explicit warning labeling.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:55:00Z",
-          "note": "Queued after ASPCA checks confirmed daffodils are toxic, especially the bulb."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:06:56.025104+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:26.951069+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:06:56.025104+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
-    },
-    {
       "id": "daphne-daphne",
       "name": "Daphne",
       "scientific_name": "Daphne spp.",
@@ -22556,56 +21961,6 @@
       "source_confidence": "medium"
     },
     {
-      "id": "foxglove-foxglove",
-      "name": "Foxglove",
-      "scientific_name": "Digitalis spp.",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "Foxglove is repeatedly flagged as hazardous in veterinary and poison-control sources. This entry should stay in review with a visible warning.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/foxglove",
-      "source_name": "ASPCA",
-      "source_status": "ASPCA source evidence confirms toxic symptoms including cardiac issues.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:55:00Z",
-          "note": "Queued with explicit toxic warning because ASPCA documents serious cardiac risk."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:02.623727+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:27.028963+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:02.623727+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
-    },
-    {
       "id": "euphorbia-euphorbia",
       "name": "Euphorbia",
       "scientific_name": "Euphorbia spp.",
@@ -22634,56 +21989,6 @@
         }
       ],
       "audit_last_updated": "2026-08-30T00:07:09.425461+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "rhs.org.uk",
-      "source_type": "horticulture",
-      "source_confidence": "medium"
-    },
-    {
-      "id": "hosta-hosta",
-      "name": "Hosta",
-      "scientific_name": "Hosta spp.",
-      "category": "flowers",
-      "safety_status": "Non-toxic",
-      "description": "Hosta is a useful non-toxic perennial, but still kept in the review queue until its broader catalog and image metadata are fully validated.",
-      "source_url": "https://www.rhs.org.uk/plants/hosta",
-      "source_name": "RHS",
-      "source_status": "Candidate added for broader review and image/source verification.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:47:00Z",
-          "note": "Queued for confirming non-toxic status and image coverage before any promotion."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:12.926421+00:00",
-          "note": "Approved into the live dog-safe catalogue."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:22.149774+00:00",
-          "note": "Approved into the live dog-safe catalogue."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:12.926421+00:00",
       "image_url": "",
       "growth_habit": "Upright",
       "sun_exposure": [
@@ -22756,262 +22061,6 @@
       "source_confidence": "medium"
     },
     {
-      "id": "lily-of-the-valley-lily-of-the-valley",
-      "name": "Lily of the Valley",
-      "scientific_name": "Convallaria majalis",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "Lily of the Valley is a classic toxic plant in dog-safe review lists. It should remain clearly labeled and review-only unless specifically approved.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/lily-of-the-valley",
-      "source_name": "ASPCA",
-      "source_status": "Toxicity confirmed by ASPCA, with this entry kept out of the live safe catalogue pending explicit approval.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:55:00Z",
-          "note": "Queued because direct ASPCA toxic guidance should remain visible to pet owners."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:19.087477+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:08:34.055009+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:22.251970+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:19.087477+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
-    },
-    {
-      "id": "gardenia-gardenia",
-      "name": "Gardenia",
-      "scientific_name": "Gardenia jasminoides",
-      "category": "flowers",
-      "safety_status": "May be Toxic",
-      "description": "Broader horticultural sources suggest possible pet irritation, so this entry remains in review pending explicit evidence and labeling.",
-      "source_url": "https://www.rhs.org.uk/plants/1143/gardenia/details",
-      "source_name": "RHS",
-      "source_status": "Broader-source candidate under review; not yet approved into the live catalogue.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:47:00Z",
-          "note": "Queued for explicit pet-safety review."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:33.380443+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:50.790889+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:21.821530+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:33.380443+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "rhs.org.uk",
-      "source_type": "horticulture",
-      "source_confidence": "medium"
-    },
-    {
-      "id": "yew-yew",
-      "name": "Yew",
-      "scientific_name": "Taxus spp.",
-      "category": "shrubs",
-      "safety_status": "Toxic",
-      "description": "Yew is a classic toxic ornamental and should remain review-only with an explicit warning label, not promoted into a dog-safe section.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/yew",
-      "source_name": "ASPCA",
-      "source_status": "Strong toxic guidance from ASPCA and peer veterinary sources; leave in review until a curator approves or rejects it.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:56:00Z",
-          "note": "Queued as a strict toxic candidate from the same source set, with explicit review required before approval."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:37.039199+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:55.731053+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:22.418064+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "review_batch": "2026-08-28-source-set-2",
-      "evidence_sources": [
-        {
-          "source_name": "ASPCA",
-          "url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/yew",
-          "confidence": "high"
-        },
-        {
-          "source_name": "VCA Animal Hospitals",
-          "url": "https://vcahospitals.com/know-your-pet/",
-          "confidence": "high"
-        },
-        {
-          "source_name": "RHS",
-          "url": "https://www.rhs.org.uk/plants/yew",
-          "confidence": "medium"
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:37.039199+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
-    },
-    {
-      "id": "tulip-tulip",
-      "name": "Tulip",
-      "scientific_name": "Tulipa spp.",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "Tulip bulbs are commonly flagged as toxic to dogs; this remains a review-only queue item so the warning remains explicit and evidence-backed.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/tulip",
-      "source_name": "ASPCA",
-      "source_status": "Confirmed toxic by ASPCA; bulb ingestion is the main risk and the plant should remain explicitly warning-labeled.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:56:00Z",
-          "note": "Queued as a strict review-only toxic candidate from the ASPCA source set."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:42.186174+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:58.663770+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:22.341295+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "review_batch": "2026-08-28-source-set-2",
-      "evidence_sources": [
-        {
-          "source_name": "ASPCA",
-          "url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/tulip",
-          "confidence": "high"
-        },
-        {
-          "source_name": "Pet Poison Helpline",
-          "url": "https://www.petpoisonhelpline.com/pet-knowledge-base/poison/",
-          "confidence": "high"
-        },
-        {
-          "source_name": "VCA Animal Hospitals",
-          "url": "https://vcahospitals.com/know-your-pet/",
-          "confidence": "high"
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:42.186174+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
-    },
-    {
       "id": "pelargonium-pelargonium",
       "name": "Pelargonium",
       "scientific_name": "Pelargonium spp.",
@@ -23065,106 +22114,6 @@
       "source_domain": "rhs.org.uk",
       "source_type": "horticulture",
       "source_confidence": "medium"
-    },
-    {
-      "id": "pachysandra-pachysandra",
-      "name": "Pachysandra",
-      "scientific_name": "Pachysandra terminalis",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "Japanese spurge and similar pachysandra species are commonly flagged for toxicity; keep this in review for right labeling and safety visibility.",
-      "source_url": "https://www.rhs.org.uk/plants/pachysandra",
-      "source_name": "RHS",
-      "source_status": "Review-only because pet risk needs explicit labeling and evidence tracing.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:47:00Z",
-          "note": "Queued for risk review before any live-catalogue promotion."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:07:48.364674+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:22.200287+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:07:48.364674+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "rhs.org.uk",
-      "source_type": "horticulture",
-      "source_confidence": "medium"
-    },
-    {
-      "id": "oleander-oleander",
-      "name": "Oleander",
-      "scientific_name": "Nerium oleander",
-      "category": "flowers",
-      "safety_status": "Toxic",
-      "description": "Oleander is a highly hazardous ornamental and should remain review-only with an explicit toxicity label.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/oleander",
-      "source_name": "ASPCA",
-      "source_status": "ASPCA toxic profile confirms serious poisoning symptoms; not suitable for dog-safe catalogue promotion.",
-      "audit_status": "approved",
-      "audit_history": [
-        {
-          "status": "pending",
-          "performed_at": "2026-08-28T02:55:00Z",
-          "note": "Queued to preserve safety-first review rules and explicit toxic labeling."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-08-30T00:08:28.382789+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        },
-        {
-          "status": "approved",
-          "performed_at": "2026-09-05T21:02:22.298950+00:00",
-          "note": "Approved into the live catalogue and tagged with its toxicity status."
-        }
-      ],
-      "audit_last_updated": "2026-08-30T00:08:28.382789+00:00",
-      "image_url": "",
-      "growth_habit": "Upright",
-      "sun_exposure": [
-        "Full sun",
-        "Partial shade"
-      ],
-      "soil_preference": "Well-draining, moist, loamy",
-      "hardiness_zone": "RHS H4",
-      "mature_size": {
-        "height_cm": null,
-        "spread_cm": null
-      },
-      "watering_needs": "Moderate",
-      "care_notes": "Deadhead spent blooms",
-      "indoor_outdoor": [
-        "outdoor"
-      ],
-      "source_domain": "aspca.org",
-      "source_type": "veterinary-toxicology",
-      "source_confidence": "high"
     },
     {
       "id": "mandevilla-mandevilla",
@@ -31632,6 +30581,51 @@
       "source_domain": "aspca.org",
       "source_type": "veterinary-toxicology",
       "source_confidence": "high"
+    },
+    {
+      "description": "ASPCA-listed dog non-toxic plant: Calathea Lancifolia 2.",
+      "name": "Rattlesnake Plant",
+      "image_url": "https://static.inaturalist.org/photos/103706378/medium.jpg",
+      "scientific_name": "Goeppertia insignis; Calathea lancifolia; Calathea insignis; Maranta insignis",
+      "id": "rattlesnake-plant",
+      "safety_status": "Non-toxic to dogs",
+      "category": "flowers",
+      "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/calathea-lancifolia-2",
+      "image_source_url": "https://www.inaturalist.org/taxa/867364",
+      "hardiness_zones_uk": "H2-H7",
+      "hardiness_info": {
+        "zones_uk": "H2-H7",
+        "min_temp_c": 5,
+        "max_temp_c": 40
+      },
+      "seasonality": {
+        "bloom_start_month": 5,
+        "bloom_end_month": 10,
+        "peak_bloom_months": [
+          6,
+          7,
+          8,
+          9
+        ],
+        "planting_season": [
+          "spring",
+          "autumn"
+        ],
+        "growth_habit": "Annual/Perennial",
+        "dormancy_months": [
+          12,
+          1,
+          2
+        ],
+        "harvest_season": null,
+        "best_months_to_plant": [
+          3,
+          4,
+          5,
+          9,
+          10
+        ]
+      }
     }
   ],
   "curated_at": "2026-08-27T20:47:56Z"

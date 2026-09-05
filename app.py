@@ -1077,6 +1077,10 @@ def dog_safe_plant_photo_suggestion():
         return best
 
     search_terms: list[str] = []
+    custom_query = str(request.args.get("q", "") or request.args.get("query", "")).strip()
+    if custom_query:
+        search_terms.insert(0, custom_query)
+
     for variant in scientific_variants:
         if variant not in search_terms:
             search_terms.append(variant)
@@ -1264,29 +1268,41 @@ def save_dog_safe_plant_photo(plant_id: str):
     payload = request.get_json(force=True) or {}
     image_url = str(payload.get("image_url", "")).strip()
     image_source_url = str(payload.get("image_source_url", "")).strip()
-    source_host = (urlparse(image_source_url).netloc or "").casefold().strip(".")
-    allowed_host_roots = {
-        "commons.wikimedia.org",
-        "wikidata.org",
-        "inaturalist.org",
-        "gbif.org",
-        "rhs.org.uk",
-        "powo.science.kew.org",
-        "science.kew.org",
-        "missouribotanicalgarden.org",
-        "openverse.org",
-        "flickr.com",
-        "staticflickr.com",
-    }
+    is_custom = bool(payload.get("is_custom") or payload.get("allow_custom"))
 
-    def is_approved_source_host(host: str) -> bool:
-        compact = host.casefold().strip(".")
-        if compact.startswith("www."):
-            compact = compact[4:]
-        return any(compact == root or compact.endswith(f".{root}") for root in allowed_host_roots)
+    if image_url.startswith("/static/"):
+        pass
+    else:
+        source_host = (urlparse(image_source_url).netloc or "").casefold().strip(".")
+        allowed_host_roots = {
+            "commons.wikimedia.org",
+            "wikidata.org",
+            "inaturalist.org",
+            "gbif.org",
+            "rhs.org.uk",
+            "powo.science.kew.org",
+            "science.kew.org",
+            "missouribotanicalgarden.org",
+            "openverse.org",
+            "flickr.com",
+            "staticflickr.com",
+            "unsplash.com",
+            "pexels.com",
+            "pixabay.com",
+        }
 
-    if not image_url.startswith("https://") or not image_source_url.startswith("https://") or not is_approved_source_host(source_host):
-        return jsonify({"error": "Only HTTPS images from approved plant-reference sources can be saved."}), 400
+        def is_approved_source_host(host: str) -> bool:
+            compact = host.casefold().strip(".")
+            if compact.startswith("www."):
+                compact = compact[4:]
+            return any(compact == root or compact.endswith(f".{root}") for root in allowed_host_roots)
+
+        if not (image_url.startswith("https://") or image_url.startswith("http://")):
+            return jsonify({"error": "Image URL must start with http://, https://, or /static/."}), 400
+
+        if not is_custom and image_source_url not in {"User Upload", "Custom Source"} and not is_approved_source_host(source_host):
+            return jsonify({"error": "Only HTTPS images from approved plant-reference sources or user custom sources can be saved."}), 400
+
     with db_lock:
         database = read_json_or(DOG_SAFE_PLANTS_PATH, {"plants": []})
         plant = next((item for item in database["plants"] if item.get("id") == plant_id), None)
@@ -1295,8 +1311,46 @@ def save_dog_safe_plant_photo(plant_id: str):
         BACKUP_DIR.mkdir(exist_ok=True)
         shutil.copy2(DOG_SAFE_PLANTS_PATH, BACKUP_DIR / f"dog-safe-plants-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}.json")
         plant["image_url"] = image_url
-        plant["image_source_url"] = image_source_url
+        plant["image_source_url"] = image_source_url or "Custom Source"
         write_json(DOG_SAFE_PLANTS_PATH, database)
+    return jsonify(plant)
+
+
+@app.post("/api/dog-safe-plants/<plant_id>/upload-photo")
+def upload_dog_safe_plant_photo(plant_id: str):
+    if "file" not in request.files:
+        return jsonify({"error": "No image file provided in upload request."}), 400
+    file = request.files["file"]
+    if not file or not file.filename:
+        return jsonify({"error": "Uploaded file has no filename."}), 400
+
+    filename = file.filename.lower()
+    allowed_exts = {".jpg", ".jpeg", ".png", ".webp", ".gif", ".avif", ".svg"}
+    ext = Path(filename).suffix.lower()
+    if ext not in allowed_exts:
+        return jsonify({"error": f"Unsupported image format ({ext}). Allowed: JPG, PNG, WEBP, GIF, AVIF, SVG."}), 400
+
+    upload_dir = BASE_DIR / "static" / "uploads" / "plant_photos"
+    upload_dir.mkdir(parents=True, exist_ok=True)
+
+    safe_name = f"{plant_id}_{uuid.uuid4().hex[:8]}{ext}"
+    target_path = upload_dir / safe_name
+    file.save(target_path)
+
+    rel_url = f"/static/uploads/plant_photos/{safe_name}"
+    source_url = request.form.get("source_url", "User Upload").strip() or "User Upload"
+
+    with db_lock:
+        database = read_json_or(DOG_SAFE_PLANTS_PATH, {"plants": []})
+        plant = next((item for item in database["plants"] if item.get("id") == plant_id), None)
+        if not plant:
+            return jsonify({"error": "Plant not found."}), 404
+        BACKUP_DIR.mkdir(exist_ok=True)
+        shutil.copy2(DOG_SAFE_PLANTS_PATH, BACKUP_DIR / f"dog-safe-plants-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}.json")
+        plant["image_url"] = rel_url
+        plant["image_source_url"] = source_url
+        write_json(DOG_SAFE_PLANTS_PATH, database)
+
     return jsonify(plant)
 
 

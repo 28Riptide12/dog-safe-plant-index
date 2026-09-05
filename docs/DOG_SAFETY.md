@@ -11,12 +11,12 @@ Plants in this catalogue are:
 - ✅ **Safe if ingested in normal amounts** - Your dog won't be harmed from casual nibbling
 
 ### Important Caveats
-- 🐕 Individual dogs may react differently
-- 🐕 Some dogs may have allergies
-- 🐕 Large quantities of ANY plant can cause upset stomach
-- 🐕 Toxicity depends on plant part (leaf, seed, root, flower)
-- 🐕 Young puppies are more vulnerable
-- 🐕 Ingestion should be avoided whenever possible
+-  Individual dogs may react differently
+-  Some dogs may have allergies
+-  Large quantities of ANY plant can cause upset stomach
+-  Toxicity depends on plant part (leaf, seed, root, flower)
+-  Young puppies are more vulnerable
+-  Ingestion should be avoided whenever possible
 
 ---
 
@@ -49,7 +49,7 @@ Plants in this catalogue are:
 
 ---
 
-## 🌿 Understanding Plant Toxicity
+##  Understanding Plant Toxicity
 
 ### What Part Is Toxic?
 Different plant parts have different toxicity levels:
@@ -139,7 +139,7 @@ Different plant parts have different toxicity levels:
 
 ---
 
-## 🐕 Dog Behavior & Garden Safety
+## Dog Behavior & Garden Safety
 
 ### Why Dogs Eat Plants
 
@@ -205,7 +205,7 @@ Different plant parts have different toxicity levels:
 
 ---
 
-## 🆘 What To Do If Dog Eats a Plant
+## What To Do If Dog Eats a Plant
 
 ### Immediate Steps
 
@@ -266,7 +266,7 @@ Look for signs of poisoning:
 
 ---
 
-## 🏡 Dog-Friendly Garden Layout
+##  Dog-Friendly Garden Layout
 
 ### Zoning Strategy
 
@@ -322,7 +322,7 @@ Look for signs of poisoning:
 
 ---
 
-## 🌿 Common Questions
+##  Common Questions
 
 ### Q: Can my dog ever be in the garden with toxic plants?
 **A**: Yes, with proper management:
@@ -445,7 +445,7 @@ Look for signs of poisoning:
 
 ---
 
-## 🐾 Summary
+##  Summary
 
 **Creating a safe, dog-friendly garden is entirely possible!**
 
