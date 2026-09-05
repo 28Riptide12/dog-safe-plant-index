@@ -568,7 +568,9 @@
         "pansy",
         "Viola tricolor hortensis",
         "Viola tricolor",
-        "Viola tricolor var. hortensis H.Mart."
+        "Viola tricolor var. hortensis H.Mart.",
+        "Viola",
+        "viola"
       ]
     },
     "petunia": {
@@ -12613,7 +12615,11 @@
         "Nicotiana glauca typica",
         "Nicotidendron glauca",
         "Siphaulax glabra",
-        "tree tobacco"
+        "tree tobacco",
+        "tobacco",
+        "tobacco plant",
+        "tobacco tree",
+        "mustard tree"
       ]
     },
     "octopus-tree": {
