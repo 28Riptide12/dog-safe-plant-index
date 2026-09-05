@@ -210,6 +210,7 @@ async function handleReviewQueueAction(plantId, action) {
     if (liveResponse.ok) {
       const liveData = await liveResponse.json();
       plants = Array.isArray(liveData.plants) ? liveData.plants : [];
+      resetPlantSearchCaches();
     }
   } catch (_) { }
   return data;
@@ -425,7 +426,7 @@ function setupPlantImport() {
   });
   button.addEventListener('click', async () => {
     const file = input.files[0]; if (!file) return; button.disabled = true; button.textContent = 'Verifying...';
-    try { const form = new FormData(); form.append('file', file); const response = await fetch('/api/dog-safe-plants/import', { method: 'POST', body: form }); const data = await response.json(); if (!response.ok) throw new Error(data.error); plants = (await fetch('/api/dog-safe-plants').then(result => result.json())).plants; renderPlants(); importStatus.textContent = `${data.imported} plant${data.imported === 1 ? '' : 's'} imported safely.${data.skipped?.length ? ` Skipped: ${data.skipped.join(', ')}.` : ''}`; importStatus.className = 'mt-3 rounded-lg bg-emerald-100 p-3 text-sm text-emerald-800'; }
+    try { const form = new FormData(); form.append('file', file); const response = await fetch('/api/dog-safe-plants/import', { method: 'POST', body: form }); const data = await response.json(); if (!response.ok) throw new Error(data.error); plants = (await fetch('/api/dog-safe-plants').then(result => result.json())).plants; resetPlantSearchCaches(); renderPlants(); importStatus.textContent = `${data.imported} plant${data.imported === 1 ? '' : 's'} imported safely.${data.skipped?.length ? ` Skipped: ${data.skipped.join(', ')}.` : ''}`; importStatus.className = 'mt-3 rounded-lg bg-emerald-100 p-3 text-sm text-emerald-800'; }
     catch (error) { importStatus.textContent = error.message; importStatus.className = 'mt-3 rounded-lg bg-red-100 p-3 text-sm text-red-800'; }
     finally { importStatus.classList.remove('hidden'); button.disabled = false; button.textContent = 'Verify and import'; }
   });
@@ -461,7 +462,7 @@ function setupPlantImport() {
       const approved = await askConfirm(`Scraped catalogue: ${previewData.scraped} records.\nNew records: ${previewData.new}.\nDuplicates to skip: ${previewData.duplicates}.${sample}\n\nMerge new validated ASPCA records into the live catalogue? A backup will be created.`);
       if (!approved) { importStatus.textContent = 'Merge cancelled. No plants were changed.'; return; }
       const response = await fetch('/api/dog-safe-plants/merge-scraped', { method: 'POST' }); const data = await response.json(); if (!response.ok) throw new Error(data.error);
-      plants = (await fetch('/api/dog-safe-plants').then(result => result.json())).plants; renderPlants(); importStatus.className = 'mt-3 rounded-lg bg-emerald-100 p-3 text-sm text-emerald-800'; importStatus.textContent = `${data.imported} new plants merged safely. ${data.duplicates} duplicates skipped. Backup created.`;
+      plants = (await fetch('/api/dog-safe-plants').then(result => result.json())).plants; resetPlantSearchCaches(); renderPlants(); importStatus.className = 'mt-3 rounded-lg bg-emerald-100 p-3 text-sm text-emerald-800'; importStatus.textContent = `${data.imported} new plants merged safely. ${data.duplicates} duplicates skipped. Backup created.`;
     } catch (error) { importStatus.className = 'mt-3 rounded-lg bg-red-100 p-3 text-sm text-red-800'; importStatus.textContent = error.message; }
     finally { importStatus.classList.remove('hidden'); mergeButton.disabled = false; mergeButton.textContent = 'Merge scraped catalogue'; }
   });
@@ -871,7 +872,12 @@ function expandAliasVariant(value) {
   return [...variants].filter(Boolean);
 }
 
+const plantAliasIndexCache = new Map();
+
 function buildPlantAliasIndex(plant) {
+  const cacheKey = plant?.id;
+  if (cacheKey && plantAliasIndexCache.has(cacheKey)) return plantAliasIndexCache.get(cacheKey);
+
   const values = [];
   if (plant?.name) values.push(String(plant.name));
   if (plant?.scientific_name) values.push(String(plant.scientific_name));
@@ -883,7 +889,26 @@ function buildPlantAliasIndex(plant) {
     const tokens = expandAliasVariant(value);
     tokens.forEach(token => aliasIndex.add(token));
   });
-  return [...aliasIndex];
+  const result = [...aliasIndex];
+  if (cacheKey) plantAliasIndexCache.set(cacheKey, result);
+  return result;
+}
+
+function resetPlantSearchCaches() {
+  plantAliasIndexCache.clear();
+  plantSynonymsCache.clear();
+  plantSearchProfileCache.clear();
+}
+
+function warmPlantSearchCaches() {
+  // Pre-builds the per-plant search profile cache once, so the first real
+  // search a user types doesn't pay the one-time cost of scanning the whole
+  // catalogue. Safe to call multiple times; already-cached plants are skipped.
+  try {
+    plants.forEach(plant => getPlantSearchProfile(plant));
+  } catch (_) {
+    // Non-fatal: caches will simply build lazily on first search instead.
+  }
 }
 
 function applySpellcheckToQuery(value) {
@@ -1165,19 +1190,33 @@ function isPlantBloomingInSeason(plant, season) {
   return peakMonths.some(m => months.includes(m));
 }
 
-function calculateSearchScore(plant, searchTerms) {
-  if (!searchTerms || searchTerms.length === 0) return 1;
-  
+const plantSearchProfileCache = new Map();
+
+function getPlantSearchProfile(plant) {
+  const cacheKey = plant?.id;
+  if (cacheKey && plantSearchProfileCache.has(cacheKey)) return plantSearchProfileCache.get(cacheKey);
+
   const synonymText = getPlantSynonyms(plant).join(' ');
   const searchText = `${plant.name} ${plant.scientific_name} ${synonymText} ${getPlantDescription(plant)} ${plant.category}`.toLowerCase();
-  const normalizedSearchText = normalizeSearchQuery(searchText);
-  const primaryNameText = `${plant.name} ${plant.scientific_name}`.toLowerCase();
-  const normalizedName = String(plant.name || '').toLowerCase().replace(/\s+\d+$/, '').trim();
-  const normalizedScientific = String(plant.scientific_name || '').toLowerCase().trim();
-  const plantTokens = tokenizeText(searchText);
-  const primaryNameTokens = tokenizeText(primaryNameText);
-  const aliasIndex = new Set(buildPlantAliasIndex(plant).map(value => normalizeSearchQuery(value)));
-  const intent = inferNaturalLanguageIntent(searchTerms.join(' '));
+  const profile = {
+    searchText,
+    normalizedSearchText: normalizeSearchQuery(searchText),
+    primaryNameText: `${plant.name} ${plant.scientific_name}`.toLowerCase(),
+    normalizedName: String(plant.name || '').toLowerCase().replace(/\s+\d+$/, '').trim(),
+    normalizedScientific: String(plant.scientific_name || '').toLowerCase().trim(),
+    plantTokens: tokenizeText(searchText),
+    primaryNameTokens: tokenizeText(`${plant.name} ${plant.scientific_name}`.toLowerCase()),
+    aliasIndex: new Set(buildPlantAliasIndex(plant).map(value => normalizeSearchQuery(value))),
+  };
+  if (cacheKey) plantSearchProfileCache.set(cacheKey, profile);
+  return profile;
+}
+
+function calculateSearchScore(plant, searchTerms, intentOverride = undefined) {
+  if (!searchTerms || searchTerms.length === 0) return 1;
+
+  const { normalizedSearchText, normalizedName, normalizedScientific, plantTokens, primaryNameTokens, aliasIndex } = getPlantSearchProfile(plant);
+  const intent = intentOverride !== undefined ? intentOverride : inferNaturalLanguageIntent(searchTerms.join(' '));
   
   let score = 0;
   let matchedTerms = 0;
@@ -1214,17 +1253,6 @@ function calculateSearchScore(plant, searchTerms) {
     else if (primaryNameTokens.some(token => isCloseWordMatch(normalizedTerm, token))) {
       termScore = 15;
     }
-    else if (normalizedTerm.length > 2) {
-      const fuzzyMatches = plantTokens.filter(token => {
-        const matches = Math.min(normalizedTerm.length, token.length);
-        let matchCount = 0;
-        for (let i = 0; i < matches; i++) {
-          if (normalizedTerm[i] === token[i]) matchCount++;
-        }
-        return matchCount >= Math.ceil(matches * 0.6);
-      });
-      if (fuzzyMatches.length > 0) termScore = 10;
-    }
     
     if (intent && intent.category && plant.category === intent.category) termScore += 25;
     if (intent && intent.safety === 'Non-toxic to dogs' && plant.safety_status === 'Non-toxic to dogs') termScore += 30;
@@ -1247,15 +1275,14 @@ function calculateSearchScore(plant, searchTerms) {
   return matchedTerms === searchTerms.length ? score : 0;
 }
 
-function matchesSearch(plant, searchQuery) {
+function matchesSearch(plant, searchQuery, precomputed = undefined) {
   if (!searchQuery || searchQuery.trim() === '') return true;
-  const normalizedQuery = normalizeSearchQuery(searchQuery);
-  const searchTerms = tokenizeText(normalizedQuery);
+  const searchTerms = precomputed?.searchTerms ?? tokenizeText(normalizeSearchQuery(searchQuery));
   if (!searchTerms.length) return true;
-  const intent = inferNaturalLanguageIntent(searchQuery);
+  const intent = precomputed?.intent !== undefined ? precomputed.intent : inferNaturalLanguageIntent(searchQuery);
   if (intent && intent.safety === 'Non-toxic to dogs' && plant.safety_status === 'Non-toxic to dogs') return true;
   if (intent && intent.category && plant.category === intent.category) return true;
-  return calculateSearchScore(plant, searchTerms) > 0;
+  return calculateSearchScore(plant, searchTerms, intent) > 0;
 }
 
 function getPlantPlacementTags(plant) {
@@ -1387,6 +1414,8 @@ function renderPlants() {
   // Parse search terms
   const correctedSearch = applySpellcheckToQuery(filters.search);
   const searchTerms = correctedSearch ? tokenizeText(correctedSearch) : [];
+  const searchIntent = filters.search ? inferNaturalLanguageIntent(filters.search) : null;
+  const searchPrecomputed = { searchTerms, intent: searchIntent };
   
   const sourcePlants = filters.reviewOnly ? plantReviewQueue : plants;
   const visible = sourcePlants
@@ -1395,7 +1424,7 @@ function renderPlants() {
       if (category !== 'all' && plant.category !== category) return false;
       
       const hasSearch = !!filters.search;
-      const searchMatched = !hasSearch || matchesSearch(plant, filters.search);
+      const searchMatched = !hasSearch || matchesSearch(plant, filters.search, searchPrecomputed);
       if (hasSearch && !searchMatched) return false;
 
       if (filters.reviewOnly) {
@@ -1491,8 +1520,8 @@ function renderPlants() {
     .sort((a, b) => {
       // Sort by search relevance if searching
       if (filters.search) {
-        const scoreA = calculateSearchScore(a, searchTerms);
-        const scoreB = calculateSearchScore(b, searchTerms);
+        const scoreA = calculateSearchScore(a, searchTerms, searchIntent);
+        const scoreB = calculateSearchScore(b, searchTerms, searchIntent);
         if (scoreA !== scoreB) return scoreB - scoreA;
       }
       // Then by name
@@ -1787,11 +1816,20 @@ function getToxicityEvidenceForPlant(plant) {
   };
 }
 
+const plantSynonymsCache = new Map();
+
 function getPlantSynonyms(plant) {
+  const cacheKey = plant?.id;
+  if (cacheKey && plantSynonymsCache.has(cacheKey)) return plantSynonymsCache.get(cacheKey);
   const record = plantSynonymOverrides?.[plant?.id];
-  if (!record || typeof record !== 'object') return [];
+  if (!record || typeof record !== 'object') {
+    if (cacheKey) plantSynonymsCache.set(cacheKey, []);
+    return [];
+  }
   const aliases = Array.isArray(record.aliases) ? record.aliases : [];
-  return [...new Set(aliases.map(item => String(item || '').trim()).filter(Boolean))];
+  const result = [...new Set(aliases.map(item => String(item || '').trim()).filter(Boolean))];
+  if (cacheKey) plantSynonymsCache.set(cacheKey, result);
+  return result;
 }
 
 function normaliseColourToken(token) {
@@ -2787,7 +2825,6 @@ const debouncedSearch = debounce((value) => {
 
 document.querySelector('#plant-search')?.addEventListener('input', event => {
   debouncedSearch(event.target.value);
-  updateSearchSuggestion();
 });
 document.querySelector('#search-correction-button')?.addEventListener('click', () => {
   const button = document.querySelector('#search-correction-button');
@@ -3007,6 +3044,8 @@ Promise.all([
 ]).then(([data]) => {
   console.log('✓ Promise.all resolved, data:', data);
   plants = Array.isArray(data.plants) ? data.plants : [];
+  resetPlantSearchCaches();
+  setTimeout(warmPlantSearchCaches, 0);
   console.log('✓ Plants loaded:', plants.length);
   
   // Restore previously selected climate zone
