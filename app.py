@@ -431,6 +431,7 @@ def infer_indoor_outdoor(plant: dict[str, Any]) -> list[str]:
     if "indoor" in tags and "outdoor" in tags:
         return ["indoor", "outdoor"]
 
+@app.get("/")
 @app.get("/plants")
 def plants():
     return render_template("plants.html")
