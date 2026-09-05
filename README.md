@@ -4,11 +4,8 @@ A curated, evidence-first catalogue of garden and houseplants that are safe for 
 review queue for uncertain candidates, a personal favourites/plant library, care reminders, and
 an AI garden planner.
 
-**🔗 [Live demo](https://dog-safe-plant-index.onrender.com)** — hosted on Render's free tier, so
-the first load after inactivity may take ~30s to wake up.
-
 [![Self-host guide](https://img.shields.io/badge/📖_Self--host_guide-View_walkthrough-2e7d32?style=for-the-badge)](https://28riptide12.github.io/Portfolio/projects/self-host-dog-safe-plant-index.html)
-
+[![Live demo](https://img.shields.io/badge/🔗_Live_demo-Try_it_now-2e7d32?style=for-the-badge)](https://dog-safe-plant-index.onrender.com)
 ![Dog Safe Plant Index hero](screenshots/hero.png)
 
 ## Features
