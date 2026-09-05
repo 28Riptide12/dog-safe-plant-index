@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>404 Page Not Found — Dog-Safe Garden Plants</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='plants.css') }}">
+</head>
+<body class="bg-stone-100 text-stone-800 dark:bg-gray-900 dark:text-stone-100 min-h-screen flex flex-col justify-between">
+  <header class="plant-header">
+    <div class="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-5">
+      <div>
+        <p class="plant-eyebrow">Garden companion</p>
+        <h1 class="mt-1 text-2xl sm:text-3xl font-bold tracking-tight">Dog-Safe Garden Plants</h1>
+      </div>
+      <a href="{{ url_for('plants') }}" class="back-link">← Plant Home</a>
+    </div>
+  </header>
+
+  <main class="mx-auto max-w-2xl px-5 py-12 text-center my-auto">
+    <div class="bg-white dark:bg-gray-800 rounded-2xl p-8 sm:p-12 shadow-md border border-stone-200 dark:border-gray-700">
+      <div class="inline-flex items-center justify-center w-20 h-20 rounded-full bg-emerald-100 dark:bg-emerald-900/40 text-4xl mb-6">
+        🐶
+      </div>
+      <h2 class="text-4xl font-extrabold text-stone-900 dark:text-white tracking-tight">404</h2>
+      <h3 class="mt-2 text-xl font-semibold text-stone-700 dark:text-stone-300">Page Not Found</h3>
+      <p class="mt-4 text-stone-600 dark:text-stone-400 text-sm leading-relaxed">
+        Barking up the wrong tree! The page or plant record you're looking for doesn't exist or has moved.
+      </p>
+
+      <div class="mt-8 flex flex-wrap justify-center gap-3">
+        <a href="{{ url_for('plants') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-emerald-700 hover:bg-emerald-800 text-white font-semibold text-sm transition shadow-sm">
+          🌱 Plant Catalogue
+        </a>
+        <a href="{{ url_for('ai_garden_planner') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-stone-200 hover:bg-stone-300 dark:bg-gray-700 dark:hover:bg-gray-600 text-stone-800 dark:text-white font-semibold text-sm transition">
+          🤖 AI Garden Planner
+        </a>
+        <a href="{{ url_for('serve_docs') }}" class="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg border border-stone-300 dark:border-gray-600 hover:bg-stone-50 dark:hover:bg-gray-700 text-stone-700 dark:text-stone-300 font-semibold text-sm transition">
+          📖 Documentation
+        </a>
+      </div>
+    </div>
+  </main>
+
+  <footer class="border-t border-stone-200 dark:border-gray-800 bg-white dark:bg-gray-900 py-6 text-center text-xs text-stone-500 dark:text-stone-400">
+    <p>Developed by <a href="https://github.com/28Riptide12" target="_blank" rel="noopener" class="font-medium text-stone-600 dark:text-stone-300 underline decoration-stone-300 hover:text-emerald-600 dark:hover:text-emerald-400">Riptide</a> &middot; &copy; 2025</p>
+  </footer>
+</body>
+</html>
