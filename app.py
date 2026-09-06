@@ -1316,6 +1316,77 @@ def save_dog_safe_plant_photo(plant_id: str):
     return jsonify(plant)
 
 
+@app.put("/api/dog-safe-plants/<plant_id>/info")
+def update_dog_safe_plant_info(plant_id: str):
+    """Update editable text/classification fields for a plant from the Plant Manager's Edit Info tab.
+
+    Only a known-safe subset of fields can be changed here (name, scientific name,
+    category, safety status, description, aliases, etc.) — image fields are handled
+    by the dedicated photo endpoints above.
+    """
+    payload = request.get_json(force=True) or {}
+    valid_categories = {
+        "flowers", "fruit", "vegetables", "herbs", "grasses", "ferns",
+        "trees-and-shrubs", "succulents", "vines", "aquatic-plants", "mosses",
+    }
+    valid_safety = {"Non-toxic to dogs", "May be Toxic", "Toxic"}
+
+    updates: dict[str, Any] = {}
+    if "name" in payload:
+        name = str(payload["name"]).strip()
+        if not name:
+            return jsonify({"error": "Name cannot be empty."}), 400
+        updates["name"] = name
+    if "scientific_name" in payload:
+        scientific_name = str(payload["scientific_name"]).strip()
+        if not scientific_name:
+            return jsonify({"error": "Scientific name cannot be empty."}), 400
+        updates["scientific_name"] = scientific_name
+    if "category" in payload:
+        category = str(payload["category"]).strip()
+        if category not in valid_categories:
+            return jsonify({"error": f"Invalid category. Must be one of: {', '.join(sorted(valid_categories))}."}), 400
+        updates["category"] = category
+    if "safety_status" in payload:
+        safety_status = str(payload["safety_status"]).strip()
+        if safety_status not in valid_safety:
+            return jsonify({"error": f"Invalid safety_status. Must be one of: {', '.join(sorted(valid_safety))}."}), 400
+        updates["safety_status"] = safety_status
+    if "description" in payload:
+        updates["description"] = str(payload["description"]).strip()
+    if "toxicity_details" in payload:
+        updates["toxicity_details"] = str(payload["toxicity_details"]).strip()
+    if "indoor_outdoor" in payload:
+        indoor_outdoor = normalize_indoor_outdoor(payload.get("indoor_outdoor"))
+        if payload.get("indoor_outdoor") and not indoor_outdoor:
+            return jsonify({"error": "Invalid indoor_outdoor value (use indoor, outdoor, or both)."}), 400
+        if indoor_outdoor:
+            updates["indoor_outdoor"] = indoor_outdoor
+    if "source_url" in payload:
+        source_url = str(payload["source_url"]).strip()
+        if source_url and not re.match(r"^https://", source_url, re.I):
+            return jsonify({"error": "source_url must be an HTTPS link."}), 400
+        if source_url:
+            updates["source_url"] = source_url
+    if "aliases" in payload and isinstance(payload["aliases"], list):
+        updates["aliases"] = [str(item).strip() for item in payload["aliases"] if str(item).strip()]
+
+    if not updates:
+        return jsonify({"error": "No editable fields were provided."}), 400
+
+    with db_lock:
+        database = read_json_or(DOG_SAFE_PLANTS_PATH, {"plants": []})
+        plant = next((item for item in database["plants"] if item.get("id") == plant_id), None)
+        if not plant:
+            return jsonify({"error": "Plant not found."}), 404
+        BACKUP_DIR.mkdir(exist_ok=True)
+        shutil.copy2(DOG_SAFE_PLANTS_PATH, BACKUP_DIR / f"dog-safe-plants-{datetime.now(timezone.utc).strftime('%Y%m%dT%H%M%SZ')}.json")
+        plant.update(updates)
+        write_json(DOG_SAFE_PLANTS_PATH, database)
+
+    return jsonify(plant)
+
+
 @app.post("/api/dog-safe-plants/<plant_id>/upload-photo")
 def upload_dog_safe_plant_photo(plant_id: str):
     if "file" not in request.files:
@@ -1387,7 +1458,7 @@ def validate_dog_safe_plants(parsed: Any) -> list[dict[str, Any]]:
     rows = parsed.get("plants", parsed) if isinstance(parsed, dict) else parsed
     if not isinstance(rows, list):
         raise ValueError("JSON must contain a plants array.")
-    categories = {"flowers", "fruit", "vegetables", "herbs", "grasses"}
+    categories = {"flowers", "fruit", "vegetables", "herbs", "grasses", "ferns", "trees-and-shrubs", "succulents", "vines", "aquatic-plants", "mosses"}
     required = {"id", "name", "scientific_name", "category", "safety_status", "image_url", "description", "source_url"}
     validated = []
     seen = set()
@@ -1712,8 +1783,9 @@ from image_api import register_image_routes
 register_image_routes(app)
 
 @app.get("/admin/images")
-def image_manager():
-    """Serve the image management dashboard."""
+@app.get("/admin/plants")
+def plant_manager():
+    """Serve the Plant Manager dashboard (photo management + plant info editing)."""
     return render_template("image_manager.html")
 
 @app.get("/ai-garden-planner")

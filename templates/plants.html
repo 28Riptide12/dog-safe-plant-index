@@ -16,11 +16,11 @@
           <button id="plant-menu-toggle" type="button" class="back-link" aria-expanded="false" aria-controls="plant-menu">☰ Menu</button>
           <div id="plant-menu" class="dropdown-menu-content hidden">
             <button id="plant-settings-toggle" type="button" class="dropdown-item">⚙️ Plant Settings</button>
-            <a href="{{ url_for('image_manager') }}" class="dropdown-item">📸 Photo Manager</a>
+            <a href="{{ url_for('plant_manager') }}" class="dropdown-item">🌿 Plant Manager</a>
             <a href="{{ url_for('serve_docs') }}" class="dropdown-item">📖 Documentation</a>
             <a href="{{ url_for('ai_garden_planner') }}" class="dropdown-item">🤖 AI Garden Generator</a>
             <hr class="my-2">
-            <a href="{{ url_for('plants') }}" class="dropdown-item">🏠 Plant home</a>
+            <a href="{{ url_for('index') }}" class="dropdown-item">🏠 Back to soil prices</a>
           </div>
         </div>
         <label class="theme-toggle" for="plant-dark-toggle" aria-label="Toggle dark mode"><span class="theme-toggle-label">Dark mode</span><input id="plant-dark-toggle" type="checkbox" role="switch" aria-checked="false"><span class="theme-toggle-track" aria-hidden="true"><span class="theme-toggle-thumb"></span></span></label>
@@ -41,7 +41,7 @@
           <div class="rounded-lg bg-emerald-50 dark:bg-emerald-900/20 p-4 border border-emerald-200 dark:border-emerald-800">
             <h3 class="font-bold text-stone-900 dark:text-white mb-3">📚 Quick Access</h3>
             <div class="grid grid-cols-2 gap-2">
-              <a href="{{ url_for('image_manager') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">📸 Photo Manager</a>
+              <a href="{{ url_for('plant_manager') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">🌿 Plant Manager</a>
               <a href="{{ url_for('serve_docs') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">📖 View Docs</a>
               <a href="{{ url_for('serve_doc_file', filename='FEATURES_SUMMARY.md') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">✨ Features</a>
               <a href="{{ url_for('serve_doc_file', filename='DOG_SAFETY.md') }}" class="rounded bg-white dark:bg-gray-700 px-3 py-2 text-sm font-semibold text-emerald-700 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-700 hover:bg-emerald-50 dark:hover:bg-emerald-900/30">🐕 Dog Safety</a>
@@ -97,7 +97,7 @@
       <p id="climate-status" class="mt-2 text-xs text-stone-500 dark:text-stone-400"></p>
     </div>
     <nav id="category-tabs" class="mt-8 flex flex-wrap gap-2" aria-label="Plant categories">
-      <button class="category-tab is-active" data-category="all">All</button><button class="category-tab" data-category="flowers">Flowers</button><button class="category-tab" data-category="fruit">Fruit</button><button class="category-tab" data-category="vegetables">Vegetables</button><button class="category-tab" data-category="herbs">Herbs</button><button class="category-tab" data-category="grasses">Grasses</button>
+      <button class="category-tab is-active" data-category="all">All</button><button class="category-tab" data-category="flowers">Flowers</button><button class="category-tab" data-category="fruit">Fruit</button><button class="category-tab" data-category="vegetables">Vegetables</button><button class="category-tab" data-category="herbs">Herbs</button><button class="category-tab" data-category="grasses">Grasses</button><button class="category-tab" data-category="ferns">Ferns</button><button class="category-tab" data-category="trees-and-shrubs">Trees &amp; Shrubs</button><button class="category-tab" data-category="succulents">Succulents</button><button class="category-tab" data-category="vines">Vines</button><button class="category-tab" data-category="aquatic-plants">Aquatic Plants</button><button class="category-tab" data-category="mosses">Mosses</button>
     </nav>
     <form id="plant-filters" class="plant-filters" role="search">
       <div>

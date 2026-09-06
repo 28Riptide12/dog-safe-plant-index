@@ -404,6 +404,54 @@ const growingGuidance = {
     soil: 'Well-drained soil suited to the variety',
     matureSize: '30 cm-2.5 m',
   },
+  ferns: {
+    typicalGrowingTime: 'One to two seasons to establish',
+    sunExposure: 'Partial to full shade',
+    gardenNote: 'Keep humidity high and avoid direct sun scorch',
+    watering: 'Keep soil consistently moist, never soggy',
+    soil: 'Humus-rich, moisture-retentive soil',
+    matureSize: '15 cm-3 m',
+  },
+  'trees-and-shrubs': {
+    typicalGrowingTime: 'Several seasons to years to mature',
+    sunExposure: 'Full sun to partial shade depending on species',
+    gardenNote: 'Prune to shape and remove dead wood seasonally',
+    watering: 'Water deeply while establishing, then as needed',
+    soil: 'Well-drained soil, amended to suit the species',
+    matureSize: '1 m-20 m+',
+  },
+  succulents: {
+    typicalGrowingTime: '8-20 weeks to establish',
+    sunExposure: 'Bright light to full sun',
+    gardenNote: 'Avoid overwatering; allow soil to dry fully between waterings',
+    watering: 'Drought tolerant, water sparingly',
+    soil: 'Free-draining, gritty or cactus mix',
+    matureSize: '5 cm-1 m',
+  },
+  vines: {
+    typicalGrowingTime: 'One to three seasons to establish',
+    sunExposure: 'Sun to partial shade depending on species',
+    gardenNote: 'Provide a trellis, wall, or support structure for climbing',
+    watering: 'Water regularly while establishing, then as needed',
+    soil: 'Fertile, well-drained soil',
+    matureSize: '1 m-10 m+',
+  },
+  'aquatic-plants': {
+    typicalGrowingTime: 'One season to establish',
+    sunExposure: 'Full sun to partial shade',
+    gardenNote: 'Keep roots submerged or in consistently boggy soil',
+    watering: 'Requires standing water or permanently saturated soil',
+    soil: 'Aquatic soil, pond baskets, or boggy margins',
+    matureSize: '10 cm-1.5 m',
+  },
+  mosses: {
+    typicalGrowingTime: 'Several weeks to spread',
+    sunExposure: 'Shade to partial shade',
+    gardenNote: 'Mist regularly and avoid direct sun or fertiliser',
+    watering: 'Keep consistently damp, never let fully dry out',
+    soil: 'Acidic, moisture-retentive substrate or bare rock/bark',
+    matureSize: 'Under 10 cm (spreading mat)',
+  },
 };
 
 function setupPlantImport() {
@@ -991,6 +1039,18 @@ function inferNaturalLanguageIntent(query) {
   if (/(herb|herbs|sage|thyme|mint|rosemary)/.test(normalized)) intent.category = 'herbs';
   if (/(fruit|berries|strawberry|blueberry)/.test(normalized)) intent.category = 'fruit';
   if (/(vegetable|veggie|veg|lettuce|carrot|bean)/.test(normalized)) intent.category = 'vegetables';
+  if (/(moss|moss campion|moss phlox|moss rose|clubmoss|spikemoss)/.test(normalized)) intent.category = 'mosses';
+  if (/(tree|shrub|bush|hedge)/.test(normalized)) intent.category = 'trees-and-shrubs';
+  if (/(succulent|cactus|aloe|agave)/.test(normalized)) intent.category = 'succulents';
+  if (/(vine|vines|climbing plant|climber)/.test(normalized)) intent.category = 'vines';
+  if (/(fern|ferns|maidenhair|bracken)/.test(normalized)) intent.category = 'ferns';
+  if (/(aquatic|pond plant|water lily|waterlily|bog plant|marginal plant)/.test(normalized)) intent.category = 'aquatic-plants';
+  if (/(blue|azure|cobalt)/.test(normalized)) intent.colour = 'blue';
+  if (/(orange|tangerine|apricot)/.test(normalized)) intent.colour = 'orange';
+  if (/(pink|rose|fuchsia)/.test(normalized)) intent.colour = 'pink';
+  if (/(brown|chocolate|tan)/.test(normalized)) intent.colour = 'brown';
+  if (/(black|ebony|jet)/.test(normalized)) intent.colour = 'black';
+  if (/(white|ivory|cream)/.test(normalized)) intent.colour = 'white';
   if (/(shade|shady|part shade|partial shade|indoor)/.test(normalized)) {
     intent.placement = 'shade';
     intent.shadeRequired = true;

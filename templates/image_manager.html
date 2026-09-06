@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Plant Image Manager</title>
+  <title>Plant Manager</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     :root {
@@ -76,20 +76,43 @@
     
     .progress-bar { background: #e5e7eb; height: 0.5rem; border-radius: 9999px; overflow: hidden; margin-top: 0.5rem; }
     .progress-fill { background: #047857; height: 100%; transition: width 0.3s ease; }
+
+    /* Top-level Plant Manager tabs (Photos vs Edit Info) */
+    .manager-tabs { display: flex; gap: 0.5rem; max-width: 1400px; margin: 1.5rem auto 0; padding: 0 2rem; }
+    .manager-tab { padding: 0.6rem 1.1rem; border-radius: 0.5rem 0.5rem 0 0; border: 1px solid #e7e5e4; border-bottom: none; background: #f5f5f4; color: #57534e; font-weight: 700; cursor: pointer; }
+    .manager-tab.is-active { background: white; color: #047857; }
+    body.dark-mode .manager-tab { background: #1f2937; border-color: #374151; color: #9ca3af; }
+    body.dark-mode .manager-tab.is-active { background: #111827; color: #7dd3b0; }
+    .manager-panel { display: none; }
+    .manager-panel.is-active { display: block; }
+    .edit-field { display: flex; flex-direction: column; gap: 0.3rem; margin-bottom: 1rem; }
+    .edit-field label { font-weight: 700; font-size: 0.85rem; }
+    .edit-field input, .edit-field select, .edit-field textarea {
+      border: 1px solid #d6d3d1; border-radius: 0.375rem; padding: 0.5rem 0.6rem; font: inherit; background: white; color: #1f2937;
+    }
+    body.dark-mode .edit-field input, body.dark-mode .edit-field select, body.dark-mode .edit-field textarea {
+      background: #111827; color: #e5e7eb; border-color: #4b5563;
+    }
   </style>
 </head>
 <body>
   <header class="header">
     <div style="display: flex; justify-content: space-between; align-items: start;">
       <div>
-        <h1>📸 Plant Image Manager</h1>
-        <p>Find and update plant images</p>
+        <h1>🌿 Plant Manager</h1>
+            <p>Manage plant photos and plant information</p>
       </div>
       <button id="dark-toggle" class="btn btn-secondary" style="border-radius: 9999px; padding: 0.5rem 1rem;">🌙 Dark</button>
     </div>
   </header>
 
+  <nav class="manager-tabs" aria-label="Plant Manager sections">
+    <button class="manager-tab is-active" data-manager-tab="photos">📸 Photos</button>
+    <button class="manager-tab" data-manager-tab="edit-info">✏️ Edit Plant Info</button>
+  </nav>
+
   <main style="max-width: 1400px; margin: 0 auto; padding: 2rem;">
+    <div id="manager-panel-photos" class="manager-panel is-active">
     
     <!-- Statistics -->
     <section class="card">
@@ -138,6 +161,85 @@
       <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">Plants Without Images</h2>
       <div id="plants-list" style="max-height: 800px; overflow-y: auto;"></div>
     </section>
+    </div>
+
+    <!-- Edit Plant Info panel -->
+    <div id="manager-panel-edit-info" class="manager-panel">
+      <section class="card">
+        <h2 style="font-size: 1.25rem; font-weight: bold; margin-bottom: 1rem;">✏️ Edit Plant Info</h2>
+        <div class="edit-field">
+          <label for="edit-plant-search">Find a plant</label>
+          <input type="text" id="edit-plant-search" placeholder="Search by name or scientific name…" autocomplete="off">
+        </div>
+        <div id="edit-plant-results" style="max-height: 260px; overflow-y: auto; margin-bottom: 1rem;"></div>
+
+        <form id="edit-plant-form" style="display:none;">
+          <input type="hidden" id="edit-plant-id">
+          <div class="edit-field">
+            <label for="edit-plant-name">Name</label>
+            <input type="text" id="edit-plant-name" required>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-scientific">Scientific name</label>
+            <input type="text" id="edit-plant-scientific" required>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-category">Category</label>
+            <select id="edit-plant-category">
+              <option value="flowers">Flowers</option>
+              <option value="fruit">Fruit</option>
+              <option value="vegetables">Vegetables</option>
+              <option value="herbs">Herbs</option>
+              <option value="grasses">Grasses</option>
+              <option value="ferns">Ferns</option>
+              <option value="trees-and-shrubs">Trees and Shrubs</option>
+              <option value="succulents">Succulents</option>
+              <option value="vines">Vines</option>
+              <option value="aquatic-plants">Aquatic Plants</option>
+              <option value="mosses">Mosses</option>
+            </select>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-safety">Safety status</label>
+            <select id="edit-plant-safety">
+              <option value="Non-toxic to dogs">Non-toxic to dogs</option>
+              <option value="May be Toxic">May be Toxic</option>
+              <option value="Toxic">Toxic</option>
+            </select>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-indoor-outdoor">Indoor / outdoor</label>
+            <select id="edit-plant-indoor-outdoor">
+              <option value="">Not specified</option>
+              <option value="indoor">Indoor</option>
+              <option value="outdoor">Outdoor</option>
+              <option value="both">Both</option>
+            </select>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-description">Description</label>
+            <textarea id="edit-plant-description" rows="4"></textarea>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-toxicity">Toxicity details (optional)</label>
+            <textarea id="edit-plant-toxicity" rows="2"></textarea>
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-aliases">Alternative names (comma-separated)</label>
+            <input type="text" id="edit-plant-aliases" placeholder="e.g. Bread and Butter Plant, Cuban Oregano">
+          </div>
+          <div class="edit-field">
+            <label for="edit-plant-source">Source URL (https only)</label>
+            <input type="url" id="edit-plant-source" placeholder="https://…">
+          </div>
+          <div style="display:flex; gap:0.75rem;">
+            <button type="submit" class="btn btn-primary">💾 Save changes</button>
+            <button type="button" class="btn btn-secondary" id="edit-plant-cancel">Cancel</button>
+          </div>
+          <div id="edit-plant-status" style="margin-top: 1rem;"></div>
+        </form>
+      </section>
+    </div>
 
   </main>
 
@@ -730,6 +832,103 @@
     
     // Initial load
     loadStats();
+
+    // ---- Manager tab switching (Photos vs Edit Plant Info) ----
+    document.querySelectorAll('.manager-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.manager-tab').forEach(t => t.classList.remove('is-active'));
+        document.querySelectorAll('.manager-panel').forEach(p => p.classList.remove('is-active'));
+        tab.classList.add('is-active');
+        document.getElementById(`manager-panel-${tab.dataset.managerTab}`).classList.add('is-active');
+      });
+    });
+
+    // ---- Edit Plant Info tab ----
+    let allPlantsCache = [];
+    const editSearchInput = document.getElementById('edit-plant-search');
+    const editResultsBox = document.getElementById('edit-plant-results');
+    const editForm = document.getElementById('edit-plant-form');
+    const editStatus = document.getElementById('edit-plant-status');
+
+    async function ensureAllPlantsLoaded() {
+      if (allPlantsCache.length) return allPlantsCache;
+      const response = await fetch(`${API_BASE}/dog-safe-plants`);
+      const data = await response.json();
+      allPlantsCache = data.plants || [];
+      return allPlantsCache;
+    }
+
+    editSearchInput?.addEventListener('input', async () => {
+      const query = editSearchInput.value.trim().toLowerCase();
+      if (!query) { editResultsBox.innerHTML = ''; return; }
+      const plants = await ensureAllPlantsLoaded();
+      const matches = plants.filter(p =>
+        String(p.name || '').toLowerCase().includes(query) ||
+        String(p.scientific_name || '').toLowerCase().includes(query)
+      ).slice(0, 25);
+      editResultsBox.innerHTML = matches.map(p => `
+        <button type="button" class="btn btn-secondary" style="display:block; width:100%; text-align:left; margin-bottom:0.4rem;" data-edit-plant-id="${escapeHtml(p.id)}">
+          <strong>${escapeHtml(p.name)}</strong> <span style="color:#6b7280;">— ${escapeHtml(p.scientific_name || '')} · ${escapeHtml(p.category || '')}</span>
+        </button>
+      `).join('') || '<p style="color:#999;">No matching plants found.</p>';
+    });
+
+    editResultsBox?.addEventListener('click', async (e) => {
+      const button = e.target.closest('[data-edit-plant-id]');
+      if (!button) return;
+      const plants = await ensureAllPlantsLoaded();
+      const plant = plants.find(p => p.id === button.dataset.editPlantId);
+      if (!plant) return;
+      document.getElementById('edit-plant-id').value = plant.id;
+      document.getElementById('edit-plant-name').value = plant.name || '';
+      document.getElementById('edit-plant-scientific').value = plant.scientific_name || '';
+      document.getElementById('edit-plant-category').value = plant.category || 'flowers';
+      document.getElementById('edit-plant-safety').value = plant.safety_status || 'Non-toxic to dogs';
+      document.getElementById('edit-plant-indoor-outdoor').value = plant.indoor_outdoor || '';
+      document.getElementById('edit-plant-description').value = plant.description || '';
+      document.getElementById('edit-plant-toxicity').value = plant.toxicity_details || '';
+      document.getElementById('edit-plant-aliases').value = (plant.aliases || []).join(', ');
+      document.getElementById('edit-plant-source').value = plant.source_url || '';
+      editStatus.textContent = '';
+      editForm.style.display = 'block';
+    });
+
+    document.getElementById('edit-plant-cancel')?.addEventListener('click', () => {
+      editForm.style.display = 'none';
+      editForm.reset();
+      editStatus.textContent = '';
+    });
+
+    editForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const plantId = document.getElementById('edit-plant-id').value;
+      const payload = {
+        name: document.getElementById('edit-plant-name').value.trim(),
+        scientific_name: document.getElementById('edit-plant-scientific').value.trim(),
+        category: document.getElementById('edit-plant-category').value,
+        safety_status: document.getElementById('edit-plant-safety').value,
+        indoor_outdoor: document.getElementById('edit-plant-indoor-outdoor').value,
+        description: document.getElementById('edit-plant-description').value.trim(),
+        toxicity_details: document.getElementById('edit-plant-toxicity').value.trim(),
+        aliases: document.getElementById('edit-plant-aliases').value.split(',').map(v => v.trim()).filter(Boolean),
+        source_url: document.getElementById('edit-plant-source').value.trim(),
+      };
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/${encodeURIComponent(plantId)}/info`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'Failed to save plant info');
+        editStatus.className = 'status status-success';
+        editStatus.textContent = `✓ Saved changes for ${data.name}.`;
+        allPlantsCache = []; // force reload so search results reflect the edit
+      } catch (error) {
+        editStatus.className = 'status status-error';
+        editStatus.textContent = 'Error: ' + error.message;
+      }
+    });
   </script>
 </body>
 </html>
