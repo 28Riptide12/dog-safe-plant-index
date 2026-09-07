@@ -812,6 +812,14 @@ def supplier_duplicate(existing: dict[str, Any], candidate: dict[str, Any]) -> s
 
 @app.get("/")
 def index():
+    # This app.py is shared/copied between the Topsoil Comparator and Dog-Safe
+    # Plant Index deployments, but templates/index.html (the soil calculator
+    # homepage) only exists in the topsoil project. If it's missing here (i.e.
+    # this is the plant index deploy), send visitors to the plant catalogue
+    # instead of crashing with a TemplateNotFound error.
+    if not (BASE_DIR / "templates" / "index.html").exists():
+        from flask import redirect
+        return redirect(url_for("plants"))
     # Use a clean fixed template to avoid possible cached/compiled-template mismatches in development
     rendered = render_template("index.html", density=SOIL_DENSITY_KG_PER_LITRE)
     # Remove any stray integrity/crossorigin attributes (defence-in-depth)
