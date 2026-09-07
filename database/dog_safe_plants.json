@@ -13,7 +13,11 @@
       "source_url": "https://www.aspca.org/pet-care/aspca-poison-control/toxic-and-non-toxic-plants/adam-and-eve",
       "source_status": "ASPCA toxic-to-dogs listing. Keep away from pets.",
       "toxicity_details": "Toxic to Dogs, Toxic to Cats, Toxic to Horses",
-      "image_source_url": "https://www.inaturalist.org/observations/160101485"
+      "image_source_url": "https://www.inaturalist.org/observations/160101485",
+      "indoor_outdoor": [
+        "outdoor"
+      ],
+      "aliases": []
     },
     {
       "category": "flowers",
@@ -4611,7 +4615,7 @@
       "safety_status": "Non-toxic to dogs",
       "image_url": "https://inaturalist-open-data.s3.amazonaws.com/photos/7663971/medium.jpeg",
       "description": "A simple root crop for loose soil, containers, and vegetable beds.",
-      "source_url": "https://www.aspca.org/pet-care/animal-poison-control/toxic-and-non-toxic-plants/carrot",
+      "source_url": "https://www.groworganic.com/cdn/shop/articles/Carrots5_391130de-443f-46ce-b827-0d5a678aa488.png?v=1786834581",
       "image_source_url": "https://www.inaturalist.org/taxa/76610",
       "hardiness_zones_uk": "H2-H7",
       "hardiness_info": {
@@ -4645,7 +4649,12 @@
           7,
           8
         ]
-      }
+      },
+      "toxicity_details": "",
+      "indoor_outdoor": [
+        "outdoor"
+      ],
+      "aliases": []
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Carrot Fern.",
@@ -4694,7 +4703,7 @@
     {
       "description": "ASPCA-listed dog non-toxic plant: Carrot Flower.",
       "name": "Carrot Flower",
-      "image_url": "https://www.aspca.org/sites/default/files/styles/medium_image_300x200/public/field/image/plants/carrot-flower.jpg?itok=hgTMUT8C",
+      "image_url": "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRAXBwGxEkz3d9dFgxSjkY6JMuDJSrXp5hsnOLid7Rg0sDDu0GC",
       "scientific_name": "Daucus carota var. sativa",
       "id": "carrot-flower",
       "safety_status": "Non-toxic to dogs",
@@ -4732,7 +4741,8 @@
           7,
           8
         ]
-      }
+      },
+      "image_source_url": "Custom Source"
     },
     {
       "description": "ASPCA-listed dog non-toxic plant: Cast Iron Plant.",

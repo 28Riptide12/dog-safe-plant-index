@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Identify a Plant</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', filename='plants.css') }}">
+  <style>
+    body { background: linear-gradient(180deg, #f0fdf4 0%, #fafaf9 260px); }
+    .id-shell { max-width: 760px; margin: 0 auto; padding: 1.5rem 1.25rem 3rem; }
+    .id-card { background: #fff; border: 1px solid #e7e5e4; border-radius: 16px; padding: 1.5rem; box-shadow: 0 1px 3px rgba(0,0,0,0.04); }
+    .id-drop { border: 2px dashed #a7c9b3; border-radius: 14px; padding: 2rem 1rem; text-align: center; cursor: pointer; transition: border-color .15s, background .15s; }
+    .id-drop.is-dragover { border-color: #16a34a; background: #f0fdf4; }
+    .id-drop input[type=file] { display: none; }
+    .id-mode-btn { flex: 1; padding: 0.65rem 1rem; border-radius: 10px; border: 1px solid #d6d3d1; background: #fff; font-weight: 600; cursor: pointer; transition: all .15s; }
+    .id-mode-btn.is-active { background: #16a34a; color: #fff; border-color: #16a34a; }
+    #id-camera-video { width: 100%; border-radius: 12px; background: #000; max-height: 360px; object-fit: cover; }
+    .id-confidence-bar { height: 8px; border-radius: 999px; background: #e7e5e4; overflow: hidden; }
+    .id-confidence-fill { height: 100%; border-radius: 999px; }
+    .id-result-card { border: 1px solid #e7e5e4; border-radius: 12px; padding: 1rem 1.1rem; margin-bottom: 0.85rem; }
+    .id-result-card.is-top { border-color: #86efac; background: #f0fdf4; }
+    .id-thumb { position: relative; border-radius: 10px; overflow: hidden; aspect-ratio: 1; border: 1px solid #e7e5e4; }
+    .id-thumb img { width: 100%; height: 100%; object-fit: cover; }
+    .id-thumb button { position: absolute; top: 2px; right: 2px; background: rgba(0,0,0,0.6); color: #fff; border: none; border-radius: 999px; width: 20px; height: 20px; font-size: 12px; line-height: 1; cursor: pointer; }
+    .id-thumb-add { display: flex; align-items: center; justify-content: center; border: 2px dashed #a7c9b3; border-radius: 10px; aspect-ratio: 1; cursor: pointer; color: #16a34a; font-size: 1.5rem; background: #f0fdf4; }
+    .spinner { width: 18px; height: 18px; border: 3px solid #d1fae5; border-top-color: #16a34a; border-radius: 50%; animation: spin 0.8s linear infinite; display: inline-block; vertical-align: -3px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+  </style>
+</head>
+<body>
+  <header class="plant-header">
+    <div class="mx-auto flex max-w-3xl items-center justify-between gap-4 px-5 py-5">
+      <div><p class="plant-eyebrow">Snap &amp; discover</p><h1 class="mt-1 text-2xl sm:text-3xl font-bold tracking-tight">🔍 Identify a Plant</h1></div>
+      <a href="{{ url_for('plants') }}" class="back-link">← Back to plants</a>
+    </div>
+  </header>
+
+  <main class="id-shell">
+    <p class="text-stone-600 mb-5">Take or upload a photo of a leaf, flower, fruit, or the whole plant. Free, powered by <a href="https://plantnet.org" target="_blank" rel="noopener" class="underline text-emerald-700">Pl@ntNet</a> — results include a confidence percentage, and we'll flag if it's already in our dog-safe plant catalogue. Identification always runs even for plants not in our database.</p>
+
+    <div id="id-usage-banner" class="mb-4 rounded-lg border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm text-emerald-800 flex flex-wrap items-center justify-between gap-2 hidden">
+      <span id="id-usage-text">Loading usage…</span>
+      <span id="id-usage-reset" class="text-xs text-emerald-600"></span>
+    </div>
+
+    <div class="flex justify-end mb-3">
+      <button type="button" id="id-history-toggle" class="text-sm font-semibold text-emerald-700 underline hover:text-emerald-800">🕘 View past scans</button>
+    </div>
+
+    <div id="id-history-panel" class="id-card mb-4 hidden">
+      <div class="flex items-center justify-between mb-3">
+        <h2 class="font-bold text-stone-800">Past scans (kept on this device)</h2>
+        <button type="button" id="id-history-clear" class="text-xs text-red-600 underline hover:text-red-700">Clear history</button>
+      </div>
+      <div id="id-history-list" class="space-y-2"></div>
+    </div>
+
+    <div class="id-card">
+      <div class="flex gap-2 mb-4">
+        <button type="button" id="id-mode-camera" class="id-mode-btn is-active">📷 Use camera</button>
+        <button type="button" id="id-mode-upload" class="id-mode-btn">📁 Upload photo</button>
+      </div>
+
+      <!-- Camera mode -->
+      <div id="id-camera-panel">
+        <div id="id-camera-live">
+          <video id="id-camera-video" autoplay playsinline muted></video>
+          <div class="flex gap-2 mt-3">
+            <button type="button" id="id-camera-start" class="button">Start camera</button>
+            <button type="button" id="id-camera-shoot" class="button hidden">📸 Capture</button>
+            <button type="button" id="id-camera-switch" class="button-secondary hidden" title="Switch front/back camera">🔄 Switch</button>
+          </div>
+          <p id="id-camera-hint" class="text-xs text-stone-500 mt-2">On phones this uses your rear camera by default. If the browser blocks camera access, use "Upload photo" instead and choose "Take Photo" from your device.</p>
+        </div>
+      </div>
+
+      <!-- Upload mode -->
+      <div id="id-upload-panel" class="hidden">
+        <label class="id-drop" id="id-drop-zone">
+          <input type="file" id="id-file-input" accept="image/*" capture="environment" multiple>
+          <p class="text-4xl mb-2">📷</p>
+          <p class="font-semibold text-stone-700">Tap to take a photo or choose from library</p>
+          <p class="text-sm text-stone-500 mt-1">or drag &amp; drop up to 5 images here</p>
+        </label>
+      </div>
+
+      <canvas id="id-canvas" class="hidden"></canvas>
+
+      <div id="id-preview-wrap" class="hidden mt-4">
+        <div class="flex items-center justify-between mb-2">
+          <p class="text-sm font-semibold text-stone-700">Photos to identify (up to 5 — more angles improve accuracy)</p>
+          <button type="button" id="id-add-more" class="text-xs font-semibold text-emerald-700 underline hover:text-emerald-800">+ Add another photo</button>
+        </div>
+        <div id="id-preview-grid" class="grid grid-cols-3 sm:grid-cols-5 gap-2"></div>
+        <div class="flex flex-wrap items-center gap-3 mt-3">
+          <label class="text-sm font-semibold text-stone-700">What's mostly shown?
+            <select id="id-organ" class="input mt-1">
+              <option value="auto" selected>Not sure / whole plant</option>
+              <option value="leaf">Leaf</option>
+              <option value="flower">Flower</option>
+              <option value="fruit">Fruit</option>
+              <option value="bark">Bark / stem</option>
+              <option value="habit">Whole plant (habit)</option>
+            </select>
+          </label>
+          <button type="button" id="id-submit" class="button">🔍 Identify this plant</button>
+          <button type="button" id="id-retake" class="button-secondary">Clear all photos</button>
+        </div>
+      </div>
+
+      <p id="id-status" class="mt-4 text-sm" role="status" aria-live="polite"></p>
+      <div id="id-results" class="mt-2"></div>
+    </div>
+
+    <p class="text-xs text-stone-400 mt-4 text-center">Identification is AI-assisted and may be wrong — always double-check with a trusted source (e.g. ASPCA) before assuming a plant is safe for pets.</p>
+  </main>
+
+  <footer class="border-t border-stone-200 bg-white py-5 text-center text-xs text-stone-400">
+    <p>Built with care for gardeners &amp; their dogs.</p>
+  </footer>
+
+  <script>
+    const modeCameraBtn = document.getElementById('id-mode-camera');
+    const modeUploadBtn = document.getElementById('id-mode-upload');
+    const cameraPanel = document.getElementById('id-camera-panel');
+    const uploadPanel = document.getElementById('id-upload-panel');
+    const video = document.getElementById('id-camera-video');
+    const canvas = document.getElementById('id-canvas');
+    const startBtn = document.getElementById('id-camera-start');
+    const shootBtn = document.getElementById('id-camera-shoot');
+    const switchBtn = document.getElementById('id-camera-switch');
+    const dropZone = document.getElementById('id-drop-zone');
+    const fileInput = document.getElementById('id-file-input');
+    const previewWrap = document.getElementById('id-preview-wrap');
+    const previewGrid = document.getElementById('id-preview-grid');
+    const addMoreBtn = document.getElementById('id-add-more');
+    const organSelect = document.getElementById('id-organ');
+    const submitBtn = document.getElementById('id-submit');
+    const retakeBtn = document.getElementById('id-retake');
+    const statusEl = document.getElementById('id-status');
+    const resultsEl = document.getElementById('id-results');
+    const usageBanner = document.getElementById('id-usage-banner');
+    const usageText = document.getElementById('id-usage-text');
+    const usageReset = document.getElementById('id-usage-reset');
+    const historyToggle = document.getElementById('id-history-toggle');
+    const historyPanel = document.getElementById('id-history-panel');
+    const historyList = document.getElementById('id-history-list');
+    const historyClearBtn = document.getElementById('id-history-clear');
+
+    const MAX_IMAGES = 5;
+    let currentStream = null;
+    let currentFacing = 'environment';
+    let selectedBlobs = []; // up to MAX_IMAGES File/Blob objects
+    let resetCountdownTimer = null;
+
+    // ---- Browser-side scan history & usage backup (localStorage) ----
+    // Free hosts like Render wipe the app's filesystem on every restart/redeploy,
+    // which would silently reset the server's daily usage counter back to 0 even
+    // though Pl@ntNet's real quota did not reset. We keep our own running record
+    // here in the browser so: (1) you never lose your past scan results, and
+    // (2) we can tell the server "no, I've really used N today" so it can
+    // self-correct instead of showing an inflated "remaining" count.
+    const HISTORY_KEY = 'plantIdScanHistory';
+    const USAGE_KEY = 'plantIdUsageToday'; // { date: 'YYYY-MM-DD', count: N }
+    const MAX_HISTORY = 100;
+
+    function todayUtcKey() {
+      return new Date().toISOString().slice(0, 10);
+    }
+
+    function loadHistory() {
+      try { return JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]'); }
+      catch (error) { return []; }
+    }
+
+    function saveHistory(entries) {
+      localStorage.setItem(HISTORY_KEY, JSON.stringify(entries.slice(0, MAX_HISTORY)));
+    }
+
+    function addToHistory(entry) {
+      const entries = loadHistory();
+      entries.unshift(entry);
+      saveHistory(entries);
+      renderHistory();
+    }
+
+    function getLocalUsedToday() {
+      try {
+        const stored = JSON.parse(localStorage.getItem(USAGE_KEY) || 'null');
+        if (stored && stored.date === todayUtcKey()) return stored.count || 0;
+      } catch (error) { /* ignore */ }
+      return 0;
+    }
+
+    function bumpLocalUsedToday() {
+      const count = getLocalUsedToday() + 1;
+      localStorage.setItem(USAGE_KEY, JSON.stringify({ date: todayUtcKey(), count }));
+      return count;
+    }
+
+    function renderHistory() {
+      const entries = loadHistory();
+      if (!entries.length) {
+        historyList.innerHTML = '<p class="text-sm text-stone-400">No scans yet — your identifications will appear here, kept on this device even if the app restarts.</p>';
+        return;
+      }
+      historyList.innerHTML = entries.map(entry => {
+        const when = new Date(entry.at).toLocaleString();
+        const top = entry.topMatch || {};
+        const pct = top.confidence_percent != null ? `${top.confidence_percent}%` : '';
+        const link = entry.knownMatchId
+          ? `<a href="/plants?plant=${encodeURIComponent(entry.knownMatchId)}" class="text-emerald-700 underline text-xs font-semibold">View plant →</a>`
+          : '';
+        return `
+          <div class="flex items-center justify-between gap-3 rounded-lg border border-stone-200 px-3 py-2">
+            <div class="min-w-0">
+              <p class="font-semibold text-stone-800 truncate">${top.scientific_name || 'Unknown result'} ${pct ? `<span class="text-stone-400 font-normal">(${pct})</span>` : ''}</p>
+              <p class="text-xs text-stone-500">${when}</p>
+            </div>
+            ${link}
+          </div>`;
+      }).join('');
+    }
+
+    historyToggle.addEventListener('click', () => {
+      const isHidden = historyPanel.classList.toggle('hidden');
+      historyToggle.textContent = isHidden ? '🕘 View past scans' : '🕘 Hide past scans';
+      if (!isHidden) renderHistory();
+    });
+    historyClearBtn.addEventListener('click', () => {
+      if (confirm('Clear your past scan history on this device? This cannot be undone.')) {
+        localStorage.removeItem(HISTORY_KEY);
+        renderHistory();
+      }
+    });
+    renderHistory();
+
+    function formatCountdown(totalSeconds) {
+      if (totalSeconds <= 0) return 'less than a minute';
+      const h = Math.floor(totalSeconds / 3600);
+      const m = Math.floor((totalSeconds % 3600) / 60);
+      if (h === 0 && m === 0) return 'less than a minute';
+      if (h === 0) return `${m}m`;
+      return `${h}h ${m}m`;
+    }
+
+    function renderUsage(usage) {
+      if (!usage) { usageBanner.classList.add('hidden'); return; }
+      usageBanner.classList.remove('hidden');
+      const low = usage.remaining <= Math.max(5, usage.limit * 0.05);
+      usageBanner.className = 'mb-4 rounded-lg border px-4 py-2 text-sm flex flex-wrap items-center justify-between gap-2 ' +
+        (low ? 'border-amber-300 bg-amber-50 text-amber-800' : 'border-emerald-200 bg-emerald-50 text-emerald-800');
+      usageText.textContent = `🔍 ${usage.remaining} of ${usage.limit} free identifications left today`;
+
+      if (resetCountdownTimer) clearInterval(resetCountdownTimer);
+      let secondsLeft = usage.resets_in_seconds;
+      const tick = () => {
+        usageReset.textContent = secondsLeft > 0 ? `Resets in ${formatCountdown(secondsLeft)} (midnight UTC)` : 'Resetting…';
+        if (secondsLeft <= 60) {
+          clearInterval(resetCountdownTimer);
+          setTimeout(loadUsage, Math.max(1000, secondsLeft * 1000)); // auto-refresh once the reset time passes
+          return;
+        }
+        secondsLeft -= 60;
+      };
+      tick();
+      resetCountdownTimer = setInterval(tick, 60000);
+    }
+
+    async function loadUsage() {
+      try {
+        const localUsed = getLocalUsedToday();
+        const url = '/api/plant-identify/usage' + (localUsed > 0 ? `?client_used=${localUsed}` : '');
+        const response = await fetch(url);
+        const data = await response.json();
+        if (data.configured === false) { usageBanner.classList.add('hidden'); return; }
+        renderUsage(data);
+      } catch (error) {
+        usageBanner.classList.add('hidden');
+      }
+    }
+    loadUsage();
+
+    function setStatus(html, kind) {
+      statusEl.innerHTML = html;
+      statusEl.className = 'mt-4 text-sm ' + (kind === 'error' ? 'text-red-600' : kind === 'success' ? 'text-emerald-700' : 'text-stone-500');
+    }
+
+    function renderPreviewGrid() {
+      const thumbs = selectedBlobs.map((blob, index) => {
+        const url = URL.createObjectURL(blob);
+        return `
+          <div class="id-thumb">
+            <img src="${url}" alt="Photo ${index + 1}">
+            <button type="button" data-remove-index="${index}" title="Remove this photo">✕</button>
+          </div>`;
+      }).join('');
+      const addTile = selectedBlobs.length < MAX_IMAGES
+        ? `<div class="id-thumb-add" id="id-thumb-add">+</div>`
+        : '';
+      previewGrid.innerHTML = thumbs + addTile;
+
+      previewGrid.querySelectorAll('[data-remove-index]').forEach(btn => {
+        btn.addEventListener('click', () => {
+          selectedBlobs.splice(Number(btn.dataset.removeIndex), 1);
+          if (!selectedBlobs.length) {
+            previewWrap.classList.add('hidden');
+            if (modeCameraBtn.classList.contains('is-active')) cameraPanel.classList.remove('hidden');
+            else uploadPanel.classList.remove('hidden');
+          } else {
+            renderPreviewGrid();
+          }
+        });
+      });
+      const addTileEl = document.getElementById('id-thumb-add');
+      if (addTileEl) addTileEl.addEventListener('click', () => addMorePhotos());
+    }
+
+    function addMorePhotos() {
+      // Reopen whichever capture method is active so the user can add another angle.
+      if (modeCameraBtn.classList.contains('is-active')) {
+        cameraPanel.classList.remove('hidden');
+        if (!currentStream) startCamera();
+      } else {
+        fileInput.click();
+      }
+    }
+
+    function addPhotos(blobsOrFiles) {
+      const room = MAX_IMAGES - selectedBlobs.length;
+      if (room <= 0) {
+        setStatus(`You can add up to ${MAX_IMAGES} photos per identification. Remove one to add another.`, 'error');
+        return;
+      }
+      const toAdd = Array.from(blobsOrFiles).slice(0, room);
+      if (Array.from(blobsOrFiles).length > toAdd.length) {
+        setStatus(`Only added ${toAdd.length} photo(s) — the limit is ${MAX_IMAGES} per identification.`, 'error');
+      } else {
+        setStatus('');
+      }
+      selectedBlobs.push(...toAdd);
+      previewWrap.classList.remove('hidden');
+      resultsEl.innerHTML = '';
+      renderPreviewGrid();
+    }
+
+    addMoreBtn.addEventListener('click', addMorePhotos);
+
+    // ---- Mode switching ----
+    modeCameraBtn.addEventListener('click', () => {
+      modeCameraBtn.classList.add('is-active');
+      modeUploadBtn.classList.remove('is-active');
+      cameraPanel.classList.remove('hidden');
+      uploadPanel.classList.add('hidden');
+      if (!selectedBlobs.length) previewWrap.classList.add('hidden');
+    });
+    modeUploadBtn.addEventListener('click', () => {
+      modeUploadBtn.classList.add('is-active');
+      modeCameraBtn.classList.remove('is-active');
+      uploadPanel.classList.remove('hidden');
+      cameraPanel.classList.add('hidden');
+      if (!selectedBlobs.length) previewWrap.classList.add('hidden');
+      stopCamera();
+    });
+
+    // ---- Camera capture (desktop/laptop webcams + phones that support getUserMedia) ----
+    async function startCamera() {
+      try {
+        stopCamera();
+        currentStream = await navigator.mediaDevices.getUserMedia({
+          video: { facingMode: currentFacing }, audio: false
+        });
+        video.srcObject = currentStream;
+        shootBtn.classList.remove('hidden');
+        switchBtn.classList.remove('hidden');
+        startBtn.textContent = 'Restart camera';
+      } catch (error) {
+        setStatus('Could not access camera (' + error.message + '). Try "Upload photo" instead — on phones that lets you take a photo directly.', 'error');
+      }
+    }
+
+    function stopCamera() {
+      if (currentStream) {
+        currentStream.getTracks().forEach(t => t.stop());
+        currentStream = null;
+      }
+    }
+
+    startBtn.addEventListener('click', startCamera);
+    switchBtn.addEventListener('click', () => {
+      currentFacing = currentFacing === 'environment' ? 'user' : 'environment';
+      startCamera();
+    });
+    shootBtn.addEventListener('click', () => {
+      canvas.width = video.videoWidth;
+      canvas.height = video.videoHeight;
+      canvas.getContext('2d').drawImage(video, 0, 0);
+      canvas.toBlob(blob => { if (blob) addPhotos([blob]); }, 'image/jpeg', 0.92);
+    });
+
+    // ---- Upload / drag-drop ----
+    fileInput.addEventListener('change', () => {
+      if (fileInput.files?.length) addPhotos(fileInput.files);
+      fileInput.value = '';
+    });
+    dropZone.addEventListener('dragover', (e) => { e.preventDefault(); dropZone.classList.add('is-dragover'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('is-dragover'));
+    dropZone.addEventListener('drop', (e) => {
+      e.preventDefault();
+      dropZone.classList.remove('is-dragover');
+      const imageFiles = Array.from(e.dataTransfer.files || []).filter(f => f.type.startsWith('image/'));
+      if (imageFiles.length) addPhotos(imageFiles);
+    });
+
+    retakeBtn.addEventListener('click', () => {
+      selectedBlobs = [];
+      previewWrap.classList.add('hidden');
+      resultsEl.innerHTML = '';
+      setStatus('');
+      fileInput.value = '';
+      if (modeCameraBtn.classList.contains('is-active')) {
+        cameraPanel.classList.remove('hidden');
+      } else {
+        uploadPanel.classList.remove('hidden');
+      }
+    });
+
+    // ---- Submit to Pl@ntNet ----
+    submitBtn.addEventListener('click', async () => {
+      if (!selectedBlobs.length) {
+        setStatus('Please take or choose at least one photo first.', 'error');
+        return;
+      }
+      submitBtn.disabled = true;
+      setStatus(`<span class="spinner"></span> Identifying from ${selectedBlobs.length} photo${selectedBlobs.length === 1 ? '' : 's'}… this can take a few seconds.`);
+      resultsEl.innerHTML = '';
+
+      try {
+        const formData = new FormData();
+        selectedBlobs.forEach((blob, index) => formData.append('images', blob, `photo-${index + 1}.jpg`));
+        const organ = organSelect.value;
+        formData.append('organs', organ === 'auto' ? 'auto' : organ);
+        const localUsed = getLocalUsedToday();
+        if (localUsed > 0) formData.append('client_used', String(localUsed));
+
+        const response = await fetch('/api/plant-identify', { method: 'POST', body: formData });
+        const data = await response.json();
+        if (data.usage) renderUsage(data.usage);
+        if (!response.ok) throw new Error(data.error || 'Identification failed.');
+
+        if (!data.suggestions?.length) {
+          setStatus('No matches found. Try a clearer, closer photo of a leaf or flower, in good light.', 'error');
+          bumpLocalUsedToday(); // the Pl@ntNet call still counted against the quota even with no clear match
+          addToHistory({ at: new Date().toISOString(), topMatch: null, knownMatchId: null });
+          return;
+        }
+
+        // A successful call to Pl@ntNet always counts against today's quota, so keep our
+        // own local backup counter in sync — this is what protects you from the server's
+        // usage file being wiped by a restart/redeploy and showing an inflated count.
+        bumpLocalUsedToday();
+
+        setStatus(`✓ Found ${data.suggestions.length} possible match(es)`, 'success');
+
+        const topSuggestion = data.suggestions[0];
+        addToHistory({
+          at: new Date().toISOString(),
+          topMatch: {
+            scientific_name: topSuggestion.scientific_name,
+            confidence_percent: topSuggestion.confidence_percent,
+          },
+          knownMatchId: topSuggestion.known_match ? topSuggestion.known_match.id : null,
+        });
+
+        resultsEl.innerHTML = data.suggestions.map((s, i) => {
+          const commonNames = (s.common_names || []).join(', ') || '—';
+          const pct = s.confidence_percent;
+          const barColour = pct >= 60 ? '#16a34a' : pct >= 30 ? '#d97706' : '#dc2626';
+          const known = s.known_match
+            ? `<a href="/plants?plant=${encodeURIComponent(s.known_match.id)}" class="mt-2 flex items-center justify-between gap-2 rounded-lg bg-white border border-emerald-200 px-3 py-2 text-sm text-emerald-700 font-medium hover:bg-emerald-50 hover:border-emerald-400 transition-colors">
+                <span>✓ In our catalogue: ${s.known_match.name} — ${s.known_match.safety_status || 'status unknown'} (${s.known_match.match} match)</span>
+                <span class="text-emerald-600 font-bold">View plant info →</span>
+              </a>`
+            : `<div class="mt-2 text-sm text-stone-400">Not currently in our dog-safe plant catalogue.</div>`;
+          return `
+            <div class="id-result-card ${i === 0 ? 'is-top' : ''}">
+              <div class="flex justify-between items-baseline gap-3">
+                <div>
+                  <span class="font-bold italic text-stone-800">${s.scientific_name}</span>
+                  <span class="text-stone-500 text-sm"> — ${commonNames}</span>
+                </div>
+                <span class="font-bold" style="color:${barColour};">${pct}%</span>
+              </div>
+              <div class="id-confidence-bar mt-2"><div class="id-confidence-fill" style="width:${pct}%; background:${barColour};"></div></div>
+              ${known}
+            </div>`;
+        }).join('');
+      } catch (error) {
+        setStatus('Error: ' + error.message, 'error');
+      } finally {
+        submitBtn.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

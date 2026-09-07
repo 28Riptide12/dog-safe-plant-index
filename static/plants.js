@@ -3124,6 +3124,21 @@ Promise.all([
   console.log('✓ About to render plants');
   renderPlants();
   console.log('✓ Rendered plants');
+
+  // If arriving from the plant identifier (or any external link) with ?plant=<id>
+  // or ?scientific=<name>, jump straight to that plant's profile.
+  const urlParams = new URLSearchParams(window.location.search);
+  const wantedPlantId = urlParams.get('plant');
+  const wantedScientific = urlParams.get('scientific');
+  if (wantedPlantId) {
+    const found = plants.find(plant => plant.id === wantedPlantId);
+    if (found) openPlantProfile(found);
+  } else if (wantedScientific) {
+    const target = wantedScientific.trim().toLowerCase();
+    const found = plants.find(plant => String(plant.scientific_name || '').trim().toLowerCase() === target);
+    if (found) openPlantProfile(found);
+  }
+
   renderLibraryView();
   // Only render favorites if the element exists (i.e., we're not on catalogue view)
   const favList = document.querySelector('#plant-favorites-list');

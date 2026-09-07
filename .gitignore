@@ -7,3 +7,5 @@ plant_image_cache/
 database/image_stats.json
 data/generated-json/
 *.log
+plant_id_config.json
+database/plant_id_usage.json

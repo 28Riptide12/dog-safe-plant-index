@@ -175,6 +175,24 @@
 
         <form id="edit-plant-form" style="display:none;">
           <input type="hidden" id="edit-plant-id">
+
+          <!-- Photo preview + quick photo change, so this tab isn't a dead end for image edits -->
+          <div class="edit-field">
+            <label>Current photo</label>
+            <div style="display:flex; gap:1rem; align-items:flex-start; flex-wrap:wrap;">
+              <img id="edit-plant-photo-preview" src="/static/plant-placeholder.svg" alt="" class="plant-preview-thumb">
+              <div style="flex:1; min-width:220px;">
+                <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:0.5rem;">
+                  <input type="url" id="edit-plant-photo-url" placeholder="Paste image URL (https://…)" style="flex:1; min-width:200px; border:1px solid #d6d3d1; border-radius:0.375rem; padding:0.4rem 0.5rem;">
+                  <button type="button" class="btn btn-secondary" id="edit-plant-photo-url-save">Use URL</button>
+                </div>
+                <input type="file" id="edit-plant-photo-upload" accept="image/*">
+                <p class="candidate-note" style="margin-top:0.4rem;">For AI photo search / bulk tools, use the 📸 Photos tab instead.</p>
+                <div id="edit-plant-photo-status" style="margin-top:0.4rem; font-size:0.8rem;"></div>
+              </div>
+            </div>
+          </div>
+
           <div class="edit-field">
             <label for="edit-plant-name">Name</label>
             <input type="text" id="edit-plant-name" required>
@@ -889,8 +907,64 @@
       document.getElementById('edit-plant-toxicity').value = plant.toxicity_details || '';
       document.getElementById('edit-plant-aliases').value = (plant.aliases || []).join(', ');
       document.getElementById('edit-plant-source').value = plant.source_url || '';
+      const photoPreview = document.getElementById('edit-plant-photo-preview');
+      const photoUrlField = document.getElementById('edit-plant-photo-url');
+      const photoStatus = document.getElementById('edit-plant-photo-status');
+      const validImage = plant.image_url && (plant.image_url.startsWith('http') || plant.image_url.startsWith('/static/'));
+      photoPreview.src = validImage ? plant.image_url : '/static/plant-placeholder.svg';
+      photoUrlField.value = validImage ? plant.image_url : '';
+      photoStatus.textContent = '';
       editStatus.textContent = '';
       editForm.style.display = 'block';
+    });
+
+    // Save a pasted image URL directly to the currently selected plant's photo
+    document.getElementById('edit-plant-photo-url-save')?.addEventListener('click', async () => {
+      const plantId = document.getElementById('edit-plant-id').value;
+      const urlVal = document.getElementById('edit-plant-photo-url').value.trim();
+      const photoStatus = document.getElementById('edit-plant-photo-status');
+      if (!plantId || !urlVal) return;
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/${encodeURIComponent(plantId)}/photo`, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ image_url: urlVal, image_source_url: 'Custom Source', is_custom: true, allow_custom: true })
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'Failed to save photo URL');
+        document.getElementById('edit-plant-photo-preview').src = urlVal;
+        photoStatus.style.color = '#166534';
+        photoStatus.textContent = '✓ Photo updated.';
+        allPlantsCache = [];
+      } catch (error) {
+        photoStatus.style.color = '#dc2626';
+        photoStatus.textContent = 'Error: ' + error.message;
+      }
+    });
+
+    // Upload a local file as the plant's photo
+    document.getElementById('edit-plant-photo-upload')?.addEventListener('change', async (e) => {
+      const plantId = document.getElementById('edit-plant-id').value;
+      const file = e.target.files?.[0];
+      const photoStatus = document.getElementById('edit-plant-photo-status');
+      if (!plantId || !file) return;
+      const formData = new FormData();
+      formData.append('file', file);
+      try {
+        const response = await fetch(`${API_BASE}/dog-safe-plants/${encodeURIComponent(plantId)}/upload-photo`, {
+          method: 'POST',
+          body: formData
+        });
+        const data = await response.json().catch(() => ({}));
+        if (!response.ok) throw new Error(data.error || 'Failed to upload photo');
+        if (data.image_url) document.getElementById('edit-plant-photo-preview').src = data.image_url;
+        photoStatus.style.color = '#166534';
+        photoStatus.textContent = '✓ Photo uploaded.';
+        allPlantsCache = [];
+      } catch (error) {
+        photoStatus.style.color = '#dc2626';
+        photoStatus.textContent = 'Error: ' + error.message;
+      }
     });
 
     document.getElementById('edit-plant-cancel')?.addEventListener('click', () => {
